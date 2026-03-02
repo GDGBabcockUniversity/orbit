@@ -9,4 +9,8 @@
 @theme {
   --font-rosnoc: "Rosnoc", sans-serif;
   --font-google-sans: "Google Sans Flex", sans-serif;
+
+  --color-foreground: #ffffff;
+  --color-background: #000000;
+  --color-primary: #7b00ff;
 }
