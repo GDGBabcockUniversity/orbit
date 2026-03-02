@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Rosnoc";
+  src: url("/fonts/Rosnoc.otf") format("opentype");
+  font-display: swap;
+}
+
+@theme {
+  --font-rosnoc: "Rosnoc", sans-serif;
+  --font-google-sans: "Google Sans Flex", sans-serif;
+}
