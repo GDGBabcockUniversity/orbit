@@ -1,193 +1,50 @@
 function HeroSection() {
   return (
-    <section className="min-h-screen bg-foreground p-2 sm:p-4 md:p-6 selection:bg-primary selection:text-white">
-      {/* Main Dark Card Container */}
-      <div className="relative w-full min-h-[92vh] bg-background rounded-[2rem] overflow-hidden flex flex-col justify-center">
-        {/* Background Elements: Purple Glow & Faint Vertical Lines */}
-        <div className="absolute top-1/2 left-0 sm:left-[-10%] -translate-y-1/2 w-[400px] md:w-[700px] h-[400px] md:h-[700px] bg-primary opacity-40 blur-[100px] md:blur-[140px] rounded-full mix-blend-screen pointer-events-none z-0" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,transparent_99%,rgba(255,255,255,0.04)_100%)] bg-[length:120px_100%] pointer-events-none z-0" />
-
-        {/* =========================================
-            DESKTOP HEADER
-            ========================================= */}
-
-        {/* Top-Left Logo Tab (Cutout) */}
-        <div className="hidden md:flex absolute top-0 left-0 bg-foreground rounded-br-[2rem] items-center justify-center px-10 py-6 z-20">
-          <OrbitLogo />
-          <div className="absolute top-0 right-[-2rem] w-[2rem] h-[2rem] curve-tl" />
-          <div className="absolute bottom-[-2rem] left-0 w-[2rem] h-[2rem] curve-tl" />
-        </div>
-
-        {/* Top-Right Navigation */}
-        <div className="hidden md:flex absolute top-0 right-0 p-8 z-20 items-center gap-10 font-google-sans text-[10px] sm:text-xs tracking-[0.2em] uppercase">
-          <nav className="flex items-center gap-8 text-foreground/80">
-            <a
-              href="#speakers"
-              className="flex items-center gap-2 hover:text-foreground transition-colors"
-            >
-              <SpeakerIcon /> Speakers
-            </a>
-            <a
-              href="#schedule"
-              className="flex items-center gap-2 hover:text-foreground transition-colors"
-            >
-              <ScheduleIcon /> Schedule
-            </a>
-            <a
-              href="#location"
-              className="flex items-center gap-2 hover:text-foreground transition-colors"
-            >
-              <LocationIcon /> Location
-            </a>
-            <a
-              href="#sponsors"
-              className="flex items-center gap-2 hover:text-foreground transition-colors"
-            >
-              <SponsorIcon /> Sponsors
-            </a>
-          </nav>
-          <button className="flex items-center gap-3 border border-foreground/30 rounded-full px-6 py-3 text-foreground hover:bg-foreground/10 transition-colors">
-            Get A Ticket <RocketIcon />
-          </button>
-        </div>
-
-        {/* =========================================
-            MOBILE HEADER
-            ========================================= */}
-
-        <div className="md:hidden absolute top-0 left-0 w-full flex justify-between items-start z-20">
-          {/* Left Tab: Menu */}
-          <div className="relative bg-foreground rounded-br-[2rem] px-4 py-4 pr-6">
-            <button className="bg-background text-foreground rounded-full px-4 py-2 text-xs flex items-center gap-2 font-google-sans font-bold tracking-widest uppercase">
-              <MenuHeartIcon /> Menu
-            </button>
-            <div className="absolute top-0 right-[-2rem] w-[2rem] h-[2rem] curve-tl" />
-          </div>
-
-          {/* Middle Tab: Logo */}
-          <div className="relative bg-foreground rounded-b-[2rem] px-6 py-5 pb-6">
-            <OrbitLogo />
-            <div className="absolute top-0 left-[-2rem] w-[2rem] h-[2rem] curve-tr" />
-            <div className="absolute top-0 right-[-2rem] w-[2rem] h-[2rem] curve-tl" />
-          </div>
-
-          {/* Right Tab: Ticket */}
-          <div className="relative bg-foreground rounded-bl-[2rem] px-4 py-4 pl-6">
-            <button className="bg-background text-foreground rounded-full w-10 h-10 flex items-center justify-center">
-              <TicketIconMobile />
-            </button>
-            <div className="absolute top-0 left-[-2rem] w-[2rem] h-[2rem] curve-tr" />
-          </div>
-        </div>
-
-        {/* =========================================
-            MAIN CONTENT AREA
-            ========================================= */}
-
-        <div className="relative z-10 flex flex-col-reverse md:flex-row items-center justify-between w-full h-full p-6 md:p-16 mt-28 md:mt-0">
-          {/* Left: 3D Graphic */}
-          <div className="w-full md:w-1/2 flex justify-center md:justify-start mt-8 md:mt-0">
-            <img
-              src="/orbit-3d.png"
-              alt="Orbit 3D Ring Graphic"
-              className="w-[90%] md:w-full max-w-[600px] object-contain drop-shadow-[0_0_40px_rgba(123,0,255,0.3)]"
+    <section
+      style={{
+        height: "100vh",
+        padding: "1.25vw",
+        position: "relative",
+        overflow: "hidden",
+        backgroundColor: "var(--color-foreground)",
+      }}
+    >
+      {/* SVG defines the clip shape — the dark area with the angled notch */}
+      <svg
+        viewBox="0 0 1920 1080"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "block",
+        }}
+      >
+        <defs>
+          <clipPath id="hero-clip" clipPathUnits="objectBoundingBox">
+            {/* Normalize the path to 0-1 range by dividing by viewBox dimensions */}
+            <path
+              transform="scale(0.000520833, 0.000925926)"
+              d="M272.197 16C262.581 16 253.474 20.3252 247.396 27.7783L213.604 69.2217C207.526 76.6748 198.419 81 188.803 81H45C27.3269 81 13 95.3269 13 113V1032C13 1049.67 27.3269 1064 45 1064H1872C1889.67 1064 1904 1049.67 1904 1032V48C1904 30.3269 1889.67 16 1872 16H272.197Z"
             />
-          </div>
+          </clipPath>
+        </defs>
+      </svg>
 
-          {/* Right: Typography & CTA */}
-          <div className="w-full md:w-1/2 flex flex-col items-center md:items-end text-center md:text-right gap-8 md:gap-10">
-            <h1 className="font-rosnoc text-[2.5rem] sm:text-5xl md:text-6xl lg:text-[5rem] uppercase leading-[1.1] text-foreground flex flex-col tracking-wide">
-              <span className="text-[0.55em] tracking-[0.12em]">
-                Where Industry
-              </span>
-              <span className="text-[0.55em] tracking-[0.12em]">
-                Meets The Next
-              </span>
-              <span>Generation</span>
-            </h1>
-
-            <button className="bg-foreground text-background rounded-full pl-8 pr-2 py-2 text-sm md:text-base font-google-sans font-bold tracking-[0.15em] flex items-center gap-6 hover:scale-105 transition-transform">
-              BECOME A PARTNER
-              <span className="bg-background text-foreground rounded-full p-3 flex items-center justify-center">
-                <PartnerIcon />
-              </span>
-            </button>
-          </div>
-        </div>
+      {/* Dark container using the clip shape */}
+      <div
+        style={{
+          position: "absolute",
+          inset: "1.25vw",
+          backgroundColor: "var(--color-background)",
+          clipPath: "url(#hero-clip)",
+        }}
+      >
+        {/* Content goes here */}
       </div>
     </section>
   );
 }
-
-/* =========================================
-   SVG Icon Components
-   ========================================= */
-
-const OrbitLogo = () => (
-  <div className="flex items-center gap-1.5 font-rosnoc text-2xl md:text-3xl tracking-widest text-background">
-    <img src="/logo.svg" alt="O" className="h-7 md:h-8 w-auto brightness-0" />
-    <span>RBIT</span>
-  </div>
-);
-
-const MenuHeartIcon = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-  </svg>
-);
-
-const TicketIconMobile = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M22 10V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v4c1.1 0 2 .9 2 2s-.9 2-2 2v4c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-4c-1.1 0-2-.9-2-2s.9-2 2-2zm-2-1.46c-1.19.69-2 1.99-2 3.46s.81 2.77 2 3.46V18H4v-2.54c1.19-.69 2-1.99 2-3.46s-.81-2.77-2-3.46V6h16v2.54z" />
-  </svg>
-);
-
-const PartnerIcon = () => (
-  <svg
-    width="20"
-    height="20"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M14 2l4 4-4 4" />
-    <path d="M2 10h16" />
-    <path d="M10 22l-4-4 4-4" />
-    <path d="M22 14H6" />
-  </svg>
-);
-
-const SpeakerIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-6 11c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z" />
-  </svg>
-);
-
-const ScheduleIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z" />
-  </svg>
-);
-
-const LocationIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-  </svg>
-);
-
-const SponsorIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 22A10 10 0 1 0 2 12a10 10 0 0 0 10 10zm0-18a8 8 0 1 1-8 8 8 8 0 0 1 8-8zm1 12v-2h2v-2h-2V8h-2v6h-2v2h4z" />
-  </svg>
-);
-
-const RocketIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M13.13 2.13l1.94 1.94c.39.39.39 1.02 0 1.41l-8.08 8.08c-.39.39-1.02.39-1.41 0l-1.94-1.94c-.39-.39-.39-1.02 0-1.41l8.08-8.08c.39-.39 1.02-.39 1.41 0zM3.41 19.59l2.83-2.83-1.41-1.41-2.83 2.83c-.39.39-.39 1.02 0 1.41s1.02.39 1.41 0zM22 12c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2s10 4.48 10 10z" />
-  </svg>
-);
 
 export default HeroSection;
