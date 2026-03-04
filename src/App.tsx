@@ -1,7 +1,7 @@
-import HeroSection from "./components/HeroSection";
+import Hero from "./components/hero";
 
 const App = () => {
-  return <HeroSection />;
+  return <Hero />;
 };
 
 export default App;
