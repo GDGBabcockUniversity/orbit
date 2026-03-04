@@ -1,16 +1,16 @@
-import { IMAGES } from "../lib/constants";
+import { HERO_LINKS, IMAGES } from "../lib/constants";
 import OrbitLogo from "./orbit-logo";
 
 const Hero = () => {
   return (
-    <section className="h-screen bg-foreground p-[1.25vw] md:p-[0.5vw] relative overflow-hidden">
+    <section className="h-screen bg-foreground p-[1.25vw] lg:p-[0.5vw] relative overflow-hidden">
       {/* 
         The dark container fluidly fills the padded section.
         Border radius: 
         - Desktop: 32px all around EXCEPT top-left (the notch is there).
         - Mobile: 32px all around (the notch sits exactly in the top-center).
       */}
-      <div className="w-full h-full bg-[radial-gradient(ellipse_at_0%_100%,var(--color-foreground),var(--color-primary)_30%,var(--color-background)_45%)] rounded-4xl md:rounded-tl-none relative overflow-hidden">
+      <div className="w-full h-full bg-[radial-gradient(ellipse_at_0%_100%,var(--color-foreground),var(--color-primary)_30%,var(--color-background)_45%)] rounded-4xl lg:rounded-tl-none relative overflow-hidden">
         {/* =========================================
             DESKTOP NOTCH (Top-Left)
             ========================================= */}
@@ -19,7 +19,7 @@ const Hero = () => {
           recreating the exactly-sized cutoff shape from Union.svg.
           (Expanded by 1px up and left to prevent subpixel antialiasing gaps)
         */}
-        <div className="hidden md:flex absolute top-0 left-0 w-[261px] h-[98px] z-20">
+        <div className="hidden lg:flex absolute top-0 left-0 w-[261px] h-[98px] z-20">
           <svg
             className="absolute top-0 left-0 w-full h-full text-foreground"
             viewBox="0 0 259.197 97"
@@ -44,7 +44,7 @@ const Hero = () => {
           recreating the exactly-sized cutoff shape from the mobile SVG.
           (Expanded by 1px up and horizontally to prevent subpixel antialiasing gaps)
         */}
-        <div className="flex md:hidden absolute -top-px left-1/2 -translate-x-1/2 w-[232px] h-[53px] z-20">
+        <div className="flex lg:hidden absolute -top-px left-1/2 -translate-x-1/2 w-[232px] h-[53px] z-20">
           <svg
             className="absolute top-0 left-0 w-full h-full text-foreground"
             viewBox="0 0 230.4 52"
@@ -63,38 +63,22 @@ const Hero = () => {
 
         {/* Content layer inside the container */}
         <div className="relative z-10 w-full h-full">
-          <div className="w-full h-full font-rosnoc text-white pr-16 pb-16 pt-8 flex flex-col items-end justify-between">
-            <div className="w-full flex items-center justify-end gap-12 text-lg">
-              <div className="flex items-center justify-center gap-4">
-                <img
-                  src={IMAGES.speakers.src}
-                  width={IMAGES.speakers.width}
-                  height={IMAGES.speakers.height}
-                  alt=""
-                  className="size-5"
-                />
-                SPEAKERS
-              </div>
-              <div className="flex items-center justify-center gap-4">
-                <img
-                  src={IMAGES.schedule.src}
-                  width={IMAGES.schedule.width}
-                  height={IMAGES.schedule.height}
-                  alt=""
-                  className="size-5"
-                />
-                SCHEDULE
-              </div>
-              <div className="flex items-center justify-center gap-4">
-                <img
-                  src={IMAGES.sponsors.src}
-                  width={IMAGES.sponsors.width}
-                  height={IMAGES.sponsors.height}
-                  alt=""
-                  className="size-5"
-                />
-                SPONSORS
-              </div>
+          <div className="w-full h-full font-rosnoc text-white pr-5 pb-5 pt-5 flex flex-col items-end justify-between">
+            <div className="w-full flex items-center justify-end gap-10 text-lg">
+              {HERO_LINKS.map((link, index) => (
+                <div
+                  className="items-center justify-center gap-4 hidden lg:flex"
+                  key={index}
+                >
+                  <img
+                    src={link.image.src}
+                    width={link.image.width}
+                    height={link.image.height}
+                    alt=""
+                  />
+                  {link.text}
+                </div>
+              ))}
 
               <button className="bg-transparent px-6 py-2.5 rounded-full border-2 cursor-pointer flex items-center justify-center gap-4">
                 GET A TICKET{" "}
@@ -109,9 +93,9 @@ const Hero = () => {
             </div>
 
             <div className="flex flex-col items-end gap-10">
-              <p className="text-right text-6xl">
+              <p className="text-right text-6xl xl:text-7xl">
                 WHERE <br /> INDUSTRY MEETS <br /> THE NEXT <br />{" "}
-                <span className="text-7xl">GENERATION</span>
+                <span className="text-7xl xl:text-8xl">GENERATION</span>
               </p>
 
               <button className="bg-white text-black pl-6 pr-3 py-2.5 rounded-full border-2 cursor-pointer text-3xl flex items-center justify-center gap-4">
