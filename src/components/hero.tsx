@@ -1,3 +1,4 @@
+import { IMAGES } from "../lib/constants";
 import OrbitLogo from "./orbit-logo";
 
 const Hero = () => {
@@ -9,7 +10,7 @@ const Hero = () => {
         - Desktop: 32px all around EXCEPT top-left (the notch is there).
         - Mobile: 32px all around (the notch sits exactly in the top-center).
       */}
-      <div className="w-full h-full bg-background rounded-4xl md:rounded-tl-none relative overflow-hidden">
+      <div className="w-full h-full bg-[radial-gradient(ellipse_at_0%_100%,var(--color-foreground),var(--color-primary)_30%,var(--color-background)_45%)] rounded-4xl md:rounded-tl-none relative overflow-hidden">
         {/* =========================================
             DESKTOP NOTCH (Top-Left)
             ========================================= */}
@@ -62,8 +63,71 @@ const Hero = () => {
 
         {/* Content layer inside the container */}
         <div className="relative z-10 w-full h-full">
-          {/* Replace this <p> with the rest of your layout */}
-          <p className="text-white pt-32 pl-12">hi</p>
+          <div className="w-full h-full font-rosnoc text-white pr-16 pb-16 pt-8 flex flex-col items-end justify-between">
+            <div className="w-full flex items-center justify-end gap-12 text-lg">
+              <div className="flex items-center justify-center gap-4">
+                <img
+                  src={IMAGES.speakers.src}
+                  width={IMAGES.speakers.width}
+                  height={IMAGES.speakers.height}
+                  alt=""
+                  className="size-5"
+                />
+                SPEAKERS
+              </div>
+              <div className="flex items-center justify-center gap-4">
+                <img
+                  src={IMAGES.schedule.src}
+                  width={IMAGES.schedule.width}
+                  height={IMAGES.schedule.height}
+                  alt=""
+                  className="size-5"
+                />
+                SCHEDULE
+              </div>
+              <div className="flex items-center justify-center gap-4">
+                <img
+                  src={IMAGES.sponsors.src}
+                  width={IMAGES.sponsors.width}
+                  height={IMAGES.sponsors.height}
+                  alt=""
+                  className="size-5"
+                />
+                SPONSORS
+              </div>
+
+              <button className="bg-transparent px-6 py-2.5 rounded-full border-2 cursor-pointer flex items-center justify-center gap-4">
+                GET A TICKET{" "}
+                <img
+                  src={IMAGES.rocket.src}
+                  width={IMAGES.rocket.width}
+                  height={IMAGES.rocket.height}
+                  alt=""
+                  className="size-5"
+                />
+              </button>
+            </div>
+
+            <div className="flex flex-col items-end gap-10">
+              <p className="text-right text-6xl">
+                WHERE <br /> INDUSTRY MEETS <br /> THE NEXT <br />{" "}
+                <span className="text-7xl">GENERATION</span>
+              </p>
+
+              <button className="bg-white text-black pl-6 pr-3 py-2.5 rounded-full border-2 cursor-pointer text-3xl flex items-center justify-center gap-4">
+                BECOME A PARTNER{" "}
+                <div className="bg-black p-4 rounded-full">
+                  <img
+                    src={IMAGES.partners.src}
+                    width={IMAGES.partners.width}
+                    height={IMAGES.partners.height}
+                    alt=""
+                    className="size-5"
+                  />
+                </div>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
