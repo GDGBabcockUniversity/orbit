@@ -6,3 +6,9 @@ export const IMAGES = {
   schedule: { src: "/images/svgs/schedule.svg", width: 20, height: 20 },
   speakers: { src: "/images/svgs/speakers.svg", width: 20, height: 17 },
 };
+
+export const HERO_LINKS = [
+  { text: "SPEAKERS", image: IMAGES.speakers },
+  { text: "SCHEDULE", image: IMAGES.schedule },
+  { text: "SPONSORS", image: IMAGES.sponsors },
+];
