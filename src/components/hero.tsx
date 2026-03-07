@@ -74,7 +74,10 @@ const Hero = () => {
               <span className="block text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-[0.08em] font-medium">
                 WHERE INDUSTRY MEETS THE NEXT
               </span>
-              <span className="block hero-gradient-text text-6xl sm:text-7xl md:text-8xl lg:text-9xl tracking-[0.06em] font-bold mt-2">
+              <span
+                className="block hero-gradient-text text-6xl sm:text-7xl md:text-8xl lg:text-9xl tracking-[0.06em] font-bold mt-2"
+                data-text="GENERATION"
+              >
                 GENERATION
               </span>
             </h1>
