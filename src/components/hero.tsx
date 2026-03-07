@@ -15,7 +15,6 @@ const Hero = () => {
           <div className="hero-aurora-bar" />
         </div>
         <div className="hero-center-line" />
-        <div className="hero-hairlines" />
         <div className="hero-grain" />
 
         {/* ===== NOTCH (Top-Center) ===== */}
