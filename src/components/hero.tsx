@@ -1,4 +1,5 @@
 import { IMAGES, NAV_LINKS } from "../lib/constants";
+import CountdownTimer from "./countdown-timer";
 import OrbitLogo from "./orbit-logo";
 
 const Hero = () => {
@@ -74,10 +75,11 @@ const Hero = () => {
           </nav>
 
           {/* --- HERO HEADLINE (centered) --- */}
-          <div className="flex-1 flex flex-col items-center justify-end pb-12 md:justify-center md:pb-0 px-6 md:-mt-8">
+          <div className="flex-1 flex flex-col items-center justify-center px-6 md:-mt-8">
             <h1 className="font-rosnoc text-center uppercase leading-[1.1]">
-              <span className="block text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-[0.08em] font-medium">
-                WHERE INDUSTRY MEETS THE NEXT
+              <span className="block text-white text-4xl md:text-5xl lg:text-6xl tracking-[0.08em] font-medium">
+                WHERE INDUSTRY <br />
+                MEETS THE NEXT
               </span>
               <span
                 className="block hero-gradient-text text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl tracking-[0.06em] font-bold mt-2"
@@ -87,10 +89,15 @@ const Hero = () => {
               </span>
             </h1>
 
-            {/* Tagline */}
-            <p className="mt-4 md:mt-6 text-white/50 font-google-sans text-xs md:text-sm tracking-widest uppercase md:hidden text-center">
+            {/* Tagline (mobile only) */}
+            <p className="mt-4 text-white/50 font-google-sans text-xs tracking-widest uppercase md:hidden text-center">
               MARCH 29 — APRIL 2, 2026 · BABCOCK UNIVERSITY
             </p>
+
+            {/* Countdown Timer */}
+            <div className="mt-6 md:mt-10">
+              <CountdownTimer />
+            </div>
 
             {/* CTA Button */}
             <button className="mt-6 md:mt-10 lg:mt-14 bg-white text-background rounded-full w-full max-w-xs md:w-auto px-4 py-3 md:px-8 md:py-4 font-rosnoc tracking-widest font-medium flex items-center justify-center gap-4 hover:scale-[1.03] hover:shadow-[0_4px_20px_rgba(255,255,255,0.2)] transition-all cursor-pointer md:text-lg">
