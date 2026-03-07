@@ -45,6 +45,16 @@ body {
   pointer-events: none;
 }
 
+@media (max-width: 767px) {
+  .hero-planet-glow {
+    bottom: -35%;
+    left: -35%;
+    width: 130%;
+    height: 70%;
+    opacity: 0.75;
+  }
+}
+
 /* Vertical aurora bars — right half */
 .hero-aurora-bars {
   position: absolute;
@@ -56,6 +66,12 @@ body {
   display: flex;
   gap: 1px;
   opacity: 0.35;
+}
+
+@media (max-width: 767px) {
+  .hero-aurora-bars {
+    opacity: 0.5;
+  }
 }
 
 .hero-aurora-bar {
@@ -119,17 +135,6 @@ body {
   background-position: right;
   background-size: 50% 100%;
   background-repeat: no-repeat;
-  pointer-events: none;
-}
-
-/* Center divider line */
-.hero-center-line {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 1px;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.1);
   pointer-events: none;
 }
 
