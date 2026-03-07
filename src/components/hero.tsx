@@ -36,9 +36,9 @@ const Hero = () => {
         {/* ===== CONTENT LAYER ===== */}
         <div className="relative z-10 w-full h-full flex flex-col">
           {/* --- NAV BAR --- */}
-          <nav className="w-full flex items-center justify-between px-6 lg:px-12 pt-6 lg:pt-8 shrink-0">
-            {/* Left: Nav links */}
-            <div className="hidden lg:flex items-center gap-6 xl:gap-8 font-rosnoc tracking-[0.12em] text-white/75">
+          <nav className="w-full flex items-center justify-end px-6 pt-6 shrink-0">
+            {/* Desktop: Nav links (hidden until xl so they don't collide with notch) */}
+            {/* <div className="hidden xl:flex items-center gap-6 xl:gap-8 font-rosnoc tracking-[0.12em] text-white/75">
               {NAV_LINKS.map((link) => (
                 <a
                   key={link}
@@ -48,21 +48,32 @@ const Hero = () => {
                   {link}
                 </a>
               ))}
-            </div>
+            </div> */}
 
-            {/* Mobile: Hamburger placeholder */}
-            <div className="lg:hidden text-white/75 text-sm font-google-sans tracking-widest">
+            {/* Mobile/Tablet: Hamburger (shown below xl) */}
+            {/* <div className="xl:hidden text-white/75 text-sm font-google-sans tracking-widest">
               MENU
-            </div>
+            </div> */}
 
-            {/* Right: CTA */}
-            <button className="hero-ticket-btn flex items-center gap-3 border border-white/20 rounded-full px-5 py-2 lg:px-6 lg:py-2.5 text-white font-google-sans text-[13px] tracking-widest hover:border-white/40 transition-all cursor-pointer">
+            {/* Right: Full button on xl+, icon-only below xl */}
+            <button className="hidden md:flex hero-ticket-btn items-center gap-3 border border-white/20 rounded-full px-5 py-2 lg:px-6 lg:py-2.5 text-white font-google-sans text-[13px] tracking-widest hover:border-white/40 transition-all cursor-pointer">
               GET A TICKET
               <img
                 src={IMAGES.rocket.src}
                 width={IMAGES.rocket.width}
                 height={IMAGES.rocket.height}
                 alt=""
+                className="size-4"
+              />
+            </button>
+
+            {/* Icon-only ticket button (below xl) */}
+            <button className="md:hidden hero-ticket-btn flex items-center justify-center border border-white/20 rounded-full size-10 text-white hover:border-white/40 transition-all cursor-pointer">
+              <img
+                src={IMAGES.rocket.src}
+                width={IMAGES.rocket.width}
+                height={IMAGES.rocket.height}
+                alt="Get a ticket"
                 className="size-4"
               />
             </button>
@@ -85,7 +96,6 @@ const Hero = () => {
             {/* CTA Button */}
             <button className="mt-10 lg:mt-14 bg-white text-background rounded-full px-8 py-4 font-rosnoc tracking-widest font-medium flex items-center gap-4 hover:scale-[1.03] hover:shadow-[0_4px_20px_rgba(255,255,255,0.2)] transition-all cursor-pointer text-lg">
               BECOME A PARTNER
-              {/* <span className="bg-background rounded-full p-2.5 flex items-center justify-center"> */}
               <img
                 src={IMAGES.rocket.src}
                 width={IMAGES.rocket.width}
@@ -93,12 +103,12 @@ const Hero = () => {
                 alt=""
                 className="size-4 invert"
               />
-              {/* </span> */}
             </button>
           </div>
 
           {/* --- BOTTOM STATUS BAR --- */}
-          <div className="w-full font-rosnoc flex items-center justify-between px-6 lg:px-12 pb-5 lg:pb-6 shrink-0 text-sm lg:text-base tracking-[0.12em] text-white/80 uppercase">
+          {/* Row on md+, stacked column on mobile */}
+          <div className="w-full font-rosnoc flex flex-col md:flex-row items-center md:justify-between gap-1 md:gap-0 px-6 lg:px-12 pb-4 md:pb-5 lg:pb-6 shrink-0 text-sm lg:text-base tracking-[0.12em] text-white/80 uppercase">
             <span>MARCH 29, 2026</span>
             <span>BABCOCK UNIVERSITY, ILLISHAN-REMO</span>
             <span>APRIL 2, 2026</span>
