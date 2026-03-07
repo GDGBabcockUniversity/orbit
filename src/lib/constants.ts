@@ -7,7 +7,7 @@ export const IMAGES = {
   speakers: { src: "/images/svgs/speakers.svg", width: 20, height: 17 },
 };
 
-export const NAV_LINKS = ["HOME", "ABOUT", "SCHEDULE", "SPONSORS", "CONTACT"];
+export const NAV_LINKS = ["ABOUT", "SCHEDULE", "SPONSORS", "CONTACT"];
 
 export const HERO_LINKS = [
   { text: "SPEAKERS", image: IMAGES.speakers },
