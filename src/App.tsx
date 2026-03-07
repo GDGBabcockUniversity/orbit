@@ -1,4 +1,5 @@
 import Hero from "./components/hero";
+import Speakers from "./components/speakers";
 import WhatsInItForYou from "./components/whats-in-it";
 
 const App = () => {
@@ -6,6 +7,7 @@ const App = () => {
     <>
       <Hero />
       <WhatsInItForYou />
+      <Speakers />
     </>
   );
 };
