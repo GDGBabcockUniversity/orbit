@@ -60,7 +60,7 @@ const Speakers = () => {
 
               {/* Center: Name */}
               <div className="md:flex-1">
-                <h3 className="font-rosnoc uppercase text-foreground text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-[0.04em] transition-colors duration-300">
+                <h3 className="font-rosnoc uppercase text-foreground text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-[0.04em] transition-colors duration-300">
                   {speaker.name}
                 </h3>
               </div>
