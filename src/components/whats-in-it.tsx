@@ -182,7 +182,7 @@ const DesktopDeck = () => {
           <div className="text-primary text-7xl lg:text-8xl font-rosnoc mb-4">
             ?
           </div>
-          <h2 className="font-rosnoc uppercase tracking-[0.08em] text-background text-4xl lg:text-5xl leading-tight">
+          <h2 className="font-rosnoc uppercase tracking-[0.08em] text-background text-4xl lg:text-5xl xl:text-6xl leading-tight">
             WHAT'S IN IT FOR
           </h2>
           <span className="block font-rosnoc uppercase text-primary text-7xl lg:text-8xl tracking-[0.06em] font-bold mt-2">
