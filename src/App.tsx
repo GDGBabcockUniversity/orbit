@@ -1,7 +1,13 @@
 import Hero from "./components/hero";
+import WhatsInItForYou from "./components/whats-in-it";
 
 const App = () => {
-  return <Hero />;
+  return (
+    <>
+      <Hero />
+      <WhatsInItForYou />
+    </>
+  );
 };
 
 export default App;
