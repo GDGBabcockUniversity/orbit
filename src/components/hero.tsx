@@ -14,7 +14,6 @@ const Hero = () => {
           <div className="hero-aurora-bar" />
           <div className="hero-aurora-bar" />
         </div>
-        <div className="hero-center-line" />
         <div className="hero-grain" />
 
         {/* ===== NOTCH (Top-Center) ===== */}
@@ -50,11 +49,6 @@ const Hero = () => {
               ))}
             </div>
 
-            {/* Mobile/Tablet: Hamburger (shown below xl) */}
-            {/* <div className="xl:hidden text-white/75 text-sm font-google-sans tracking-widest">
-              MENU
-            </div> */}
-
             {/* Right: Full button on xl+, icon-only below xl */}
             <button className="hidden md:flex hero-ticket-btn items-center gap-3 border border-white/20 rounded-full px-5 py-2 lg:px-6 lg:py-2.5 text-white font-google-sans text-[13px] tracking-widest hover:border-white/40 transition-all cursor-pointer">
               GET A TICKET
@@ -80,7 +74,7 @@ const Hero = () => {
           </nav>
 
           {/* --- HERO HEADLINE (centered) --- */}
-          <div className="flex-1 flex flex-col items-center justify-center px-6 -mt-8">
+          <div className="flex-1 flex flex-col items-center justify-end pb-12 md:justify-center md:pb-0 px-6 md:-mt-8">
             <h1 className="font-rosnoc text-center uppercase leading-[1.1]">
               <span className="block text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-[0.08em] font-medium">
                 WHERE INDUSTRY MEETS THE NEXT
@@ -93,8 +87,13 @@ const Hero = () => {
               </span>
             </h1>
 
+            {/* Tagline */}
+            <p className="mt-4 md:mt-6 text-white/50 font-google-sans text-xs md:text-sm tracking-widest uppercase">
+              MARCH 29 — APRIL 2, 2026 · BABCOCK UNIVERSITY
+            </p>
+
             {/* CTA Button */}
-            <button className="mt-10 lg:mt-14 bg-white text-background rounded-full px-4 py-2 md:px-8 md:py-4 font-rosnoc tracking-widest font-medium flex items-center gap-4 hover:scale-[1.03] hover:shadow-[0_4px_20px_rgba(255,255,255,0.2)] transition-all cursor-pointer md:text-lg">
+            <button className="mt-6 md:mt-10 lg:mt-14 bg-white text-background rounded-full w-full max-w-xs md:w-auto px-4 py-3 md:px-8 md:py-4 font-rosnoc tracking-widest font-medium flex items-center justify-center gap-4 hover:scale-[1.03] hover:shadow-[0_4px_20px_rgba(255,255,255,0.2)] transition-all cursor-pointer md:text-lg">
               BECOME A PARTNER
               <img
                 src={IMAGES.rocket.src}
@@ -108,7 +107,7 @@ const Hero = () => {
 
           {/* --- BOTTOM STATUS BAR --- */}
           {/* Row on md+, stacked column on mobile */}
-          <div className="w-full font-rosnoc flex flex-col md:flex-row items-center md:justify-between gap-1 md:gap-0 px-6 lg:px-12 pb-4 md:pb-5 lg:pb-6 shrink-0 text-sm lg:text-base tracking-[0.12em] text-white/80 uppercase">
+          <div className="w-full font-rosnoc hidden md:flex items-center justify-between px-6 lg:px-12 pb-4 md:pb-5 lg:pb-6 shrink-0 text-sm lg:text-base tracking-[0.12em] text-white/80 uppercase">
             <span>MARCH 29, 2026</span>
             <span>BABCOCK UNIVERSITY, ILLISHAN-REMO</span>
             <span>APRIL 2, 2026</span>
