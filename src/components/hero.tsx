@@ -7,7 +7,13 @@ const Hero = () => {
       <div className="w-full h-full bg-background rounded-3xl relative overflow-hidden">
         {/* ===== BACKGROUND LAYERS ===== */}
         <div className="hero-planet-glow" />
-        <div className="hero-aurora-bars" />
+        <div className="hero-aurora-bars">
+          <div className="hero-aurora-bar" />
+          <div className="hero-aurora-bar" />
+          <div className="hero-aurora-bar" />
+          <div className="hero-aurora-bar" />
+          <div className="hero-aurora-bar" />
+        </div>
         <div className="hero-center-line" />
         <div className="hero-hairlines" />
         <div className="hero-grain" />
@@ -51,14 +57,14 @@ const Hero = () => {
             </div>
 
             {/* Right: CTA */}
-            <button className="flex items-center gap-3 border border-white/30 rounded-full px-5 py-2 lg:px-6 lg:py-2.5 text-white font-google-sans text-[13px] tracking-widest hover:border-white/60 hover:shadow-[0_0_12px_rgba(255,255,255,0.15)] transition-all cursor-pointer">
+            <button className="hero-ticket-btn flex items-center gap-3 border border-white/20 rounded-full px-5 py-2 lg:px-6 lg:py-2.5 text-white font-google-sans text-[13px] tracking-widest hover:border-white/40 transition-all cursor-pointer">
               GET A TICKET
               <img
                 src={IMAGES.rocket.src}
                 width={IMAGES.rocket.width}
                 height={IMAGES.rocket.height}
                 alt=""
-                className="size-4 invert"
+                className="size-4"
               />
             </button>
           </nav>
