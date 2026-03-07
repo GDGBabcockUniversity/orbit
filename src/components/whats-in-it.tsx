@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from "react";
+
 const BENEFITS = [
   {
     number: 1,
@@ -90,54 +92,178 @@ const BENEFITS = [
   },
 ];
 
+/* ============================================
+   BENEFIT CARD (shared between mobile & desktop)
+   ============================================ */
+const BenefitCard = ({
+  benefit,
+  className = "",
+  style,
+}: {
+  benefit: (typeof BENEFITS)[number];
+  className?: string;
+  style?: React.CSSProperties;
+}) => (
+  <div
+    className={`relative bg-foreground rounded-3xl p-8 md:p-12 flex flex-col items-center text-center shadow-[0_4px_24px_rgba(0,0,0,0.08)] ${className}`}
+    style={style}
+  >
+    {/* Number badge — top-left, light purple bg */}
+    <div className="absolute top-5 left-5 md:top-8 md:left-8 bg-primary/10 text-primary rounded-full size-8 md:size-12 flex items-center justify-center font-google-sans text-sm md:text-lg font-medium">
+      {benefit.number}
+    </div>
+
+    {/* Icon */}
+    <div className="bg-primary/10 rounded-full p-5 md:p-8 mb-5 md:mb-8">
+      <div className="text-primary [&>svg]:size-8 md:[&>svg]:size-12">
+        {benefit.icon}
+      </div>
+    </div>
+
+    {/* Title */}
+    <h3 className="font-rosnoc uppercase tracking-[0.08em] text-background text-lg md:text-2xl xl:text-3xl leading-snug">
+      {benefit.title}
+    </h3>
+
+    {/* Description */}
+    <p className="mt-3 md:mt-4 text-background/50 font-google-sans text-sm md:text-base xl:text-lg leading-relaxed max-w-md">
+      {benefit.description}
+    </p>
+  </div>
+);
+
+/* ============================================
+   DESKTOP: Rotating Deck with Scroll Lock
+   ============================================ */
+const DesktopDeck = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const totalCards = BENEFITS.length;
+  // Extra scroll distance: one "page" per card transition
+  const scrollPages = totalCards;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+
+      const rect = sectionRef.current.getBoundingClientRect();
+      const sectionHeight = sectionRef.current.offsetHeight;
+      const viewportH = window.innerHeight;
+
+      // How far we've scrolled into the section (0 = just entered, sectionHeight - viewportH = fully scrolled through)
+      const scrolled = -rect.top;
+      const maxScroll = sectionHeight - viewportH;
+
+      if (scrolled < 0 || scrolled > maxScroll) return;
+
+      // Progress 0 → 1 across the extra scroll space
+      const progress = Math.min(Math.max(scrolled / maxScroll, 0), 1);
+      // Map progress to card index
+      const newIndex = Math.min(
+        Math.floor(progress * totalCards),
+        totalCards - 1,
+      );
+      setActiveIndex(newIndex);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [totalCards]);
+
+  return (
+    <div
+      ref={sectionRef}
+      style={{ height: `${(scrollPages + 1) * 100}vh` }}
+      className="hidden md:block relative"
+    >
+      <div className="sticky top-0 h-screen bg-foreground flex items-center overflow-hidden">
+        {/* Left: Section heading */}
+        <div className="w-[40%] pl-12 lg:pl-20 xl:pl-28 pr-8">
+          <div className="text-primary text-7xl lg:text-8xl font-rosnoc mb-4">
+            ?
+          </div>
+          <h2 className="font-rosnoc uppercase tracking-[0.08em] text-background text-4xl lg:text-5xl leading-tight">
+            WHAT'S IN IT FOR
+          </h2>
+          <span className="block font-rosnoc uppercase text-primary text-7xl lg:text-8xl tracking-[0.06em] font-bold mt-2">
+            YOU
+          </span>
+          <p className="mt-6 text-background/60 font-google-sans text-xl xl:text-2xl max-w-sm leading-relaxed">
+            Everything you didn't know you needed from a dev event.
+          </p>
+        </div>
+
+        {/* Right: Card deck */}
+        <div className="w-[60%] h-full flex items-center justify-center relative">
+          {BENEFITS.map((benefit, i) => {
+            // Calculate position in the deck relative to activeIndex
+            const pos = (i - activeIndex + totalCards) % totalCards;
+
+            // Stack offset: card at pos 0 is the front, pos 1 is behind, etc.
+            const translateX = pos * 50;
+            const translateY = pos * -35;
+            const scale = 1 - pos * 0.04;
+            const zIndex = totalCards - pos;
+            const opacity = pos > 2 ? 0 : 1 - pos * 0.1;
+
+            return (
+              <div
+                key={benefit.number}
+                className="absolute transition-all duration-500 ease-out"
+                style={{
+                  width: "min(550px, 85%)",
+                  transform: `translateX(${translateX}px) translateY(${translateY}px) scale(${scale})`,
+                  zIndex,
+                  opacity,
+                }}
+              >
+                <BenefitCard benefit={benefit} />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+/* ============================================
+   MOBILE: Vertical card stack
+   ============================================ */
+const MobileStack = () => (
+  <section className="md:hidden bg-foreground px-6 py-16">
+    {/* Header */}
+    <div className="flex flex-col items-center text-center">
+      <div className="text-primary text-6xl font-rosnoc mb-4">?</div>
+      <h2 className="font-rosnoc uppercase tracking-[0.08em] text-background text-2xl">
+        WHAT'S IN IT FOR
+      </h2>
+      <span className="font-rosnoc uppercase text-primary text-5xl tracking-[0.06em] font-bold mt-1">
+        YOU
+      </span>
+      <p className="mt-4 text-background/60 font-google-sans text-sm max-w-xs leading-relaxed">
+        Everything you didn't know you needed from a dev event.
+      </p>
+    </div>
+
+    {/* Cards */}
+    <div className="mt-12 flex flex-col gap-6 max-w-sm mx-auto">
+      {BENEFITS.map((benefit) => (
+        <BenefitCard key={benefit.number} benefit={benefit} />
+      ))}
+    </div>
+  </section>
+);
+
+/* ============================================
+   MAIN EXPORT
+   ============================================ */
 const WhatsInItForYou = () => {
   return (
-    <section className="bg-foreground px-6 py-16 md:py-24">
-      {/* --- SECTION HEADER --- */}
-      <div className="flex flex-col items-center text-center">
-        {/* Question mark icon */}
-        <div className="text-primary text-6xl font-rosnoc mb-4">?</div>
-
-        <h2 className="font-rosnoc uppercase tracking-[0.08em] text-background text-2xl md:text-3xl">
-          WHAT'S IN IT FOR
-        </h2>
-        <span className="font-rosnoc uppercase text-primary text-5xl md:text-6xl tracking-[0.06em] font-bold mt-1">
-          YOU
-        </span>
-
-        <p className="mt-4 text-background/60 font-google-sans text-sm md:text-base max-w-xs md:max-w-md leading-relaxed">
-          Everything you didn't know you needed from a dev event.
-        </p>
-      </div>
-
-      {/* --- BENEFIT CARDS --- */}
-      <div className="mt-12 flex flex-col gap-6 max-w-sm mx-auto">
-        {BENEFITS.map((benefit) => (
-          <div
-            key={benefit.number}
-            className="relative bg-foreground rounded-3xl border border-background/10 shadow-[0_2px_16px_rgba(0,0,0,0.06)] p-8 flex flex-col items-center text-center"
-          >
-            {/* Number badge */}
-            <div className="absolute -top-4 left-6 bg-foreground border border-background/10 rounded-full size-8 flex items-center justify-center font-google-sans text-sm text-background/50 shadow-sm">
-              {benefit.number}
-            </div>
-
-            {/* Icon */}
-            <div className="text-primary mb-5">{benefit.icon}</div>
-
-            {/* Title */}
-            <h3 className="font-rosnoc uppercase tracking-[0.08em] text-background text-lg leading-snug">
-              {benefit.title}
-            </h3>
-
-            {/* Description */}
-            <p className="mt-3 text-background/50 font-google-sans text-sm leading-relaxed">
-              {benefit.description}
-            </p>
-          </div>
-        ))}
-      </div>
-    </section>
+    <>
+      <DesktopDeck />
+      <MobileStack />
+    </>
   );
 };
 
