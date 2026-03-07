@@ -146,15 +146,26 @@ body {
 
 /* Gradient text for "GENERATION" — top to bottom, white to purple */
 .hero-gradient-text {
+  position: relative;
+  color: var(--color-primary-aurora);
+  -webkit-text-stroke: 3px var(--color-primary-bright);
+  paint-order: stroke fill;
+  padding-bottom: 0.08em;
+}
+
+.hero-gradient-text::before {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
   background: linear-gradient(
     to bottom,
     var(--color-foreground) 0%,
-    var(--color-primary-bright) 80%
+    var(--color-primary) 80%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  padding-bottom: 0.08em; /* prevent clipping on letter descenders */
+  pointer-events: none;
 }
 
 /* GET A TICKET button — dark gradient with depth */
