@@ -80,7 +80,7 @@ const Hero = () => {
                 WHERE INDUSTRY MEETS THE NEXT
               </span>
               <span
-                className="block hero-gradient-text text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl tracking-[0.06em] font-bold mt-2"
+                className="block hero-gradient-text text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl tracking-[0.06em] font-bold mt-2"
                 data-text="GENERATION"
               >
                 GENERATION
@@ -88,7 +88,7 @@ const Hero = () => {
             </h1>
 
             {/* Tagline */}
-            <p className="mt-4 md:mt-6 text-white/50 font-google-sans text-xs md:text-sm tracking-widest uppercase">
+            <p className="mt-4 md:mt-6 text-white/50 font-google-sans text-xs md:text-sm tracking-widest uppercase md:hidden text-center">
               MARCH 29 — APRIL 2, 2026 · BABCOCK UNIVERSITY
             </p>
 
