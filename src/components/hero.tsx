@@ -33,7 +33,7 @@ const Hero = () => {
           {/* --- NAV BAR --- */}
           <nav className="w-full flex items-center justify-between px-6 lg:px-12 pt-6 lg:pt-8 shrink-0">
             {/* Left: Nav links */}
-            <div className="hidden lg:flex items-center gap-6 xl:gap-8 font-google-sans text-[13px] tracking-[0.12em] text-white/75">
+            <div className="hidden lg:flex items-center gap-6 xl:gap-8 font-rosnoc tracking-[0.12em] text-white/75">
               {NAV_LINKS.map((link) => (
                 <a
                   key={link}
@@ -51,7 +51,7 @@ const Hero = () => {
             </div>
 
             {/* Right: CTA */}
-            <button className="flex items-center gap-3 border border-white/30 rounded-full px-5 py-2 lg:px-6 lg:py-2.5 text-white font-google-sans text-[13px] tracking-[0.1em] hover:border-white/60 hover:shadow-[0_0_12px_rgba(255,255,255,0.15)] transition-all cursor-pointer">
+            <button className="flex items-center gap-3 border border-white/30 rounded-full px-5 py-2 lg:px-6 lg:py-2.5 text-white font-google-sans text-[13px] tracking-widest hover:border-white/60 hover:shadow-[0_0_12px_rgba(255,255,255,0.15)] transition-all cursor-pointer">
               GET A TICKET
               <img
                 src={IMAGES.rocket.src}
@@ -66,31 +66,31 @@ const Hero = () => {
           {/* --- HERO HEADLINE (centered) --- */}
           <div className="flex-1 flex flex-col items-center justify-center px-6 -mt-8">
             <h1 className="font-rosnoc text-center uppercase leading-[1.1]">
-              <span className="block text-white text-3xl sm:text-4xl md:text-5xl lg:text-[56px] tracking-[0.08em] font-medium">
+              <span className="block text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-[0.08em] font-medium">
                 WHERE INDUSTRY MEETS THE NEXT
               </span>
-              <span className="block hero-gradient-text text-6xl sm:text-7xl md:text-8xl lg:text-[120px] tracking-[0.06em] font-bold mt-2">
+              <span className="block hero-gradient-text text-6xl sm:text-7xl md:text-8xl lg:text-9xl tracking-[0.06em] font-bold mt-2">
                 GENERATION
               </span>
             </h1>
 
             {/* CTA Button */}
-            <button className="mt-10 lg:mt-14 bg-white text-background rounded-full pl-6 lg:pl-8 pr-2 py-2 font-google-sans text-[13px] lg:text-[14px] tracking-[0.1em] font-medium flex items-center gap-5 hover:scale-[1.03] hover:shadow-[0_4px_20px_rgba(255,255,255,0.2)] transition-all cursor-pointer">
+            <button className="mt-10 lg:mt-14 bg-white text-background rounded-full px-8 py-4 font-rosnoc tracking-widest font-medium flex items-center gap-4 hover:scale-[1.03] hover:shadow-[0_4px_20px_rgba(255,255,255,0.2)] transition-all cursor-pointer text-lg">
               BECOME A PARTNER
-              <span className="bg-background rounded-full p-2.5 flex items-center justify-center">
-                <img
-                  src={IMAGES.partners.src}
-                  width={IMAGES.partners.width}
-                  height={IMAGES.partners.height}
-                  alt=""
-                  className="size-4 invert"
-                />
-              </span>
+              {/* <span className="bg-background rounded-full p-2.5 flex items-center justify-center"> */}
+              <img
+                src={IMAGES.rocket.src}
+                width={IMAGES.rocket.width}
+                height={IMAGES.rocket.height}
+                alt=""
+                className="size-4 invert"
+              />
+              {/* </span> */}
             </button>
           </div>
 
           {/* --- BOTTOM STATUS BAR --- */}
-          <div className="w-full flex items-center justify-between px-6 lg:px-12 pb-5 lg:pb-6 shrink-0 font-google-sans text-[11px] lg:text-xs tracking-[0.12em] text-white/80 uppercase">
+          <div className="w-full font-rosnoc flex items-center justify-between px-6 lg:px-12 pb-5 lg:pb-6 shrink-0 text-sm lg:text-base tracking-[0.12em] text-white/80 uppercase">
             <span>MARCH 29, 2026</span>
             <span>BABCOCK UNIVERSITY, ILLISHAN-REMO</span>
             <span>APRIL 2, 2026</span>
