@@ -28,7 +28,7 @@ const Hero = () => {
           >
             <path d="M0 0 H230.4 C217.049 0 205.102 8.2892 200.427 20.7949 L196.535 31.2051 C191.86 43.7108 179.912 52 166.561 52 H63.839 C50.488 52 38.54 43.7108 33.865 31.2051 L29.973 20.7949 C25.298 8.2892 13.351 0 0 0 Z" />
           </svg>
-          <div className="relative z-10 w-full flex items-center justify-center pt-1">
+          <div className="relative z-10 w-full flex items-center justify-center">
             <OrbitLogo />
           </div>
         </div>
@@ -116,7 +116,7 @@ const Hero = () => {
           {/* Row on md+, stacked column on mobile */}
           <div className="w-full font-rosnoc hidden md:flex items-center justify-between px-6 lg:px-12 pb-4 md:pb-5 lg:pb-6 shrink-0 text-sm lg:text-base tracking-[0.12em] text-white/80 uppercase">
             <span>MARCH 29, 2026</span>
-            <span>BABCOCK UNIVERSITY, ILLISHAN-REMO</span>
+            <span>BABCOCK UNIVERSITY, ILISHAN-REMO</span>
             <span>APRIL 2, 2026</span>
           </div>
         </div>
