@@ -36,9 +36,9 @@ const Hero = () => {
         {/* ===== CONTENT LAYER ===== */}
         <div className="relative z-10 w-full h-full flex flex-col">
           {/* --- NAV BAR --- */}
-          <nav className="w-full flex items-center justify-end px-6 pt-6 shrink-0">
+          <nav className="w-full flex items-center justify-end xl:justify-between pl-8 px-6 pt-6 shrink-0">
             {/* Desktop: Nav links (hidden until xl so they don't collide with notch) */}
-            {/* <div className="hidden xl:flex items-center gap-6 xl:gap-8 font-rosnoc tracking-[0.12em] text-white/75">
+            <div className="hidden xl:flex items-center gap-6 xl:gap-8 font-rosnoc tracking-[0.12em] text-white/75">
               {NAV_LINKS.map((link) => (
                 <a
                   key={link}
@@ -48,7 +48,7 @@ const Hero = () => {
                   {link}
                 </a>
               ))}
-            </div> */}
+            </div>
 
             {/* Mobile/Tablet: Hamburger (shown below xl) */}
             {/* <div className="xl:hidden text-white/75 text-sm font-google-sans tracking-widest">
@@ -86,7 +86,7 @@ const Hero = () => {
                 WHERE INDUSTRY MEETS THE NEXT
               </span>
               <span
-                className="block hero-gradient-text text-6xl sm:text-7xl md:text-8xl lg:text-9xl tracking-[0.06em] font-bold mt-2"
+                className="block hero-gradient-text text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl tracking-[0.06em] font-bold mt-2"
                 data-text="GENERATION"
               >
                 GENERATION
@@ -94,7 +94,7 @@ const Hero = () => {
             </h1>
 
             {/* CTA Button */}
-            <button className="mt-10 lg:mt-14 bg-white text-background rounded-full px-8 py-4 font-rosnoc tracking-widest font-medium flex items-center gap-4 hover:scale-[1.03] hover:shadow-[0_4px_20px_rgba(255,255,255,0.2)] transition-all cursor-pointer text-lg">
+            <button className="mt-10 lg:mt-14 bg-white text-background rounded-full px-4 py-2 md:px-8 md:py-4 font-rosnoc tracking-widest font-medium flex items-center gap-4 hover:scale-[1.03] hover:shadow-[0_4px_20px_rgba(255,255,255,0.2)] transition-all cursor-pointer md:text-lg">
               BECOME A PARTNER
               <img
                 src={IMAGES.rocket.src}
