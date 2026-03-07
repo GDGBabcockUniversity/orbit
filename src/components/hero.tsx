@@ -10,7 +10,7 @@ const Hero = () => {
         - Desktop: 32px all around EXCEPT top-left (the notch is there).
         - Mobile: 32px all around (the notch sits exactly in the top-center).
       */}
-      <div className="w-full h-full bg-[radial-gradient(ellipse_at_0%_100%,var(--color-foreground),var(--color-primary)_30%,var(--color-background)_45%)] rounded-4xl lg:rounded-tl-none relative overflow-hidden">
+      <div className="w-full h-full bg-[radial-gradient(ellipse_at_0%_100%,var(--color-foreground),var(--color-primary)_40%,var(--color-background)_55%)] rounded-3xl relative overflow-hidden">
         {/* =========================================
             DESKTOP NOTCH (Top-Left)
             ========================================= */}
@@ -19,7 +19,7 @@ const Hero = () => {
           recreating the exactly-sized cutoff shape from Union.svg.
           (Expanded by 1px up and left to prevent subpixel antialiasing gaps)
         */}
-        <div className="hidden lg:flex absolute top-0 left-0 w-[261px] h-[98px] z-20">
+        {/* <div className="hidden lg:flex absolute top-0 left-0 w-[261px] h-[98px] z-20">
           <svg
             className="absolute top-0 left-0 w-full h-full text-foreground"
             viewBox="0 0 259.197 97"
@@ -30,11 +30,10 @@ const Hero = () => {
             <path d="M0 0 H259.197 C249.581 0 240.474 4.3252 234.396 11.7783 L200.604 53.2217 C194.526 60.6748 185.419 65 175.803 65 H32 C14.3269 65 0 79.3269 0 97 V0 Z" />
           </svg>
 
-          {/* Logo placed inside the white desktop notch */}
           <div className="relative z-10 w-full flex items-center justify-center -top-4 -left-4">
             <OrbitLogo />
           </div>
-        </div>
+        </div> */}
 
         {/* =========================================
             MOBILE NOTCH (Top-Center)
@@ -44,7 +43,7 @@ const Hero = () => {
           recreating the exactly-sized cutoff shape from the mobile SVG.
           (Expanded by 1px up and horizontally to prevent subpixel antialiasing gaps)
         */}
-        <div className="flex lg:hidden absolute -top-px left-1/2 -translate-x-1/2 w-[232px] h-[53px] z-20">
+        <div className="flex absolute -top-px left-1/2 -translate-x-1/2 w-[232px] lg:w-[280px] h-[53px] lg:h-[63px] z-20">
           <svg
             className="absolute top-0 left-0 w-full h-full text-foreground"
             viewBox="0 0 230.4 52"
