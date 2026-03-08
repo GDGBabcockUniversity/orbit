@@ -82,7 +82,7 @@ const Hero = () => {
                 MEETS THE NEXT
               </span>
               <span
-                className="block hero-gradient-text text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl tracking-[0.06em] font-bold mt-2"
+                className="block hero-gradient-text text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl tracking-[0.06em] font-bold mt-2"
                 data-text="GENERATION"
               >
                 GENERATION
