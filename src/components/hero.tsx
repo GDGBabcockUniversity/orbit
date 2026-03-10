@@ -3,7 +3,7 @@ import CountdownTimer from "./countdown-timer";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen bg-background relative overflow-hidden">
+    <section id="about" className="min-h-screen bg-background relative overflow-hidden">
       {/* Background effects */}
       <div className="hero-planet-glow" />
       <div className="hero-aurora-bars">
