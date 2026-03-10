@@ -13,7 +13,7 @@ export const IMAGES = {
 export const NAV_LINKS = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
-  { label: "Speakers", href: "#speakers" },
+  { label: "Speakers", href: "/speakers" },
   { label: "Sponsors & Partners", href: "/sponsors" },
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
