@@ -18,7 +18,7 @@ const SponsorsPreview = () => (
         {Array.from({ length: 4 }).map((_, i) => (
           <div
             key={i}
-            className="aspect-[2/1] rounded-xl border border-background/8 bg-white flex items-center justify-center"
+            className="aspect-2/1 rounded-xl border border-background/8 bg-white flex items-center justify-center"
           >
             <span className="text-background/15 font-google-sans text-sm">
               Logo
