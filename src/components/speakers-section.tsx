@@ -24,17 +24,16 @@ const SpeakersSection = () => {
   };
 
   return (
-    <section className="bg-background py-16 md:py-24 overflow-hidden">
+    <section id="speakers" className="bg-background py-16 md:py-24 overflow-hidden">
       {/* Header */}
       <div className="text-center px-6">
         <SectionBadge>SPEAKERS</SectionBadge>
         <h2 className="font-space-grotesk text-3xl md:text-4xl font-bold text-foreground mt-5">
-          Meet Our Speakers
+          The conversations shaping the ecosystem.
         </h2>
         <p className="mt-4 text-foreground/45 font-google-sans text-sm md:text-base max-w-lg mx-auto leading-relaxed">
-          We&rsquo;ve raised the bar this year with our impressive lineup of
-          speakers, each prepared to share valuable insights on different aspects
-          of the tech community.
+          Engineers, founders, and operators from across the African tech
+          industry&hairsp;&mdash;&hairsp;sharing real insights, not keynote fluff.
         </p>
       </div>
 
