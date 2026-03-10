@@ -1,9 +1,15 @@
-const OrbitLogo = () => (
-  <div className="flex items-center gap-1.5 font-space-grotesk text-4xl lg:text-5xl tracking-widest text-background">
+const OrbitLogo = ({ inverted = false }: { inverted?: boolean }) => (
+  <div
+    className={`flex items-center gap-1.5 font-space-grotesk text-4xl lg:text-5xl tracking-widest ${
+      inverted ? "text-foreground" : "text-background"
+    }`}
+  >
     <img
       src="/images/svgs/logo.svg"
       alt="O"
-      className="h-7 lg:h-9 w-auto brightness-0"
+      className={`h-7 lg:h-9 w-auto ${
+        inverted ? "brightness-0 invert" : "brightness-0"
+      }`}
     />
     <span className="font-medium">RBIT</span>
   </div>
