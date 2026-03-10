@@ -43,7 +43,7 @@ const CountdownTimer = () => {
   return (
     <div className="flex items-center gap-3 sm:gap-4">
       {units.map((unit, i) => (
-        <div key={unit.label} className="flex items-center gap-3 sm:gap-4">
+        <div key={unit.label} className="flex items-center gap-3 sm:gap-4 font-semibold">
           <div className="flex flex-col items-center">
             <span className="font-space-grotesk text-white text-4xl sm:text-5xl tracking-wider tabular-nums">
               {pad(unit.value)}
