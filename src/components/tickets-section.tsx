@@ -46,7 +46,7 @@ const TicketsSection = () => {
                 zIndex: card.zIndex,
               }}
             >
-              <div className="w-full h-full rounded-3xl bg-gradient-to-br from-primary-bright via-primary to-primary-deep shadow-2xl shadow-primary/20" />
+              <div className="w-full h-full rounded-3xl bg-linear-to-br from-primary-bright via-primary to-primary-deep shadow-2xl shadow-primary/20" />
             </div>
           ))}
         </div>
