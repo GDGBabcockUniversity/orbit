@@ -17,7 +17,7 @@ const WhyOrbitSection = () => (
         {WHY_ORBIT.map((item, i) => (
           <div
             key={i}
-            className="rounded-2xl border border-white/8 bg-white/[0.03] p-7 md:p-9 group hover:bg-white/[0.06] transition-colors"
+            className="rounded-2xl border border-white/8 bg-white/3 p-7 md:p-9 group hover:bg-white/6 transition-colors"
           >
             <div className="bg-primary/15 text-primary rounded-full size-10 flex items-center justify-center font-space-grotesk text-lg font-bold mb-5">
               {i + 1}
