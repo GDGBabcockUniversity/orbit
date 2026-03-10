@@ -22,7 +22,7 @@ const TeamSection = () => {
   };
 
   return (
-    <section className="bg-foreground py-16 md:py-24 overflow-hidden">
+    <section className="bg-surface py-16 md:py-24 overflow-hidden">
       {/* Header */}
       <div className="text-center px-6">
         <p className="text-background/40 font-google-sans text-xs tracking-[0.2em] uppercase">
@@ -33,9 +33,9 @@ const TeamSection = () => {
         </h2>
       </div>
 
-      {/* Carousel */}
-      <div className="relative mt-12 md:mt-16 h-[380px] md:h-[440px]">
-        <div className="absolute inset-0 flex items-end justify-center">
+      {/* Carousel -- same layout as speakers */}
+      <div className="relative mt-12 md:mt-16 h-[420px] md:h-[480px]">
+        <div className="absolute inset-0 flex items-center justify-center">
           {TEAM_MEMBERS.map((member, i) => {
             const offset = getOffset(i);
             const absOffset = Math.abs(offset);
@@ -43,32 +43,46 @@ const TeamSection = () => {
 
             if (absOffset > 3) return null;
 
-            const baseWidth = isCenter ? 240 : 190;
-            const baseHeight = isCenter ? 340 : 280;
-            const gap = isCenter ? 0 : offset * (baseWidth * 0.85);
+            const cardWidth = isCenter ? 300 : 160;
+            const cardHeight = isCenter ? 420 : 360;
+            const translateX = isCenter
+              ? 0
+              : offset * 170 + (offset > 0 ? 40 : -40);
 
             return (
               <div
                 key={i}
                 className="absolute transition-all duration-500 ease-out cursor-pointer"
                 style={{
-                  width: baseWidth,
-                  height: baseHeight,
-                  transform: `translateX(${gap}px)`,
+                  width: cardWidth,
+                  height: cardHeight,
+                  transform: `translateX(${translateX}px)`,
                   zIndex: total - absOffset,
-                  opacity: absOffset > 2 ? 0.3 : 1 - absOffset * 0.12,
+                  opacity: absOffset > 2 ? 0.4 : 1 - absOffset * 0.1,
                 }}
                 onClick={() => setActive(i)}
               >
-                <div className="w-full h-full rounded-2xl overflow-hidden bg-gradient-to-br from-primary-bright via-primary to-primary-deep relative shadow-lg">
-                  <div className="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/70 via-black/30 to-transparent">
-                    <p className="font-space-grotesk text-white font-bold text-sm leading-tight">
-                      {member.name}
-                    </p>
-                    <p className="font-google-sans text-white/70 text-xs mt-0.5">
-                      {member.role}
-                    </p>
-                  </div>
+                <div className="w-full h-full rounded-2xl overflow-hidden bg-linear-to-b from-primary-deep/40 via-background to-background relative border border-white/5 shadow-xl">
+                  <div className="absolute inset-0 bg-linear-to-b from-primary-deep/20 to-background/90" />
+
+                  {isCenter && (
+                    <div className="absolute bottom-0 inset-x-0 p-5 z-10">
+                      <h3 className="font-space-grotesk text-white font-bold text-lg leading-tight">
+                        {member.name}
+                      </h3>
+                      <p className="font-google-sans text-primary-bright text-sm mt-1">
+                        {member.role}
+                      </p>
+                    </div>
+                  )}
+
+                  {!isCenter && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="font-space-grotesk text-white/15 text-xs tracking-[0.3em] uppercase [writing-mode:vertical-lr] rotate-180">
+                        {member.name.toUpperCase()}
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
             );
@@ -92,9 +106,8 @@ const TeamSection = () => {
             <button
               key={i}
               onClick={() => setActive(i)}
-              className={`h-2 rounded-full transition-all cursor-pointer ${
-                i === active ? "w-6 bg-primary" : "w-2 bg-background/15"
-              }`}
+              className={`h-2 rounded-full transition-all cursor-pointer ${i === active ? "w-6 bg-primary" : "w-2 bg-background/15"
+                }`}
             />
           ))}
         </div>
@@ -110,7 +123,7 @@ const TeamSection = () => {
       </div>
 
       {/* CTA */}
-      <div className="text-center mt-10">
+      {/* <div className="text-center mt-10">
         <button className="bg-primary text-white font-google-sans text-sm tracking-wider px-7 py-3.5 rounded-full inline-flex items-center gap-2.5 hover:bg-primary-mid transition cursor-pointer">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="size-4">
             <path
@@ -122,7 +135,7 @@ const TeamSection = () => {
           Meet the Full Team
           <span className="text-white/70">&rarr;</span>
         </button>
-      </div>
+      </div> */}
     </section>
   );
 };
