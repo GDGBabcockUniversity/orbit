@@ -37,7 +37,7 @@ const SponsorsPage = () => {
             {Array.from({ length: 4 }).map((_, i) => (
               <div
                 key={`s-${i}`}
-                className="aspect-[2/1] rounded-xl border border-background/8 bg-surface flex items-center justify-center"
+                className="aspect-2/1 rounded-xl border border-background/8 bg-surface flex items-center justify-center"
               >
                 <span className="text-background/15 font-google-sans text-sm">
                   Coming soon
@@ -54,7 +54,7 @@ const SponsorsPage = () => {
             {Array.from({ length: 4 }).map((_, i) => (
               <div
                 key={`cp-${i}`}
-                className="aspect-[2/1] rounded-xl border border-background/8 bg-surface flex items-center justify-center"
+                className="aspect-2/1 rounded-xl border border-background/8 bg-surface flex items-center justify-center"
               >
                 <span className="text-background/15 font-google-sans text-sm">
                   Coming soon
