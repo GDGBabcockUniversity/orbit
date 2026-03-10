@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import SectionBadge from "./ui/section-badge";
 
 const BENEFITS = [
   {
@@ -121,7 +122,7 @@ const BenefitCard = ({
     </div>
 
     {/* Title */}
-    <h3 className="font-rosnoc uppercase tracking-[0.08em] text-background text-lg md:text-2xl xl:text-3xl leading-snug">
+    <h3 className="font-space-grotesk font-bold text-background text-lg md:text-2xl xl:text-3xl leading-snug">
       {benefit.title}
     </h3>
 
@@ -179,17 +180,13 @@ const DesktopDeck = () => {
       <div className="sticky top-0 h-screen bg-foreground flex items-center overflow-hidden">
         {/* Left: Section heading */}
         <div className="w-[40%] pl-12 lg:pl-20 xl:pl-28 pr-8">
-          <div className="text-primary text-7xl lg:text-8xl font-rosnoc mb-4">
-            ?
-          </div>
-          <h2 className="font-rosnoc uppercase tracking-[0.08em] text-background text-4xl lg:text-5xl xl:text-6xl leading-tight">
-            WHAT'S IN IT FOR
+          <SectionBadge>WHY ATTEND</SectionBadge>
+          <h2 className="font-space-grotesk text-background text-4xl lg:text-5xl xl:text-6xl leading-tight font-bold mt-5">
+            What&rsquo;s In It{" "}
+            <span className="text-primary">For You</span>
           </h2>
-          <span className="block font-rosnoc uppercase text-primary text-7xl lg:text-8xl tracking-[0.06em] font-bold mt-2">
-            YOU
-          </span>
-          <p className="mt-6 text-background/60 font-google-sans text-xl xl:text-2xl max-w-sm leading-relaxed">
-            Everything you didn't know you needed from a dev event.
+          <p className="mt-6 text-background/50 font-google-sans text-lg xl:text-xl max-w-sm leading-relaxed">
+            Everything you didn&rsquo;t know you needed from a dev event.
           </p>
         </div>
 
@@ -234,15 +231,12 @@ const MobileStack = () => (
   <section className="md:hidden bg-foreground px-6 py-16">
     {/* Header */}
     <div className="flex flex-col items-center text-center">
-      <div className="text-primary text-6xl font-rosnoc mb-4">?</div>
-      <h2 className="font-rosnoc uppercase tracking-[0.08em] text-background text-2xl">
-        WHAT'S IN IT FOR
+      <SectionBadge>WHY ATTEND</SectionBadge>
+      <h2 className="font-space-grotesk text-background text-2xl font-bold mt-4">
+        What&rsquo;s In It <span className="text-primary">For You</span>
       </h2>
-      <span className="font-rosnoc uppercase text-primary text-5xl tracking-[0.06em] font-bold mt-1">
-        YOU
-      </span>
-      <p className="mt-4 text-background/60 font-google-sans text-sm max-w-xs leading-relaxed">
-        Everything you didn't know you needed from a dev event.
+      <p className="mt-4 text-background/50 font-google-sans text-sm max-w-xs leading-relaxed">
+        Everything you didn&rsquo;t know you needed from a dev event.
       </p>
     </div>
 
