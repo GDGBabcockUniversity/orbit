@@ -16,4 +16,109 @@ body {
   --color-primary-mid: #5b00b5;
   --color-primary-bright: #a040ff;
   --color-primary-aurora: #7711dd;
+  --color-surface: #f5f5f5;
+}
+
+/* ===== Hero Background Effects ===== */
+
+.hero-planet-glow {
+  position: absolute;
+  bottom: -30%;
+  left: -15%;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    var(--color-primary-mid) 0%,
+    var(--color-primary-deep) 30%,
+    transparent 70%
+  );
+  opacity: 0.6;
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+@media (max-width: 767px) {
+  .hero-planet-glow {
+    bottom: -35%;
+    left: -35%;
+    width: 130%;
+    height: 70%;
+    opacity: 0.75;
+  }
+}
+
+.hero-aurora-bars {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: flex;
+  gap: 1px;
+  opacity: 0.35;
+}
+
+@media (max-width: 767px) {
+  .hero-aurora-bars {
+    opacity: 0.5;
+  }
+}
+
+.hero-aurora-bar {
+  flex: 1;
+  background: linear-gradient(
+    to top,
+    transparent 15%,
+    var(--color-primary-aurora) 55%,
+    transparent 88%
+  );
+}
+
+.hero-aurora-bar:nth-child(2) {
+  background: linear-gradient(
+    to top,
+    transparent 10%,
+    var(--color-primary-mid) 50%,
+    transparent 85%
+  );
+}
+
+.hero-aurora-bar:nth-child(3) {
+  background: linear-gradient(
+    to top,
+    transparent 5%,
+    var(--color-primary) 45%,
+    transparent 80%
+  );
+}
+
+.hero-aurora-bar:nth-child(4) {
+  background: linear-gradient(
+    to top,
+    transparent 20%,
+    var(--color-primary-aurora) 60%,
+    transparent 90%
+  );
+}
+
+.hero-aurora-bar:nth-child(5) {
+  background: linear-gradient(
+    to top,
+    transparent 12%,
+    var(--color-primary-deep) 50%,
+    transparent 85%
+  );
+}
+
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.5'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
 }
