@@ -34,7 +34,7 @@ const SpeakersPage = () => {
           {SPEAKERS.map((speaker, i) => (
             <div key={i} className="group">
               {/* Photo placeholder */}
-              <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-gradient-to-br from-primary-bright via-primary to-primary-deep border-2 border-primary/30 mb-4" />
+              <div className="aspect-3/4 rounded-2xl overflow-hidden bg-linear-to-br from-primary-bright via-primary to-primary-deep border-2 border-primary/30 mb-4" />
 
               {/* Info */}
               <h3 className="font-space-grotesk text-background font-bold text-base">
