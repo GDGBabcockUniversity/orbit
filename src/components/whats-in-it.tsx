@@ -106,7 +106,7 @@ const BenefitCard = ({
   style?: React.CSSProperties;
 }) => (
   <div
-    className={`relative bg-foreground rounded-3xl p-8 md:p-12 flex flex-col items-center text-center shadow-[0_4px_24px_rgba(0,0,0,0.08)] ${className}`}
+    className={`relative bg-foreground rounded-3xl p-8 md:p-12 flex flex-col items-center text-center shadow-[0_4px_24px_rgba(0,0,0,0.08)] overflow-hidden ${className}`}
     style={style}
   >
     {/* Number badge — top-left, light purple bg */}
@@ -209,12 +209,13 @@ const DesktopDeck = () => {
                 className="absolute transition-all duration-500 ease-out"
                 style={{
                   width: "min(550px, 85%)",
+                  height: 420,
                   transform: `translateX(${translateX}px) translateY(${translateY}px) scale(${scale})`,
                   zIndex,
                   opacity,
                 }}
               >
-                <BenefitCard benefit={benefit} />
+                <BenefitCard benefit={benefit} className="h-full" />
               </div>
             );
           })}
