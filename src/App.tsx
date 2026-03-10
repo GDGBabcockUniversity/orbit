@@ -1,12 +1,13 @@
-import Hero from "./components/hero";
-import WhatsInItForYou from "./components/whats-in-it";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/home";
+import SpeakersPage from "./pages/speakers";
 
 const App = () => {
   return (
-    <>
-      <Hero />
-      <WhatsInItForYou />
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/speakers" element={<SpeakersPage />} />
+    </Routes>
   );
 };
 
