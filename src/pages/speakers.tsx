@@ -4,7 +4,7 @@ import SectionBadge from "../components/ui/section-badge";
 
 const SpeakersPage = () => {
   return (
-    <div className="bg-foreground min-h-screen">
+    <div className="bg-foreground min-h-screen pt-24">
       {/* Back link */}
       <div className="px-6 md:px-12 pt-8">
         <Link
