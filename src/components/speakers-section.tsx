@@ -24,14 +24,14 @@ const SpeakersSection = () => {
   };
 
   return (
-    <section className="bg-foreground py-16 md:py-24 overflow-hidden">
+    <section className="bg-background py-16 md:py-24 overflow-hidden">
       {/* Header */}
       <div className="text-center px-6">
         <SectionBadge>SPEAKERS</SectionBadge>
-        <h2 className="font-space-grotesk text-3xl md:text-4xl font-bold text-background mt-5">
+        <h2 className="font-space-grotesk text-3xl md:text-4xl font-bold text-foreground mt-5">
           Meet Our Speakers
         </h2>
-        <p className="mt-4 text-background/50 font-google-sans text-sm md:text-base max-w-lg mx-auto leading-relaxed">
+        <p className="mt-4 text-foreground/45 font-google-sans text-sm md:text-base max-w-lg mx-auto leading-relaxed">
           We&rsquo;ve raised the bar this year with our impressive lineup of
           speakers, each prepared to share valuable insights on different aspects
           of the tech community.
@@ -42,7 +42,7 @@ const SpeakersSection = () => {
       <div className="flex items-center justify-center gap-4 mt-8 md:mt-10">
         <button
           onClick={prev}
-          className="size-10 rounded-full border border-background/15 flex items-center justify-center text-background/50 hover:border-background/30 hover:text-background transition cursor-pointer"
+          className="size-10 rounded-full border border-foreground/15 flex items-center justify-center text-foreground/50 hover:border-foreground/30 hover:text-foreground transition cursor-pointer"
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="size-4">
             <path d="M15 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" />
@@ -50,7 +50,7 @@ const SpeakersSection = () => {
         </button>
         <button
           onClick={next}
-          className="size-10 rounded-full border border-background/15 flex items-center justify-center text-background/50 hover:border-background/30 hover:text-background transition cursor-pointer"
+          className="size-10 rounded-full border border-foreground/15 flex items-center justify-center text-foreground/50 hover:border-foreground/30 hover:text-foreground transition cursor-pointer"
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="size-4">
             <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
@@ -87,11 +87,9 @@ const SpeakersSection = () => {
                 }}
                 onClick={() => setActive(i)}
               >
-                <div className="w-full h-full rounded-2xl overflow-hidden bg-gradient-to-b from-background via-background to-primary-deep relative shadow-xl">
-                  {/* Placeholder image area */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-background/80 to-background" />
+                <div className="w-full h-full rounded-2xl overflow-hidden bg-linear-to-b from-primary-deep/40 via-background to-background relative border border-white/5 shadow-xl">
+                  <div className="absolute inset-0 bg-linear-to-b from-primary-deep/20 to-background/90" />
 
-                  {/* Speaker info -- only on center card */}
                   {isCenter && (
                     <div className="absolute bottom-0 inset-x-0 p-5 z-10">
                       <h3 className="font-space-grotesk text-white font-bold text-lg leading-tight">
@@ -118,10 +116,9 @@ const SpeakersSection = () => {
                     </div>
                   )}
 
-                  {/* Side card overlay label */}
                   {!isCenter && (
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="font-space-grotesk text-white/20 text-xs tracking-[0.3em] uppercase [writing-mode:vertical-lr] rotate-180">
+                      <span className="font-space-grotesk text-white/15 text-xs tracking-[0.3em] uppercase [writing-mode:vertical-lr] rotate-180">
                         SPEAKER NAME
                       </span>
                     </div>
@@ -139,9 +136,8 @@ const SpeakersSection = () => {
           <button
             key={i}
             onClick={() => setActive(i)}
-            className={`h-2 rounded-full transition-all cursor-pointer ${
-              i === active ? "w-6 bg-primary" : "w-2 bg-background/15"
-            }`}
+            className={`h-2 rounded-full transition-all cursor-pointer ${i === active ? "w-6 bg-primary" : "w-2 bg-foreground/15"
+              }`}
           />
         ))}
       </div>
