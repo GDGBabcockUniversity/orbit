@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
+import { IMAGES } from "../lib/constants";
 import OrbitLogo from "./orbit-logo";
 
 const FOOTER_LINKS = [
   { label: "About", href: "#about" },
-  { label: "Schedule", href: "#schedule" },
+  { label: "Experience", href: "#experience" },
   { label: "Speakers", href: "/speakers" },
-  { label: "Sponsors", href: "#sponsors" },
+  { label: "Sponsors & Partners", href: "/sponsors" },
+  { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -40,16 +42,28 @@ const SOCIALS = [
 ];
 
 const Footer = () => (
-  <footer className="bg-background border-t border-white/5 px-6 md:px-12 py-12 md:py-16">
+  <footer id="contact" className="bg-background border-t border-white/5 px-6 md:px-12 py-12 md:py-16">
     <div className="max-w-6xl mx-auto">
       {/* Top row */}
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10">
-        {/* Logo + tagline */}
+        {/* Logo + branding */}
         <div>
           <OrbitLogo inverted />
-          <p className="mt-3 text-white/40 font-google-sans text-sm max-w-xs leading-relaxed">
-            Where industry meets the next generation. Organized by GDG Babcock.
+          <p className="mt-3 text-white/50 font-google-sans text-sm max-w-xs leading-relaxed">
+            ORBIT 1.0 &mdash; Closing the Distance.
+            <br />
+            <span className="italic text-white/35">
+              Where campus meets industry.
+            </span>
           </p>
+          {/* GDG Babcock logo */}
+          <div className="mt-5 flex items-center gap-2">
+            <img
+              src={IMAGES.gdgBabcock.src}
+              alt="GDG on Campus, Babcock University"
+              className="h-8 w-auto"
+            />
+          </div>
         </div>
 
         {/* Links */}
@@ -93,11 +107,12 @@ const Footer = () => (
       {/* Divider */}
       <div className="mt-10 pt-6 border-t border-white/5 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
         <p className="text-white/30 font-google-sans text-xs">
-          &copy; {new Date().getFullYear()} Orbit by GDG Babcock. All rights
-          reserved.
+          &copy; {new Date().getFullYear()} ORBIT by GDG on Campus, Babcock.
+          All rights reserved.
         </p>
         <p className="text-white/30 font-google-sans text-xs">
-          March 29 &ndash; April 2, 2026 &middot; Babcock University
+          March 29 &ndash; April 2, 2026 &middot; Babcock University,
+          Ilishan-Remo
         </p>
       </div>
     </div>
