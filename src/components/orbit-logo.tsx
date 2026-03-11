@@ -1,6 +1,6 @@
 const OrbitLogo = ({ inverted = false }: { inverted?: boolean }) => (
   <div
-    className={`flex items-center gap-1.5 font-space-grotesk text-4xl lg:text-5xl tracking-widest ${inverted ? "text-foreground" : "text-background"
+    className={`flex items-center gap-1.5 font-rosnoc text-4xl lg:text-5xl tracking-widest ${inverted ? "text-foreground" : "text-background"
       }`}
   >
     <img
