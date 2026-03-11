@@ -12,23 +12,34 @@ const ExperienceCard = ({
   style?: React.CSSProperties;
 }) => (
   <div
-    className={`relative bg-foreground rounded-3xl p-8 md:p-12 flex flex-col shadow-[0_4px_24px_rgba(0,0,0,0.08)] overflow-hidden h-full ${className}`}
+    className={`relative rounded-3xl overflow-hidden h-full shadow-xl ${className}`}
     style={style}
   >
-    {/* Day badge */}
-    <div className="bg-primary/10 text-primary rounded-full size-10 md:size-14 flex items-center justify-center font-space-grotesk text-lg md:text-2xl font-bold mb-6 md:mb-8">
-      {experience.day}
+    {/* Background image */}
+    <img
+      src={experience.image}
+      alt={experience.title}
+      className="absolute inset-0 w-full h-full object-cover"
+    />
+
+    {/* Gradient overlay */}
+    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
+
+    {/* Content */}
+    <div className="relative z-10 h-full flex flex-col justify-end p-6 md:p-8">
+      {/* Day badge */}
+      <div className="bg-white/15 backdrop-blur-sm text-white rounded-full size-10 md:size-12 flex items-center justify-center font-space-grotesk text-base md:text-lg font-bold mb-4 border border-white/10">
+        {experience.day}
+      </div>
+
+      <h3 className="font-space-grotesk font-bold text-white text-xl md:text-2xl xl:text-3xl leading-snug">
+        Day {experience.day} &mdash; {experience.title}
+      </h3>
+
+      <p className="mt-2 md:mt-3 text-white/65 font-google-sans text-sm md:text-base leading-relaxed max-w-md">
+        {experience.description}
+      </p>
     </div>
-
-    {/* Title */}
-    <h3 className="font-space-grotesk font-bold text-background text-xl md:text-2xl xl:text-3xl leading-snug">
-      Day {experience.day} &mdash; {experience.title}
-    </h3>
-
-    {/* Description */}
-    <p className="mt-3 md:mt-4 text-background/50 font-google-sans text-sm md:text-base xl:text-lg leading-relaxed max-w-md">
-      {experience.description}
-    </p>
   </div>
 );
 
@@ -68,7 +79,7 @@ const DesktopDeck = () => {
     >
       <div className="sticky top-0 h-screen bg-foreground flex items-center overflow-hidden">
         {/* Left heading */}
-        <div className="w-[40%] pl-12 lg:pl-20 xl:pl-28 pr-8">
+        <div className="w-[35%] pl-12 lg:pl-20 xl:pl-28 pr-8">
           <SectionBadge>THE EXPERIENCE</SectionBadge>
           <h2 className="font-space-grotesk text-background text-4xl lg:text-5xl xl:text-6xl leading-tight font-bold mt-5">
             4 Days. 4 Experiences.{" "}
@@ -80,12 +91,12 @@ const DesktopDeck = () => {
         </div>
 
         {/* Right card deck */}
-        <div className="w-[60%] h-full flex items-center justify-center relative">
+        <div className="w-[65%] h-full flex items-center justify-center relative py-8">
           {EXPERIENCES.map((exp, i) => {
             const pos = (i - activeIndex + totalCards) % totalCards;
-            const translateX = pos * 50;
-            const translateY = pos * -35;
-            const scale = 1 - pos * 0.04;
+            const translateX = pos * 40;
+            const translateY = pos * -30;
+            const scale = 1 - pos * 0.03;
             const zIndex = totalCards - pos;
             const opacity = pos > 2 ? 0 : 1 - pos * 0.1;
 
@@ -94,8 +105,8 @@ const DesktopDeck = () => {
                 key={exp.day}
                 className="absolute transition-all duration-500 ease-out"
                 style={{
-                  width: "min(550px, 85%)",
-                  height: 400,
+                  width: "min(700px, 90%)",
+                  height: "min(550px, 80%)",
                   transform: `translateX(${translateX}px) translateY(${translateY}px) scale(${scale})`,
                   zIndex,
                   opacity,
