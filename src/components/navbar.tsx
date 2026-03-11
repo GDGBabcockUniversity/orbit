@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { NAV_LINKS } from "../lib/constants";
 import OrbitLogo from "./orbit-logo";
@@ -8,11 +8,22 @@ const Navbar = () => {
   const location = useLocation();
   const isHome = location.pathname === "/";
 
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
+
   return (
     <header className="fixed top-0 inset-x-0 z-50">
-      <nav className="mx-auto flex items-center justify-between px-6 md:px-10 py-4 bg-background/80 backdrop-blur-md border-b border-white/5">
+      <nav className={`relative z-50 mx-auto flex items-center justify-between px-6 md:px-10 py-4 border-b transition-colors ${mobileOpen ? "bg-background border-transparent" : "bg-background/80 backdrop-blur-md border-white/5"}`}>
         {/* Logo */}
-        <Link to="/" className="relative z-10">
+        <Link to="/" onClick={() => setMobileOpen(false)}>
           <OrbitLogo inverted />
         </Link>
 
@@ -49,27 +60,27 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Mobile hamburger */}
+        {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden relative z-10 flex flex-col gap-1.5 p-2 cursor-pointer"
-          aria-label="Toggle menu"
+          className="lg:hidden relative size-10 flex items-center justify-center cursor-pointer"
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
         >
           <span
-            className={`block w-6 h-0.5 bg-white transition-transform ${mobileOpen ? "rotate-45 translate-y-2" : ""}`}
+            className={`absolute w-6 h-0.5 bg-white transition-all duration-300 ${mobileOpen ? "rotate-45" : "-translate-y-[6px]"}`}
           />
           <span
-            className={`block w-6 h-0.5 bg-white transition-opacity ${mobileOpen ? "opacity-0" : ""}`}
+            className={`absolute w-6 h-0.5 bg-white transition-all duration-300 ${mobileOpen ? "opacity-0" : ""}`}
           />
           <span
-            className={`block w-6 h-0.5 bg-white transition-transform ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`}
+            className={`absolute w-6 h-0.5 bg-white transition-all duration-300 ${mobileOpen ? "-rotate-45" : "translate-y-[6px]"}`}
           />
         </button>
       </nav>
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden fixed inset-0 top-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center gap-6 pt-20">
+        <div className="lg:hidden fixed inset-0 top-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center gap-6">
           {NAV_LINKS.map((link) =>
             link.href.startsWith("/") ? (
               <Link
