@@ -32,24 +32,28 @@ export const EXPERIENCES = [
     title: "Hackathon",
     description:
       "Build, break, and ship in 24 hours alongside mentors from top companies.",
+    image: "/images/pngs/day-one.png",
   },
   {
     day: 2,
     title: "Field Trips",
     description:
       "Step inside the offices of leading tech companies across Lagos.",
+    image: "/images/pngs/day-two.png",
   },
   {
     day: 3,
     title: "Panel Discussions",
     description:
       "Honest conversations with founders, engineers, and operators shaping the African tech ecosystem.",
+    image: "/images/pngs/day-three.png",
   },
   {
     day: 4,
     title: "Career Fair & Closing",
     description:
       "Meet recruiters, drop your CV, and walk away with real leads\u200A\u2014\u200Anot just swag.",
+    image: "/images/pngs/day-four.png",
   },
 ];
 
