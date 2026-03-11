@@ -5,7 +5,14 @@ body {
   background-color: var(--color-foreground);
 }
 
+@font-face {
+  font-family: "Rosnoc";
+  src: url("/fonts/Rosnoc.otf") format("opentype");
+  font-display: swap;
+}
+
 @theme {
+  --font-rosnoc: "Rosnoc", sans-serif;
   --font-space-grotesk: "Space Grotesk", sans-serif;
   --font-google-sans: "Google Sans", sans-serif;
 
