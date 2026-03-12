@@ -23,7 +23,7 @@ const ExperienceCard = ({
     />
 
     {/* Gradient overlay */}
-    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
+    <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-black/10" />
 
     {/* Content */}
     <div className="relative z-10 h-full flex flex-col justify-end p-6 md:p-8">
