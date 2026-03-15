@@ -31,6 +31,14 @@ const AdminPage = () => {
   // Data State
   const [tickets, setTickets] = useState<Ticket[]>([]);
   const [loadingData, setLoadingData] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
+
+  const filteredTickets = tickets.filter((t) => {
+    return (
+      t.email.toLowerCase().includes(searchValue.toLowerCase()) ||
+      t.fullName.toLowerCase().includes(searchValue.toLowerCase())
+    );
+  });
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -201,7 +209,7 @@ const AdminPage = () => {
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-6 py-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
             <h2 className="text-3xl font-space-grotesk font-bold text-white">
               Event Registrations
@@ -229,6 +237,14 @@ const AdminPage = () => {
             Export to CSV
           </button> */}
         </div>
+
+        <input
+          required
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+          placeholder="Search by name or email address..."
+          className="w-full bg-black/40 border border-white/10 my-8 rounded-2xl px-4 py-2.5 text-white font-google-sans focus:outline-none focus:border-primary-bright transition"
+        />
 
         {/* Data Table */}
         <div className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden backdrop-blur-sm">
@@ -273,7 +289,7 @@ const AdminPage = () => {
                     </td>
                   </tr>
                 ) : (
-                  tickets.map((ticket) => (
+                  filteredTickets.map((ticket) => (
                     <tr
                       key={ticket.id}
                       className="hover:bg-white/5 transition group"
