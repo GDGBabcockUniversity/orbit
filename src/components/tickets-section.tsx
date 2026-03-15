@@ -20,8 +20,8 @@ const TicketsSection = () => {
         </h2>
 
         <p className="mt-4 text-foreground/40 font-google-sans text-sm md:text-base max-w-md mx-auto">
-          Whether you&rsquo;re a student, a company, or a
-          sponsor&hairsp;&mdash;&hairsp;there&rsquo;s a place for you.
+          Whether you&rsquo;re a student, a company, or a sponsor &mdash;
+          there&rsquo;s a place for you.
         </p>
 
         {/* Triple CTAs */}
