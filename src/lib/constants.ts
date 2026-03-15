@@ -14,9 +14,9 @@ export const NAV_LINKS = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Speakers", href: "/speakers" },
-  { label: "Sponsors & Partners", href: "/sponsors" },
+  { label: "Sponsors & Partners", href: "/docs/orbit.pdf" },
   { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "mailto:partnerships@gdgbabcock.com" },
 ];
 
 export const HERO_STATS = [
