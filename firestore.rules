@@ -1,0 +1,26 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Tickets Collection Rules
+    match /tickets/{ticketId} {
+      // Allow anyone to read a single ticket by ID (used for duplicate email check)
+      allow get: if true;
+      
+      // Only authenticated admins can list all tickets
+      allow list: if request.auth != null;
+      
+      // Allow anyone to create a ticket (spam prevention handled by Captcha)
+      allow create: if true;
+      
+      // Only authenticated admins can update or delete tickets
+      allow update, delete: if request.auth != null;
+    }
+
+    // Raffle Tickets Collection Rules (For future feature)
+    match /raffle_tickets/{ticketId} {
+      allow create: if true;
+      allow read, update, delete: if request.auth != null;
+    }
+  }
+}
