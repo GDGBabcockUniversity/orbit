@@ -48,7 +48,9 @@ const AdminPage = () => {
     setLoginError("");
     setIsLoggingIn(true);
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      if (email === "gdgbabcock@gmail.com") {
+        await signInWithEmailAndPassword(auth, email, password);
+      }
     } catch (error: unknown) {
       console.error("Login failed:", error);
       setLoginError("Invalid email or password.");
@@ -144,7 +146,7 @@ const AdminPage = () => {
               </div>
               <button
                 type="submit"
-                disabled={isLoggingIn}
+                disabled={isLoggingIn || email !== "gdgbabcock@gmail.com"}
                 className="w-full mt-2 bg-primary text-white py-3 rounded-lg font-google-sans transition hover:bg-primary-mid disabled:opacity-50"
               >
                 {isLoggingIn ? "Signing In..." : "Sign In"}
