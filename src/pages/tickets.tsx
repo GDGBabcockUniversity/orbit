@@ -15,7 +15,8 @@ const TicketsPage = () => {
     fullName: "",
     email: "",
     role: "",
-    // organization: "",
+    organization: "",
+    checkedIn: false,
   });
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
