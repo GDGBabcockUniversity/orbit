@@ -160,14 +160,10 @@ const AdminPage = () => {
 
   // --- Dashboard View ---
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background mt-20">
       {/* Admin Header */}
       <header className="border-b border-white/10 bg-black/20 sticky top-0 z-10 backdrop-blur-md px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <Link to="/" className="opacity-80 hover:opacity-100 transition">
-            <OrbitLogo inverted />
-          </Link>
-          <div className="h-6 w-px bg-white/20 hidden md:block" />
           <h1 className="text-white font-space-grotesk font-bold text-xl hidden md:block">
             ORBIT Dashboard
           </h1>
@@ -216,7 +212,7 @@ const AdminPage = () => {
             </p>
           </div>
 
-          <button className="bg-white text-black font-google-sans font-medium px-5 py-2.5 rounded-full hover:bg-gray-200 transition flex items-center gap-2">
+          {/* <button className="bg-white text-black font-google-sans font-medium px-5 py-2.5 rounded-full hover:bg-gray-200 transition flex items-center gap-2">
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -231,7 +227,7 @@ const AdminPage = () => {
               />
             </svg>
             Export to CSV
-          </button>
+          </button> */}
         </div>
 
         {/* Data Table */}
