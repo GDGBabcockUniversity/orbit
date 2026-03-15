@@ -1,4 +1,5 @@
 import SectionBadge from "./ui/section-badge";
+import { Link } from "react-router-dom";
 
 const TICKET_CARDS = [
   { rotate: -12, translateY: 20, zIndex: 1 },
@@ -25,8 +26,8 @@ const TicketsSection = () => {
 
         {/* Triple CTAs */}
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-          <a
-            href="#"
+          <Link
+            to="/tickets"
             className="bg-primary text-white font-google-sans text-sm tracking-wider px-7 py-3.5 rounded-full hover:bg-primary-mid transition inline-flex items-center gap-2"
           >
             <svg
@@ -43,7 +44,7 @@ const TicketsSection = () => {
               />
             </svg>
             Get Tickets
-          </a>
+          </Link>
           <a
             href="/docs/orbit.pdf"
             target="_blank"
