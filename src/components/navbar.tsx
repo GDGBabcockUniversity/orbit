@@ -15,10 +15,6 @@ const Navbar = () => {
     };
   }, [mobileOpen]);
 
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [location.pathname]);
-
   return (
     <header className="fixed top-0 inset-x-0 z-50">
       <nav
@@ -58,12 +54,12 @@ const Navbar = () => {
 
         {/* Desktop CTA */}
         <div className="hidden lg:block">
-          <a
-            href="#tickets"
+          <Link
+            to="/tickets"
             className="bg-primary text-white font-google-sans text-sm tracking-wider px-6 py-2.5 rounded-full hover:bg-primary-mid transition inline-flex items-center gap-2"
           >
             Get Tickets
-          </a>
+          </Link>
         </div>
 
         {/* Mobile toggle */}
@@ -112,13 +108,13 @@ const Navbar = () => {
               </a>
             ),
           )}
-          <a
-            href="#tickets"
+          <Link
+            to="/tickets"
             onClick={() => setMobileOpen(false)}
             className="mt-4 bg-primary text-white font-google-sans text-sm tracking-wider px-8 py-3 rounded-full hover:bg-primary-mid transition"
           >
             Get Tickets
-          </a>
+          </Link>
         </div>
       )}
     </header>
