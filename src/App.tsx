@@ -3,6 +3,8 @@ import Navbar from "./components/navbar";
 import Home from "./pages/home";
 import SpeakersPage from "./pages/speakers";
 import SponsorsPage from "./pages/sponsors";
+import TicketsPage from "./pages/tickets";
+import AdminPage from "./pages/admin";
 import Footer from "./components/footer";
 
 const App = () => {
@@ -13,6 +15,8 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/speakers" element={<SpeakersPage />} />
         <Route path="/sponsors" element={<SponsorsPage />} />
+        <Route path="/tickets" element={<TicketsPage />} />
+        <Route path="/admin" element={<AdminPage />} />
       </Routes>
       <Footer />
     </>
