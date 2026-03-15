@@ -300,7 +300,7 @@ const AdminPage = () => {
                       Loading data...
                     </td>
                   </tr>
-                ) : tickets.length === 0 ? (
+                ) : filteredTickets.length === 0 ? (
                   <tr>
                     <td
                       colSpan={5}
