@@ -1,3 +1,15 @@
+export const CREDENTIALS = {
+  firebase: {
+    apiKey: "AIzaSyD8XcMN9RtZ11MYeWUurXzHqA60XhXGtY8",
+    authDomain: "gdg-babcock.firebaseapp.com",
+    projectId: "gdg-babcock",
+    storageBucket: "gdg-babcock.firebasestorage.app",
+    messagingSenderId: "568263421104",
+    appId: "1:568263421104:web:ff3f87d321e65e404d5f75",
+    measurementId: "G-M4L525KBDD",
+  },
+};
+
 export const IMAGES = {
   logo: { src: "/images/svgs/logo.svg", width: 100, height: 100 },
   logoPng: { src: "/images/pngs/logo.png" },
