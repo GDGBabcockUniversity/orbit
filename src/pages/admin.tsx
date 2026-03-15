@@ -5,7 +5,14 @@ import {
   onAuthStateChanged,
   type User,
 } from "firebase/auth";
-import { collection, query, orderBy, getDocs } from "firebase/firestore";
+import {
+  collection,
+  query,
+  orderBy,
+  getDocs,
+  updateDoc,
+  doc,
+} from "firebase/firestore";
 import { auth, db } from "../lib/firebase";
 
 type Ticket = {
@@ -14,6 +21,7 @@ type Ticket = {
   email: string;
   role: string;
   organization: string;
+  checkedIn: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   createdAt: any;
 };
@@ -86,6 +94,18 @@ const AdminPage = () => {
       console.error("Failed to fetch tickets:", error);
     } finally {
       setLoadingData(false);
+    }
+  };
+
+  const checkIn = async (email: string) => {
+    try {
+      await updateDoc(doc(db, "tickets", email), {
+        checkedIn: true,
+      });
+
+      fetchTickets();
+    } catch (error) {
+      console.error("Failed to update user:", error);
     }
   };
 
@@ -267,6 +287,7 @@ const AdminPage = () => {
                   <th className="px-6 py-4 font-google-sans text-sm font-medium text-white/50 uppercase tracking-wider">
                     Registered
                   </th>
+                  <th className="px-6 py-4"></th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/5">
@@ -316,6 +337,20 @@ const AdminPage = () => {
                         {ticket.createdAt?.toDate
                           ? ticket.createdAt.toDate().toLocaleDateString()
                           : "Just now"}
+                      </td>
+
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white/50 font-google-sans">
+                        <button
+                          type="submit"
+                          disabled={ticket.checkedIn}
+                          onClick={() => checkIn(ticket.email)}
+                          className={
+                            "w-full mt-2 bg-primary text-white py-1 rounded-lg font-google-sans transition hover:bg-primary-mid disabled:opacity-50 cursor-pointer" +
+                            (ticket.checkedIn ? " bg-black" : "")
+                          }
+                        >
+                          {ticket.checkedIn ? "Checked In" : "Check In"}
+                        </button>
                       </td>
                     </tr>
                   ))
