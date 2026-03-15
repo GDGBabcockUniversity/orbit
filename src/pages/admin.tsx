@@ -7,8 +7,6 @@ import {
 } from "firebase/auth";
 import { collection, query, orderBy, getDocs } from "firebase/firestore";
 import { auth, db } from "../lib/firebase";
-import OrbitLogo from "../components/orbit-logo";
-import { Link } from "react-router-dom";
 
 type Ticket = {
   id: string;
