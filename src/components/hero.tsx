@@ -1,5 +1,6 @@
 import { HERO_STATS } from "../lib/constants";
 import CountdownTimer from "./countdown-timer";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -61,15 +62,15 @@ const Hero = () => {
 
         {/* Dual CTAs */}
         <div className="mt-10 md:mt-14 flex flex-col sm:flex-row items-center gap-4">
-          <a
-            href="#tickets"
+          <Link
+            to="/tickets"
             className="bg-primary text-white font-google-sans text-sm tracking-wider px-8 py-3.5 rounded-full hover:bg-primary-mid transition inline-flex items-center gap-2.5"
           >
             Get Tickets
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="size-4">
               <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </a>
+          </Link>
           <a
             href="/docs/orbit.pdf"
             target="_blank"
