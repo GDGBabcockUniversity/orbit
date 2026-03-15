@@ -71,7 +71,9 @@ const Hero = () => {
             </svg>
           </a>
           <a
-            href="#contact"
+            href="/docs/orbit.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="border border-white/20 text-white/80 font-google-sans text-sm tracking-wider px-8 py-3.5 rounded-full hover:border-white/40 hover:text-white transition"
           >
             Partner with ORBIT
