@@ -36,7 +36,9 @@ const SponsorsPreview = () => (
           View All Sponsors &amp; Partners
         </Link>
         <a
-          href="#contact"
+          href="/docs/orbit.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
           className="border border-background/20 text-background/70 font-google-sans text-sm tracking-wider px-7 py-3.5 rounded-full hover:border-background/40 hover:text-background transition"
         >
           Partner with ORBIT
