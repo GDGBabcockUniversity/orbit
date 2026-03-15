@@ -6,9 +6,9 @@ const FOOTER_LINKS = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Speakers", href: "/speakers" },
-  { label: "Sponsors & Partners", href: "/sponsors" },
+  { label: "Sponsors & Partners", href: "/docs/orbit.pdf" },
   { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "mailto:partnerships@gdgbabcock.com" },
 ];
 
 const SOCIALS = [
@@ -72,7 +72,17 @@ const Footer = () => (
         {/* Links */}
         <nav className="flex flex-wrap gap-x-8 gap-y-3">
           {FOOTER_LINKS.map((link) =>
-            link.href.startsWith("/") ? (
+            link.label === "Sponsors & Partners" ? (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/50 hover:text-white font-google-sans text-sm transition"
+              >
+                {link.label}
+              </a>
+            ) : link.href.startsWith("/") ? (
               <Link
                 key={link.label}
                 to={link.href}
