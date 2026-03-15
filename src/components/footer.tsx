@@ -42,7 +42,10 @@ const SOCIALS = [
 ];
 
 const Footer = () => (
-  <footer id="contact" className="bg-background border-t border-white/5 px-6 md:px-12 py-12 md:py-16">
+  <footer
+    id="contact"
+    className="bg-background border-t border-white/5 px-6 md:px-12 py-12 md:py-16"
+  >
     <div className="max-w-6xl mx-auto">
       {/* Top row */}
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10">
@@ -107,8 +110,8 @@ const Footer = () => (
       {/* Divider */}
       <div className="mt-10 pt-6 border-t border-white/5 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
         <p className="text-white/30 font-google-sans text-xs">
-          &copy; {new Date().getFullYear()} ORBIT by GDG on Campus, Babcock.
-          All rights reserved.
+          &copy; {new Date().getFullYear()} ORBIT by GDG on Campus, Babcock
+          University. All rights reserved.
         </p>
         <p className="text-white/30 font-google-sans text-xs">
           March 29 &ndash; April 2, 2026 &middot; Babcock University,
