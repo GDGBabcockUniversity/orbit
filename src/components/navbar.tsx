@@ -21,7 +21,9 @@ const Navbar = () => {
 
   return (
     <header className="fixed top-0 inset-x-0 z-50">
-      <nav className={`relative z-50 mx-auto flex items-center justify-between px-6 md:px-10 py-4 border-b transition-colors ${mobileOpen ? "bg-background border-transparent" : "bg-background/80 backdrop-blur-md border-white/5"}`}>
+      <nav
+        className={`relative z-50 mx-auto flex items-center justify-between px-6 md:px-10 py-4 border-b transition-colors ${mobileOpen ? "bg-background border-transparent" : "bg-background/80 backdrop-blur-md border-white/5"}`}
+      >
         {/* Logo */}
         <Link to="/" onClick={() => setMobileOpen(false)}>
           <OrbitLogo inverted />
@@ -34,6 +36,8 @@ const Navbar = () => {
               <Link
                 key={link.label}
                 to={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-white/60 hover:text-white font-google-sans text-sm transition"
               >
                 {link.label}
@@ -42,6 +46,8 @@ const Navbar = () => {
               <a
                 key={link.label}
                 href={isHome ? link.href : `/${link.href}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-white/60 hover:text-white font-google-sans text-sm transition"
               >
                 {link.label}
@@ -87,6 +93,8 @@ const Navbar = () => {
                 key={link.label}
                 to={link.href}
                 onClick={() => setMobileOpen(false)}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-white/80 hover:text-white font-google-sans text-lg transition"
               >
                 {link.label}
@@ -96,6 +104,8 @@ const Navbar = () => {
                 key={link.label}
                 href={isHome ? link.href : `/${link.href}`}
                 onClick={() => setMobileOpen(false)}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-white/80 hover:text-white font-google-sans text-lg transition"
               >
                 {link.label}
