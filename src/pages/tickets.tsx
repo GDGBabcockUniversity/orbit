@@ -1,11 +1,6 @@
 import { useState } from "react";
 import { Turnstile } from "@marsidev/react-turnstile";
-import {
-  doc,
-  getDoc,
-  setDoc,
-  serverTimestamp,
-} from "firebase/firestore";
+import { doc, getDoc, setDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../lib/firebase";
 // import OrbitLogo from "../components/orbit-logo";
 import { Link } from "react-router-dom";
@@ -40,11 +35,11 @@ const TicketsPage = () => {
     e.preventDefault();
     setErrorMessage("");
 
-    // if (!turnstileToken) {
-    //   setErrorMessage("Please complete the captcha.");
-    //   setStatus("error");
-    //   return;
-    // }
+    if (!turnstileToken) {
+      setErrorMessage("Please complete the captcha.");
+      setStatus("error");
+      return;
+    }
 
     setLoading(true);
     setStatus("idle");
