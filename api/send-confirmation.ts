@@ -17,7 +17,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     const data = await resend.emails.send({
-      from: "ORBIT <partnerships@gdgbabcock.com>", // Replace with a verified domain
+      from: "ORBIT <hello@gdgbabcock.com>", // Replace with a verified domain
       to: email,
       subject: "🎟️ Your Ticket to ORBIT 1.0 is Confirmed!",
       html: `
