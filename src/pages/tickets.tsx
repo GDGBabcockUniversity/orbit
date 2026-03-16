@@ -65,16 +65,20 @@ const TicketsPage = () => {
         createdAt: serverTimestamp(),
       });
 
-      // 3. Trigger email via Resend edge function (to be implemented)
+      // 3. Send confirmation email via Resend serverless function
       try {
-        await fetch("/api/send-confirmation", {
+        const emailRes = await fetch("/api/send-confirmation", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
         });
+
+        if (!emailRes.ok) {
+          const errorBody = await emailRes.json().catch(() => ({}));
+          console.error("Confirmation email failed:", emailRes.status, errorBody);
+        }
       } catch (emailError) {
         console.error("Failed to trigger confirmation email:", emailError);
-        // We still show success for the ticket creation even if the email trigger fails silently
       }
 
       setStatus("success");
