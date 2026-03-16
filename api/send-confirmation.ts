@@ -1,10 +1,13 @@
 import { Resend } from "resend";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 
-const resend = new Resend(process.env.RESEND_API_KEY || "re_test_key");
+if (!process.env.RESEND_API_KEY) {
+  throw new Error("RESEND_API_KEY environment variable is not set");
+}
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  // Only allow POST requests
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Method Not Allowed" });
   }
@@ -17,12 +20,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     const { data, error } = await resend.emails.send({
-      from: "ORBIT <hello@gdgbabcock.com>", // Replace with a verified domain
+      from: "ORBIT <hello@gdgbabcock.com>",
       to: email,
       subject: "🎟️ Your Ticket to ORBIT 1.0 is Confirmed!",
       html: `
-        <div style="font-family: sans-serif; max-w: 600px; margin: 0 auto; color: #333; line-height: 1.6;">
-          <h1 style="color: #ef4444; margin-bottom: 24px;">You're in, ${fullName}! 🎉</h1>
+        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #333; line-height: 1.6;">
+          <h1 style="color: #7b00ff; margin-bottom: 24px;">You're in, ${fullName}! 🎉</h1>
 
           <p>This email confirms your registration for <strong>ORBIT 1.0</strong>.</p>
 
@@ -32,12 +35,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             <p style="margin: 0; font-size: 14px; color: #666; text-transform: uppercase; letter-spacing: 1px;">Registration Details</p>
             <p style="margin: 8px 0 4px 0;"><strong>Name:</strong> ${fullName}</p>
             <p style="margin: 4px 0 4px 0;"><strong>Role:</strong> ${role}</p>
-            <p style="margin: 4px 0 0 0;"><strong>Organization:</strong> ${organization || "N/A"}</p>
           </div>
-
-          <p>More details regarding the schedule, speakers, and venues will be sent to this email address closer to the event.</p>
-
-          <p>If you have any questions in the meantime, feel free to reply directly to this email.</p>
 
           <p style="margin-top: 40px;">Best regards,<br>The ORBIT Team</p>
         </div>
