@@ -1,15 +1,23 @@
 import http from "node:http";
 import { config } from "dotenv";
 
-// Load .env.local before importing the handler so RESEND_API_KEY is available
 config({ path: ".env.local" });
 
-const { default: handler } = await import("./api/send-confirmation.ts");
+const { default: confirmationHandler } = await import("./api/send-confirmation.ts");
+const { default: raffleVerifyHandler } = await import("./api/raffle-verify.ts");
+const { default: raffleEmailHandler } = await import("./api/send-raffle-email.ts");
 
 const PORT = 3001;
 
+type Handler = (req: any, res: any) => Promise<any>;
+
+const routes: Record<string, Handler> = {
+  "/api/send-confirmation": confirmationHandler,
+  "/api/raffle-verify": raffleVerifyHandler,
+  "/api/send-raffle-email": raffleEmailHandler,
+};
+
 const server = http.createServer((req, res) => {
-  // CORS headers for local dev
   res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
@@ -21,7 +29,7 @@ const server = http.createServer((req, res) => {
   }
 
   let raw = "";
-  req.on("data", (chunk) => (raw += chunk));
+  req.on("data", (chunk: string) => (raw += chunk));
   req.on("end", () => {
     try {
       (req as any).body = raw ? JSON.parse(raw) : {};
@@ -29,12 +37,11 @@ const server = http.createServer((req, res) => {
       (req as any).body = {};
     }
 
-    // Polyfill Vercel response methods on top of the plain Node ServerResponse
     const vercelRes = res as any;
 
     vercelRes.status = (code: number) => {
       res.statusCode = code;
-      return vercelRes; // allow chaining: res.status(200).json(...)
+      return vercelRes;
     };
 
     vercelRes.json = (data: unknown) => {
@@ -51,6 +58,13 @@ const server = http.createServer((req, res) => {
       }
       return vercelRes;
     };
+
+    const handler = routes[req.url ?? ""];
+    if (!handler) {
+      res.writeHead(404, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ error: "Not found" }));
+      return;
+    }
 
     handler(req as any, vercelRes).catch((err: unknown) => {
       console.error("[api] Unhandled error in handler:", err);
