@@ -33,15 +33,30 @@ const SpeakersPage = () => {
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {SPEAKERS.map((speaker, i) => (
             <div key={i} className="group">
-              {/* Photo placeholder */}
-              <div className="aspect-3/4 rounded-2xl overflow-hidden bg-linear-to-br from-primary-bright via-primary to-primary-deep border-2 border-primary/30 mb-4" />
+              {/* Photo */}
+              <div className="aspect-3/4 rounded-2xl overflow-hidden bg-linear-to-br from-primary-bright via-primary to-primary-deep mb-4 relative">
+                {speaker.image ? (
+                  <img
+                    src={speaker.image}
+                    alt={speaker.name}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="font-space-grotesk text-white/20 text-4xl font-bold">
+                      {speaker.name.charAt(0)}
+                    </span>
+                  </div>
+                )}
+              </div>
 
               {/* Info */}
               <h3 className="font-space-grotesk text-background font-bold text-base">
                 {speaker.name}
               </h3>
               <p className="font-google-sans text-primary text-sm mt-0.5">
-                {speaker.role}, {speaker.company}
+                {speaker.role}
+                {speaker.company && ","} {speaker.company}
               </p>
               <p className="font-google-sans text-background/50 text-sm mt-2 leading-relaxed">
                 {speaker.bio}
