@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 import Navbar from "./components/navbar";
 import Home from "./pages/home";
 import SpeakersPage from "./pages/speakers";
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/admin" element={<AdminPage />} />
       </Routes>
       <Footer />
+      <Analytics />
     </>
   );
 };
