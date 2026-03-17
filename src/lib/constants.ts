@@ -172,6 +172,11 @@ export const SPEAKERS = [
   },
 ];
 
+export const SPONSORS = [
+  { name: "Gadget Cartel", logo: "/images/sponsors - webps/gadget-cartel.webp" },
+  { name: "Jules Luxury", logo: "/images/sponsors - webps/jules-luxury.webp" },
+];
+
 export const DETAILED_STATS = [
   {
     value: "1,500+",
