@@ -32,8 +32,6 @@ const Navbar = () => {
               <Link
                 key={link.label}
                 to={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="text-white/60 hover:text-white font-google-sans text-sm transition"
               >
                 {link.label}
@@ -42,8 +40,6 @@ const Navbar = () => {
               <a
                 key={link.label}
                 href={isHome ? link.href : `/${link.href}`}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="text-white/60 hover:text-white font-google-sans text-sm transition"
               >
                 {link.label}
@@ -89,8 +85,6 @@ const Navbar = () => {
                 key={link.label}
                 to={link.href}
                 onClick={() => setMobileOpen(false)}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="text-white/80 hover:text-white font-google-sans text-lg transition"
               >
                 {link.label}
@@ -100,8 +94,6 @@ const Navbar = () => {
                 key={link.label}
                 href={isHome ? link.href : `/${link.href}`}
                 onClick={() => setMobileOpen(false)}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="text-white/80 hover:text-white font-google-sans text-lg transition"
               >
                 {link.label}
