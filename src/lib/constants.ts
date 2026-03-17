@@ -26,7 +26,7 @@ export const NAV_LINKS = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Speakers", href: "/speakers" },
-  { label: "Sponsors & Partners", href: "/docs/orbit.pdf" },
+  { label: "Sponsors & Partners", href: "/sponsors" },
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "mailto:partnerships@gdgbabcock.com" },
 ];
@@ -173,7 +173,10 @@ export const SPEAKERS = [
 ];
 
 export const SPONSORS = [
-  { name: "Gadget Cartel", logo: "/images/sponsors - webps/gadget-cartel.webp" },
+  {
+    name: "Gadget Cartel",
+    logo: "/images/sponsors - webps/gadget-cartel.webp",
+  },
   { name: "Jules Luxury", logo: "/images/sponsors - webps/jules-luxury.webp" },
 ];
 
