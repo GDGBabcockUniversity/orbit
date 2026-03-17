@@ -19,7 +19,7 @@ const WhyOrbitSection = () => (
             key={i}
             className="rounded-2xl border border-white/8 bg-white/3 p-7 md:p-9 group hover:bg-white/6 transition-colors"
           >
-            <div className="bg-primary/15 text-primary rounded-full size-10 flex items-center justify-center font-space-grotesk text-lg font-bold mb-5">
+            <div className="bg-white text-primary rounded-full size-10 flex items-center justify-center font-space-grotesk text-lg font-bold mb-5">
               {i + 1}
             </div>
             <h3 className="font-space-grotesk text-foreground font-bold text-lg md:text-xl">
