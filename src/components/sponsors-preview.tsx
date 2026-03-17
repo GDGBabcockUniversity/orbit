@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { SPONSORS } from "../lib/constants";
 import SectionBadge from "./ui/section-badge";
 
 const SponsorsPreview = () => (
@@ -13,16 +14,26 @@ const SponsorsPreview = () => (
         future of African tech talent.
       </p>
 
-      {/* Placeholder grid */}
-      <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
-        {Array.from({ length: 4 }).map((_, i) => (
+      {/* Sponsor logos */}
+      <div className="mt-12 flex flex-wrap items-center justify-center gap-6">
+        {SPONSORS.map((sponsor) => (
           <div
-            key={i}
-            className="aspect-2/1 rounded-xl border border-background/8 bg-white flex items-center justify-center"
+            key={sponsor.name}
+            className="w-36 md:w-44 aspect-square rounded-xl border border-background/8 bg-white overflow-hidden"
           >
-            <span className="text-background/15 font-google-sans text-sm">
-              Logo
-            </span>
+            {sponsor.logo ? (
+              <img
+                src={sponsor.logo}
+                alt={sponsor.name}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center">
+                <span className="text-background/30 font-google-sans text-sm">
+                  {sponsor.name}
+                </span>
+              </div>
+            )}
           </div>
         ))}
       </div>
