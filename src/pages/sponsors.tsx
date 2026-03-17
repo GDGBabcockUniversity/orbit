@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { SPONSORS } from "../lib/constants";
 import SectionBadge from "../components/ui/section-badge";
 
 const SponsorsPage = () => {
@@ -34,31 +35,24 @@ const SponsorsPage = () => {
             Sponsors
           </h2>
           <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-6">
-            {Array.from({ length: 4 }).map((_, i) => (
+            {SPONSORS.map((sponsor) => (
               <div
-                key={`s-${i}`}
-                className="aspect-2/1 rounded-xl border border-background/8 bg-surface flex items-center justify-center"
+                key={sponsor.name}
+                className="aspect-square rounded-xl border border-background/8 bg-surface overflow-hidden"
               >
-                <span className="text-background/15 font-google-sans text-sm">
-                  Coming soon
-                </span>
-              </div>
-            ))}
-          </div>
-
-          {/* Community Partners */}
-          <h2 className="font-space-grotesk text-xl md:text-2xl font-bold text-background mt-14">
-            Community Partners
-          </h2>
-          <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-6">
-            {Array.from({ length: 4 }).map((_, i) => (
-              <div
-                key={`cp-${i}`}
-                className="aspect-2/1 rounded-xl border border-background/8 bg-surface flex items-center justify-center"
-              >
-                <span className="text-background/15 font-google-sans text-sm">
-                  Coming soon
-                </span>
+                {sponsor.logo ? (
+                  <img
+                    src={sponsor.logo}
+                    alt={sponsor.name}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center">
+                    <span className="text-background/30 font-google-sans text-sm">
+                      {sponsor.name}
+                    </span>
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -69,12 +63,24 @@ const SponsorsPage = () => {
               Interested in supporting ORBIT?
             </p>
             <a
-              href="#contact"
+              href="/docs/orbit.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-primary text-white font-google-sans text-sm tracking-wider px-8 py-3.5 rounded-full hover:bg-primary-mid transition inline-flex items-center gap-2"
             >
               Partner with ORBIT
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="size-4">
-                <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                className="size-4"
+              >
+                <path
+                  d="M5 12h14M12 5l7 7-7 7"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </a>
           </div>
