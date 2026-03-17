@@ -6,7 +6,7 @@ const FOOTER_LINKS = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Speakers", href: "/speakers" },
-  { label: "Sponsors & Partners", href: "/docs/orbit.pdf" },
+  { label: "Sponsors & Partners", href: "/sponsors" },
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "mailto:partnerships@gdgbabcock.com" },
 ];
@@ -76,8 +76,6 @@ const Footer = () => (
               <a
                 key={link.label}
                 href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="text-white/50 hover:text-white font-google-sans text-sm transition"
               >
                 {link.label}
