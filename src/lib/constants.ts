@@ -101,11 +101,11 @@ export const SPEAKERS = [
     image: "/images/webps/obadare-peter-adewale.webp",
   },
   {
-    name: "Mayowa Adeyemi",
+    name: "Mayowa Adewumi",
     role: "Regional Manager, Security Solutions",
     company: "Mastercard",
     bio: "Mayowa Adewumi is a lover of God and an experienced cybersecurity leader with a decade of expertise spanning embedded systems, cybersecurity, information security, and data privacy across the banking, fintech, and FMCG sectors. He currently serves as Regional Manager, Security Solutions at Mastercard, where he supports cybersecurity initiatives and strategic security solutions across the Eastern Europe, Middle East, and Africa (EEMEA) region, focusing on cyber resilience, cyber risk management, and third-party risk.\n\nPrior to Mastercard, Mayowa grew from an intern to a Senior/Lead cybersecurity Consultant at PwC West Africa, advising leading financial institutions on cybersecurity strategy, application security, cloud security, vulnerability assessment and penetration testing (VAPT), and governance, risk, and compliance.\n\nBeyond his professional work, he is passionate about developing future technology and cybersecurity leaders, having trained hundreds of professionals and mentored over 20 undergraduate and postgraduate students globally, supporting their final-year research and academic development both theory & practical implementation.",
-    image: "/images/webps/mayowa-adeyemi.webp",
+    image: "/images/webps/mayowa-adewumi.webp",
   },
   {
     name: "Adeife Adeoye",
