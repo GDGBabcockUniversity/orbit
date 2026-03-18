@@ -104,7 +104,7 @@ export const SPEAKERS = [
     name: "Mayowa Adeyemi",
     role: "Regional Manager, Security Solutions",
     company: "Mastercard",
-    bio: "",
+    bio: "Mayowa Adewumi is a lover of God and an experienced cybersecurity leader with a decade of expertise spanning embedded systems, cybersecurity, information security, and data privacy across the banking, fintech, and FMCG sectors. He currently serves as Regional Manager, Security Solutions at Mastercard, where he supports cybersecurity initiatives and strategic security solutions across the Eastern Europe, Middle East, and Africa (EEMEA) region, focusing on cyber resilience, cyber risk management, and third-party risk.\n\nPrior to Mastercard, Mayowa grew from an intern to a Senior/Lead cybersecurity Consultant at PwC West Africa, advising leading financial institutions on cybersecurity strategy, application security, cloud security, vulnerability assessment and penetration testing (VAPT), and governance, risk, and compliance.\n\nBeyond his professional work, he is passionate about developing future technology and cybersecurity leaders, having trained hundreds of professionals and mentored over 20 undergraduate and postgraduate students globally, supporting their final-year research and academic development both theory & practical implementation.",
     image: "/images/webps/mayowa-adeyemi.webp",
   },
   {
@@ -118,14 +118,14 @@ export const SPEAKERS = [
     name: "Samuel Abolo",
     role: "Senior Software Developer",
     company: "",
-    bio: "Samuel Abolo is a software engineer focused on solving complex engineering problems and building systems that operate reliably at scale. His work has contributed to products used by global companies including TripAdvisor and Boostr, where he has helped improve system performance, reliability, and operational efficiency in production environments.\nHe is a graduate of Babcock University and played an active role in the campus developer ecosystem. Within GDG On Campus Babcock, he served as Technical Lead and Team Lead for the Data Science Track, where he helped organize technical programs, mentor students, and guide learning initiatives across the community. He also served as Lead Developer at the Babcock University Computer Club (BUCC), supporting student engineering projects and technical growth on campus.",
+    bio: "Samuel Abolo is a software engineer focused on solving complex engineering problems and building systems that operate reliably at scale. His work has contributed to products used by global companies including TripAdvisor and Boostr, where he has helped improve system performance, reliability, and operational efficiency in production environments.\n\nHe is a graduate of Babcock University and played an active role in the campus developer ecosystem. Within GDG On Campus Babcock, he served as Technical Lead and Team Lead for the Data Science Track, where he helped organize technical programs, mentor students, and guide learning initiatives across the community. He also served as Lead Developer at the Babcock University Computer Club (BUCC), supporting student engineering projects and technical growth on campus.",
     image: "/images/webps/samuel-abolo.webp",
   },
   {
     name: "Olamide Ajiboye",
     role: "Director, Sales and Marketing",
     company: "Dynasty Africa",
-    bio: "",
+    bio: "Olamide Ajiboye is a seasoned Marketing professional and the Director of Sales and Marketing at Dynasty Africa, a leading full-service Creative & Marketing Agency that leads brands to their vision with Powerful and Creative solution.\n\nWith a proven track record of almost 5 years in the creative industry, Olamide has led the organization to partnerships with leading global brands across several industries such as; TikTok, Prime, inDrive, Octa FX, TapTap Send, Moniepoint, Cadbury, Vaseline, NNPC, Coca Cola, Spotify amongst others.",
     image: "/images/webps/olamide-ajiboye.webp",
   },
   {
