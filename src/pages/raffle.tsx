@@ -17,8 +17,7 @@ import {
   padTicketNumber,
 } from "../lib/raffle-constants";
 
-const PAYSTACK_PUBLIC_KEY =
-  import.meta.env.VITE_PAYSTACK_PUBLIC_KEY || "";
+const PAYSTACK_PUBLIC_KEY = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY || "";
 
 // ---------------------------------------------------------------------------
 // Countdown hook
@@ -94,24 +93,33 @@ const RafflePage = () => {
   // const price = calculatePrice(quantity);
   const remaining = RAFFLE_CONFIG.totalTickets - ticketsSold;
   const soldOut = remaining <= 0;
-  const progress = Math.min((ticketsSold / RAFFLE_CONFIG.totalTickets) * 100, 100);
+  const progress = Math.min(
+    (ticketsSold / RAFFLE_CONFIG.totalTickets) * 100,
+    100,
+  );
 
   // Fetch ticket counter
   useEffect(() => {
     const ref = doc(db, "raffle_meta", "counter");
-    getDoc(ref).then((snap) => {
-      if (snap.exists()) setTicketsSold(snap.data().count ?? 0);
-    }).catch((err) => {
-      console.error("Error fetching ticket counter:", err);
-    });
+    getDoc(ref)
+      .then((snap) => {
+        if (snap.exists()) setTicketsSold(snap.data().count ?? 0);
+      })
+      .catch((err) => {
+        console.error("Error fetching ticket counter:", err);
+      });
   }, []);
 
-  const handleInput = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleInput = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+  ) => {
     const { name, value } = e.target;
     setBuyer((prev) => ({ ...prev, [name]: value }));
   };
 
-  const effectiveQty = isCustom ? Math.max(1, parseInt(customQty) || 1) : quantity;
+  const effectiveQty = isCustom
+    ? Math.max(1, parseInt(customQty) || 1)
+    : quantity;
 
   // ---- Paystack + purchase flow ----
   const handlePurchase = async (e: React.FormEvent) => {
@@ -145,9 +153,21 @@ const RafflePage = () => {
         channels: ["card", "bank", "ussd", "bank_transfer"],
         metadata: {
           custom_fields: [
-            { display_name: "Full Name", variable_name: "full_name", value: buyer.fullName },
-            { display_name: "Phone", variable_name: "phone", value: buyer.phone },
-            { display_name: "Quantity", variable_name: "quantity", value: effectiveQty },
+            {
+              display_name: "Full Name",
+              variable_name: "full_name",
+              value: buyer.fullName,
+            },
+            {
+              display_name: "Phone",
+              variable_name: "phone",
+              value: buyer.phone,
+            },
+            {
+              display_name: "Quantity",
+              variable_name: "quantity",
+              value: effectiveQty,
+            },
           ],
         },
         onSuccess: async (transaction: { reference: string }) => {
@@ -166,7 +186,9 @@ const RafflePage = () => {
               const errBody = await verifyRes.json().catch(() => ({}));
               console.error("Verify failed:", verifyRes.status, errBody);
               throw new Error(
-                errBody.detail || errBody.message || "Payment verification failed. Please contact support.",
+                errBody.detail ||
+                  errBody.message ||
+                  "Payment verification failed. Please contact support.",
               );
             }
 
@@ -174,7 +196,9 @@ const RafflePage = () => {
             const counterRef = doc(db, "raffle_meta", "counter");
             const tickets = await runTransaction(db, async (tx) => {
               const counterSnap = await tx.get(counterRef);
-              const currentCount = counterSnap.exists() ? counterSnap.data().count : 0;
+              const currentCount = counterSnap.exists()
+                ? counterSnap.data().count
+                : 0;
 
               if (currentCount + effectiveQty > RAFFLE_CONFIG.totalTickets) {
                 throw new Error("Not enough tickets remaining.");
@@ -205,7 +229,10 @@ const RafflePage = () => {
               createdAt: serverTimestamp(),
             };
 
-            await setDoc(doc(db, "raffle_purchases", transaction.reference), purchaseData);
+            await setDoc(
+              doc(db, "raffle_purchases", transaction.reference),
+              purchaseData,
+            );
 
             for (const num of ticketNumbers) {
               await setDoc(doc(collection(db, "raffle_tickets"), num), {
@@ -229,13 +256,15 @@ const RafflePage = () => {
                 email: buyer.email,
                 ticketNumbers,
               }),
-            }).catch(() => { });
+            }).catch(() => {});
 
             setAssignedTickets(ticketNumbers);
             setTicketsSold((prev) => prev + effectiveQty);
             setView("confirmation");
           } catch (err: unknown) {
-            setError((err as Error).message || "Something went wrong after payment.");
+            setError(
+              (err as Error).message || "Something went wrong after payment.",
+            );
           } finally {
             setLoading(false);
           }
@@ -257,8 +286,18 @@ const RafflePage = () => {
         <div className="hero-planet-glow opacity-50" />
         <div className="z-10 bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 max-w-lg w-full text-center backdrop-blur-md">
           <div className="size-16 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center mx-auto mb-6">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="size-8">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              className="size-8"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M5 13l4 4L19 7"
+              />
             </svg>
           </div>
           <h2 className="font-space-grotesk text-3xl font-bold text-white mb-4">
@@ -266,7 +305,9 @@ const RafflePage = () => {
           </h2>
           <p className="text-white/70 font-google-sans mb-6">
             You successfully purchased{" "}
-            <span className="text-white font-medium">{assignedTickets.length}</span>{" "}
+            <span className="text-white font-medium">
+              {assignedTickets.length}
+            </span>{" "}
             {assignedTickets.length === 1 ? "ticket" : "tickets"}. Good luck!
           </p>
 
@@ -289,7 +330,13 @@ const RafflePage = () => {
           <button
             onClick={() => {
               setView("landing");
-              setBuyer({ fullName: "", email: "", phone: "", department: "", level: "" });
+              setBuyer({
+                fullName: "",
+                email: "",
+                phone: "",
+                department: "",
+                level: "",
+              });
               setQuantity(1);
               setCustomQty("");
               setIsCustom(false);
@@ -328,9 +375,9 @@ const RafflePage = () => {
           </h1>
 
           <p className="mt-4 text-white/50 font-google-sans text-base md:text-lg max-w-xl leading-relaxed">
-            Buy a raffle ticket for just {formatNaira(RAFFLE_CONFIG.ticketPrice)} and
-            stand a chance to win an{" "}
-            <span className="text-white/80">{RAFFLE_CONFIG.prizeName}</span>.
+            Buy a raffle ticket for just{" "}
+            {formatNaira(RAFFLE_CONFIG.ticketPrice)} and stand a chance to win
+            an <span className="text-white/80">{RAFFLE_CONFIG.prizeName}</span>.
           </p>
 
           {/* Countdown */}
@@ -347,7 +394,10 @@ const RafflePage = () => {
                   { label: "SEC", value: countdown.seconds },
                 ] as const
               ).map((unit, i, arr) => (
-                <div key={unit.label} className="flex items-center gap-3 sm:gap-4 font-semibold">
+                <div
+                  key={unit.label}
+                  className="flex items-center gap-3 sm:gap-4 font-semibold"
+                >
                   <div className="flex flex-col items-center">
                     <span className="font-space-grotesk text-white text-4xl sm:text-5xl tracking-wider tabular-nums">
                       {unit.value.toString().padStart(2, "0")}
@@ -357,7 +407,9 @@ const RafflePage = () => {
                     </span>
                   </div>
                   {i < arr.length - 1 && (
-                    <span className="text-white/20 text-3xl sm:text-4xl font-light -mt-4">:</span>
+                    <span className="text-white/20 text-3xl sm:text-4xl font-light -mt-4">
+                      :
+                    </span>
                   )}
                 </div>
               ))}
@@ -377,7 +429,8 @@ const RafflePage = () => {
               />
             </div>
             <p className="text-center text-white/30 text-xs font-google-sans mt-2">
-              {Math.round(progress)}% sold of {RAFFLE_CONFIG.totalTickets.toLocaleString()} total
+              {Math.round(progress)}% sold of{" "}
+              {RAFFLE_CONFIG.totalTickets.toLocaleString()} total
             </p>
           </div>
 
@@ -386,37 +439,75 @@ const RafflePage = () => {
             className="mt-10 bg-primary text-white font-google-sans text-sm tracking-wider px-8 py-3.5 rounded-full hover:bg-primary-mid transition inline-flex items-center gap-2.5"
           >
             Buy Ticket
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="size-4">
-              <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              className="size-4"
+            >
+              <path
+                d="M5 12h14M12 5l7 7-7 7"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </a>
         </div>
       </section>
 
       {/* ==================== PRIZE DETAILS ==================== */}
-      <section className="bg-background px-6 py-16 md:py-24">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="bg-background px-6 py-16 md:py-24 overflow-hidden">
+        <div className="max-w-5xl mx-auto text-center">
           <h2 className="font-space-grotesk text-2xl md:text-3xl font-bold text-white mb-4">
             The Grand Prize
           </h2>
-          <p className="text-white/50 font-google-sans max-w-xl mx-auto mb-10">
-            One lucky winner walks away with a brand-new {RAFFLE_CONFIG.prizeName}.
-            Sleek, powerful, and ready to fuel your next big idea.
+          <p className="text-white/50 font-google-sans max-w-xl mx-auto mb-6">
+            One lucky winner walks away with a brand-new{" "}
+            {RAFFLE_CONFIG.prizeName}. Sleek, powerful, and ready to fuel your
+            next big idea.
           </p>
-          <div className="bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 backdrop-blur-sm">
-            <div className="text-6xl mb-6">💻</div>
-            <h3 className="font-space-grotesk text-xl md:text-2xl font-bold text-white mb-3">
-              {RAFFLE_CONFIG.prizeName}
-            </h3>
-            <ul className="flex flex-wrap justify-center gap-3 text-sm font-google-sans text-white/60">
-              <li className="bg-white/5 px-4 py-1.5 rounded-full">Apple M1 Chip</li>
-              <li className="bg-white/5 px-4 py-1.5 rounded-full">13&quot; Display</li>
-              <li className="bg-white/5 px-4 py-1.5 rounded-full">8GB RAM</li>
-              <li className="bg-white/5 px-4 py-1.5 rounded-full">256GB SSD</li>
-              <li className="bg-white/5 px-4 py-1.5 rounded-full">Up to 18h Battery</li>
-            </ul>
+
+          {/* Floating MacBook */}
+          <div className="relative mx-auto max-w-lg my-8 md:my-12">
+            {/* Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] aspect-square bg-primary/15 rounded-full blur-[100px]" />
+            <img
+              src="/images/pngs/macbook-air-prize.png"
+              alt={RAFFLE_CONFIG.prizeName}
+              className="relative w-full drop-shadow-2xl animate-[float_4s_ease-in-out_infinite] rounded-3xl"
+              style={{ mixBlendMode: "screen" }}
+            />
           </div>
+
+          <h3 className="font-space-grotesk text-xl md:text-2xl font-bold text-white mb-4">
+            {RAFFLE_CONFIG.prizeName}
+          </h3>
+          <ul className="flex flex-wrap justify-center gap-3 text-sm font-google-sans text-white/60">
+            <li className="bg-white/5 border border-white/10 px-5 py-2 rounded-full">
+              Apple M1 Chip
+            </li>
+            <li className="bg-white/5 border border-white/10 px-5 py-2 rounded-full">
+              13&quot; Display
+            </li>
+            <li className="bg-white/5 border border-white/10 px-5 py-2 rounded-full">
+              8GB RAM
+            </li>
+            <li className="bg-white/5 border border-white/10 px-5 py-2 rounded-full">
+              256GB SSD
+            </li>
+            <li className="bg-white/5 border border-white/10 px-5 py-2 rounded-full">
+              Up to 18h Battery
+            </li>
+          </ul>
         </div>
+
+        <style>{`
+          @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+          }
+        `}</style>
       </section>
 
       {/* ==================== HOW IT WORKS ==================== */}
@@ -427,10 +518,26 @@ const RafflePage = () => {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { step: "01", title: "Pick Your Tickets", desc: "Choose how many tickets you want to buy." },
-              { step: "02", title: "Pay Securely", desc: "Complete payment via Paystack (card, transfer, or USSD)." },
-              { step: "03", title: "Get Your Numbers", desc: "Receive your unique ticket numbers instantly." },
-              { step: "04", title: "Win the MacBook", desc: "A random ticket is drawn live. If it\u2019s yours, you win!" },
+              {
+                step: "01",
+                title: "Pick Your Tickets",
+                desc: "Choose how many tickets you want to buy.",
+              },
+              {
+                step: "02",
+                title: "Pay Securely",
+                desc: "Complete payment via Paystack (card, transfer, or USSD).",
+              },
+              {
+                step: "03",
+                title: "Get Your Numbers",
+                desc: "Receive your unique ticket numbers instantly.",
+              },
+              {
+                step: "04",
+                title: "Win the MacBook",
+                desc: "A random ticket is drawn live. If it\u2019s yours, you win!",
+              },
             ].map((item) => (
               <div
                 key={item.step}
@@ -439,8 +546,12 @@ const RafflePage = () => {
                 <span className="inline-block font-space-grotesk text-primary-bright text-3xl font-bold mb-3">
                   {item.step}
                 </span>
-                <h3 className="font-space-grotesk text-white font-semibold mb-2">{item.title}</h3>
-                <p className="text-white/50 font-google-sans text-sm leading-relaxed">{item.desc}</p>
+                <h3 className="font-space-grotesk text-white font-semibold mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-white/50 font-google-sans text-sm leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -448,7 +559,10 @@ const RafflePage = () => {
       </section>
 
       {/* ==================== BUY TICKETS ==================== */}
-      <section id="buy" className="bg-background px-6 py-16 md:py-24 border-t border-white/5">
+      <section
+        id="buy"
+        className="bg-background px-6 py-16 md:py-24 border-t border-white/5"
+      >
         <div className="max-w-md mx-auto">
           <h2 className="font-space-grotesk text-2xl md:text-3xl font-bold text-white text-center mb-2">
             Buy Tickets
@@ -461,7 +575,9 @@ const RafflePage = () => {
 
           {soldOut ? (
             <div className="bg-white/5 border border-white/10 rounded-3xl p-8 text-center">
-              <p className="font-space-grotesk text-2xl font-bold text-white mb-2">SOLD OUT</p>
+              <p className="font-space-grotesk text-2xl font-bold text-white mb-2">
+                SOLD OUT
+              </p>
               <p className="text-white/50 font-google-sans text-sm">
                 All raffle tickets have been sold. Thank you for participating.
               </p>
@@ -491,10 +607,11 @@ const RafflePage = () => {
                         setQuantity(n);
                         setIsCustom(false);
                       }}
-                      className={`px-5 py-2.5 rounded-xl font-google-sans text-sm transition border ${!isCustom && quantity === n
-                        ? "bg-primary text-white border-primary"
-                        : "bg-white/5 text-white/70 border-white/10 hover:border-white/20"
-                        }`}
+                      className={`px-5 py-2.5 rounded-xl font-google-sans text-sm transition border ${
+                        !isCustom && quantity === n
+                          ? "bg-primary text-white border-primary"
+                          : "bg-white/5 text-white/70 border-white/10 hover:border-white/20"
+                      }`}
                     >
                       {n} {n === 1 ? "Ticket" : "Tickets"}
                     </button>
@@ -502,10 +619,11 @@ const RafflePage = () => {
                   <button
                     type="button"
                     onClick={() => setIsCustom(true)}
-                    className={`px-5 py-2.5 rounded-xl font-google-sans text-sm transition border ${isCustom
-                      ? "bg-primary text-white border-primary"
-                      : "bg-white/5 text-white/70 border-white/10 hover:border-white/20"
-                      }`}
+                    className={`px-5 py-2.5 rounded-xl font-google-sans text-sm transition border ${
+                      isCustom
+                        ? "bg-primary text-white border-primary"
+                        : "bg-white/5 text-white/70 border-white/10 hover:border-white/20"
+                    }`}
                   >
                     Custom
                   </button>
@@ -536,7 +654,10 @@ const RafflePage = () => {
               {/* Buyer info */}
               <div className="space-y-4 mb-6">
                 <div>
-                  <label htmlFor="fullName" className="block text-sm font-google-sans text-white/70 mb-1.5">
+                  <label
+                    htmlFor="fullName"
+                    className="block text-sm font-google-sans text-white/70 mb-1.5"
+                  >
                     Full Name
                   </label>
                   <input
@@ -551,7 +672,10 @@ const RafflePage = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-google-sans text-white/70 mb-1.5">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-google-sans text-white/70 mb-1.5"
+                  >
                     Email Address
                   </label>
                   <input
@@ -566,7 +690,10 @@ const RafflePage = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-google-sans text-white/70 mb-1.5">
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-google-sans text-white/70 mb-1.5"
+                  >
                     Phone Number
                   </label>
                   <input
@@ -582,8 +709,12 @@ const RafflePage = () => {
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="department" className="block text-sm font-google-sans text-white/70 mb-1.5">
-                      Department <span className="text-white/30">(optional)</span>
+                    <label
+                      htmlFor="department"
+                      className="block text-sm font-google-sans text-white/70 mb-1.5"
+                    >
+                      Department{" "}
+                      <span className="text-white/30">(optional)</span>
                     </label>
                     <input
                       type="text"
@@ -596,7 +727,10 @@ const RafflePage = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="level" className="block text-sm font-google-sans text-white/70 mb-1.5">
+                    <label
+                      htmlFor="level"
+                      className="block text-sm font-google-sans text-white/70 mb-1.5"
+                    >
                       Level <span className="text-white/30">(optional)</span>
                     </label>
                     <select
@@ -624,8 +758,19 @@ const RafflePage = () => {
               >
                 {loading ? (
                   <>
-                    <svg className="animate-spin size-5 text-white" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                    <svg
+                      className="animate-spin size-5 text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      />
                       <path
                         className="opacity-75"
                         fill="currentColor"
@@ -653,8 +798,9 @@ const RafflePage = () => {
             {RAFFLE_FAQS.map((faq, i) => (
               <div
                 key={i}
-                className={`border border-white/10 rounded-2xl overflow-hidden transition-colors ${faqOpen === i ? "bg-white/5" : ""
-                  }`}
+                className={`border border-white/10 rounded-2xl overflow-hidden transition-colors ${
+                  faqOpen === i ? "bg-white/5" : ""
+                }`}
               >
                 <button
                   onClick={() => setFaqOpen(faqOpen === i ? null : i)}
@@ -668,15 +814,21 @@ const RafflePage = () => {
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
-                    className={`size-5 text-white/50 shrink-0 transition-transform duration-300 ${faqOpen === i ? "rotate-180" : ""
-                      }`}
+                    className={`size-5 text-white/50 shrink-0 transition-transform duration-300 ${
+                      faqOpen === i ? "rotate-180" : ""
+                    }`}
                   >
-                    <path d="M19 9l-7 7-7-7" strokeLinecap="round" strokeLinejoin="round" />
+                    <path
+                      d="M19 9l-7 7-7-7"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </button>
                 <div
-                  className={`grid transition-all duration-300 ${faqOpen === i ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                    }`}
+                  className={`grid transition-all duration-300 ${
+                    faqOpen === i ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                  }`}
                 >
                   <div className="overflow-hidden">
                     <p className="px-6 pb-5 font-google-sans text-white/50 text-sm leading-relaxed">
