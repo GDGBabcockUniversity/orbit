@@ -324,7 +324,7 @@ const RafflePage = () => {
           </div>
 
           <h1 className="font-space-grotesk font-bold leading-[1.05] text-[clamp(2.4rem,6vw,4.5rem)] text-white max-w-3xl">
-            Win a Brand New MacBook Air
+            Win a MacBook Air
           </h1>
 
           <p className="mt-4 text-white/50 font-google-sans text-base md:text-lg max-w-xl leading-relaxed">
@@ -409,8 +409,8 @@ const RafflePage = () => {
               {RAFFLE_CONFIG.prizeName}
             </h3>
             <ul className="flex flex-wrap justify-center gap-3 text-sm font-google-sans text-white/60">
-              <li className="bg-white/5 px-4 py-1.5 rounded-full">Apple M2 Chip</li>
-              <li className="bg-white/5 px-4 py-1.5 rounded-full">13.6&quot; Display</li>
+              <li className="bg-white/5 px-4 py-1.5 rounded-full">Apple M1 Chip</li>
+              <li className="bg-white/5 px-4 py-1.5 rounded-full">13&quot; Display</li>
               <li className="bg-white/5 px-4 py-1.5 rounded-full">8GB RAM</li>
               <li className="bg-white/5 px-4 py-1.5 rounded-full">256GB SSD</li>
               <li className="bg-white/5 px-4 py-1.5 rounded-full">Up to 18h Battery</li>
