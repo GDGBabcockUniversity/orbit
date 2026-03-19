@@ -173,6 +173,7 @@ export const SPEAKERS = [
 ];
 
 export const SPONSORS = [
+  { name: "Postra", logo: "/images/sponsors - webps/postra.webp" },
   {
     name: "Gadget Cartel",
     logo: "/images/sponsors - webps/gadget-cartel.webp",
