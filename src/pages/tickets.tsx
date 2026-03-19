@@ -4,6 +4,7 @@ import { doc, getDoc, setDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../lib/firebase";
 // import OrbitLogo from "../components/orbit-logo";
 import { Link } from "react-router-dom";
+import { isValidEmail } from "../lib/utils";
 
 // Note: In a real production app, this sitekey should be in environment variables.
 // Using a Cloudflare test key for demonstration if needed, but it's best if the user supplies their own.
@@ -38,6 +39,12 @@ const TicketsPage = () => {
 
     if (!turnstileToken) {
       setErrorMessage("Please complete the captcha.");
+      setStatus("error");
+      return;
+    }
+
+    if (!isValidEmail(formData.email)) {
+      setErrorMessage("Please enter a valid email address.");
       setStatus("error");
       return;
     }
