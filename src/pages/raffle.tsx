@@ -536,7 +536,7 @@ const RafflePage = () => {
               {
                 step: "04",
                 title: "Win the MacBook",
-                desc: "A random ticket is drawn live. If it\u2019s yours, you win!",
+                desc: "A random ticket is drawn live. If it\u2019s yours and you\u2019re present, you win\u2014you must be in attendance or you forfeit the prize.",
               },
             ].map((item) => (
               <div
@@ -750,6 +750,15 @@ const RafflePage = () => {
                   </div>
                 </div>
               </div>
+
+              <p className="mb-6 p-4 rounded-xl border border-amber-500/25 bg-amber-500/5 text-amber-100/90 font-google-sans text-xs leading-relaxed">
+                <strong className="text-amber-200 font-semibold">
+                  Attendance required:
+                </strong>{" "}
+                All participants must be physically present at the live draw. If
+                your ticket number is called and you are not in attendance, you
+                will forfeit the prize.
+              </p>
 
               <button
                 type="submit"
