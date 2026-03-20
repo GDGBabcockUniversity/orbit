@@ -9,6 +9,10 @@ export const RAFFLE_CONFIG = {
 
 export const RAFFLE_PRESETS = [1, 3, 5] as const;
 
+/** Must attend live draw; absent when called = forfeit. Shown on raffle page. */
+export const RAFFLE_ATTENDANCE_CLAUSE =
+  "All participants must be physically present at the live draw. If your ticket number is called and you are not in attendance, you will forfeit the prize.";
+
 export function calculatePrice(qty: number): number {
   return (
     qty * RAFFLE_CONFIG.ticketPrice -
