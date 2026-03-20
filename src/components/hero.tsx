@@ -31,7 +31,7 @@ const Hero = () => {
 
         {/* Tagline */}
         <p className="mt-3 md:mt-4 text-center text-primary-bright font-google-sans text-lg md:text-xl italic">
-          Where campus meets industry.
+          Innovation beyond limits.
         </p>
 
         {/* Description */}
