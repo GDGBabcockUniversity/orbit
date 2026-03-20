@@ -1,7 +1,7 @@
 export const RAFFLE_CONFIG = {
   totalTickets: 2000,
-  ticketPrice: 100,
-  discountPer5: 50,
+  ticketPrice: 2000,
+  discountPer5: 1000,
   drawDate: new Date("2026-04-01T10:00:00"),
   prizeName: "Apple MacBook Air (M1, 13-inch)",
   currency: "NGN",
