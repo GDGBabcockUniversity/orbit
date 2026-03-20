@@ -43,7 +43,7 @@ export const RAFFLE_FAQS = [
   {
     question: "How is the winner selected?",
     answer:
-      "The winner is selected using a live digital raffle draw with a true random number generator. The draw is transparent and cannot be manipulated by anyone, including administrators.",
+      "The winner is selected using a live digital raffle draw with a true random number generator. The draw is transparent and cannot be manipulated by anyone, including administrators. You must be physically present at the draw when your ticket number is called to claim the prize.",
   },
   {
     question: "Can I buy multiple tickets?",
@@ -53,7 +53,12 @@ export const RAFFLE_FAQS = [
   {
     question: "How will I know if I win?",
     answer:
-      "The winning ticket number will be announced during a live draw event. The winner will also be contacted via phone and email.",
+      "The winning ticket number will be announced during a live draw event. The winner will also be contacted via phone and email. All participants must be in attendance at the draw. If your ticket is called and you are not present, you forfeit the prize and another draw may be held at the organizers\u2019 discretion.",
+  },
+  {
+    question: "Do I have to be present at the draw?",
+    answer:
+      "Yes. Being in attendance is a requirement. If your ticket number is called and you are not physically present at the event, you will forfeit the prize.",
   },
   {
     question: "What payment methods are accepted?",
