@@ -12,10 +12,28 @@ import {
   RAFFLE_CONFIG,
   RAFFLE_PRESETS,
   RAFFLE_FAQS,
+  RAFFLE_ATTENDANCE_CLAUSE,
   calculatePrice,
   formatNaira,
   padTicketNumber,
 } from "../lib/raffle-constants";
+
+function RaffleAttendanceNotice({
+  className = "",
+}: {
+  className?: string;
+}) {
+  return (
+    <p
+      className={`rounded-xl border border-amber-500/25 bg-amber-500/5 p-4 text-amber-100/90 font-google-sans text-xs leading-relaxed ${className}`}
+    >
+      <strong className="font-semibold text-amber-200">
+        Attendance required:
+      </strong>{" "}
+      {RAFFLE_ATTENDANCE_CLAUSE}
+    </p>
+  );
+}
 
 const PAYSTACK_PUBLIC_KEY = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY || "";
 
@@ -187,8 +205,8 @@ const RafflePage = () => {
               console.error("Verify failed:", verifyRes.status, errBody);
               throw new Error(
                 errBody.detail ||
-                  errBody.message ||
-                  "Payment verification failed. Please contact support.",
+                errBody.message ||
+                "Payment verification failed. Please contact support.",
               );
             }
 
@@ -256,7 +274,7 @@ const RafflePage = () => {
                 email: buyer.email,
                 ticketNumbers,
               }),
-            }).catch(() => {});
+            }).catch(() => { });
 
             setAssignedTickets(ticketNumbers);
             setTicketsSold((prev) => prev + effectiveQty);
@@ -322,10 +340,12 @@ const RafflePage = () => {
             ))}
           </div>
 
-          <p className="text-white/50 font-google-sans text-sm mb-8">
+          <p className="text-white/50 font-google-sans text-sm mb-6">
             A confirmation email has been sent to{" "}
             <span className="text-white">{buyer.email}</span>.
           </p>
+
+          {/* <RaffleAttendanceNotice className="mb-8 text-left text-sm" /> */}
 
           <button
             onClick={() => {
@@ -379,6 +399,8 @@ const RafflePage = () => {
             {formatNaira(RAFFLE_CONFIG.ticketPrice)} and stand a chance to win
             an <span className="text-white/80">{RAFFLE_CONFIG.prizeName}</span>.
           </p>
+
+          {/* <RaffleAttendanceNotice className="mx-auto mt-5 max-w-xl text-sm md:text-[0.95rem]" /> */}
 
           {/* Countdown */}
           <div className="mt-10">
@@ -581,6 +603,7 @@ const RafflePage = () => {
               <p className="text-white/50 font-google-sans text-sm">
                 All raffle tickets have been sold. Thank you for participating.
               </p>
+              <RaffleAttendanceNotice className="mt-5 text-left text-sm" />
             </div>
           ) : (
             <form
@@ -607,11 +630,10 @@ const RafflePage = () => {
                         setQuantity(n);
                         setIsCustom(false);
                       }}
-                      className={`px-5 py-2.5 rounded-xl font-google-sans text-sm transition border ${
-                        !isCustom && quantity === n
-                          ? "bg-primary text-white border-primary"
-                          : "bg-white/5 text-white/70 border-white/10 hover:border-white/20"
-                      }`}
+                      className={`px-5 py-2.5 rounded-xl font-google-sans text-sm transition border ${!isCustom && quantity === n
+                        ? "bg-primary text-white border-primary"
+                        : "bg-white/5 text-white/70 border-white/10 hover:border-white/20"
+                        }`}
                     >
                       {n} {n === 1 ? "Ticket" : "Tickets"}
                     </button>
@@ -619,11 +641,10 @@ const RafflePage = () => {
                   <button
                     type="button"
                     onClick={() => setIsCustom(true)}
-                    className={`px-5 py-2.5 rounded-xl font-google-sans text-sm transition border ${
-                      isCustom
-                        ? "bg-primary text-white border-primary"
-                        : "bg-white/5 text-white/70 border-white/10 hover:border-white/20"
-                    }`}
+                    className={`px-5 py-2.5 rounded-xl font-google-sans text-sm transition border ${isCustom
+                      ? "bg-primary text-white border-primary"
+                      : "bg-white/5 text-white/70 border-white/10 hover:border-white/20"
+                      }`}
                   >
                     Custom
                   </button>
@@ -751,14 +772,7 @@ const RafflePage = () => {
                 </div>
               </div>
 
-              <p className="mb-6 p-4 rounded-xl border border-amber-500/25 bg-amber-500/5 text-amber-100/90 font-google-sans text-xs leading-relaxed">
-                <strong className="text-amber-200 font-semibold">
-                  Attendance required:
-                </strong>{" "}
-                All participants must be physically present at the live draw. If
-                your ticket number is called and you are not in attendance, you
-                will forfeit the prize.
-              </p>
+              <RaffleAttendanceNotice className="mb-6" />
 
               <button
                 type="submit"
@@ -807,9 +821,8 @@ const RafflePage = () => {
             {RAFFLE_FAQS.map((faq, i) => (
               <div
                 key={i}
-                className={`border border-white/10 rounded-2xl overflow-hidden transition-colors ${
-                  faqOpen === i ? "bg-white/5" : ""
-                }`}
+                className={`border border-white/10 rounded-2xl overflow-hidden transition-colors ${faqOpen === i ? "bg-white/5" : ""
+                  }`}
               >
                 <button
                   onClick={() => setFaqOpen(faqOpen === i ? null : i)}
@@ -823,9 +836,8 @@ const RafflePage = () => {
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
-                    className={`size-5 text-white/50 shrink-0 transition-transform duration-300 ${
-                      faqOpen === i ? "rotate-180" : ""
-                    }`}
+                    className={`size-5 text-white/50 shrink-0 transition-transform duration-300 ${faqOpen === i ? "rotate-180" : ""
+                      }`}
                   >
                     <path
                       d="M19 9l-7 7-7-7"
@@ -835,9 +847,8 @@ const RafflePage = () => {
                   </svg>
                 </button>
                 <div
-                  className={`grid transition-all duration-300 ${
-                    faqOpen === i ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                  }`}
+                  className={`grid transition-all duration-300 ${faqOpen === i ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                    }`}
                 >
                   <div className="overflow-hidden">
                     <p className="px-6 pb-5 font-google-sans text-white/50 text-sm leading-relaxed">
