@@ -1,5 +1,5 @@
 export const RAFFLE_CONFIG = {
-  totalTickets: 2000,
+  totalTickets: 500,
   ticketPrice: 2000,
   discountPer5: 1000,
   drawDate: new Date("2026-04-01T10:00:00"),
