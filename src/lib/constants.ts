@@ -170,6 +170,13 @@ export const SPEAKERS = [
     bio: "Sodiq Akinjobi is an accomplished Program Manager with over 5 years of experience in global marketing, community management, developer relations and scaling programs. With a background in mechanical engineering from Yaba College of Technology, where he graduated in 2014, Sodiq further pursued his education at the University of Lagos, graduating as a systems engineer. Currently, he is pursuing an MBA, further enhancing his business acumen.\n\nThroughout his career, Sodiq has showcased a proven track record of success in various areas. He excels in streamlining documentation flow, implementing effective community strategies, and planning and organizing events and hackathons. Additionally, he possesses strong leadership skills, having led product teams, coordinated testing and technical documentation, and conducted valuable market research.\n\nSodiq currently holds a position on the Developer Ecosystem Team at Google, where he continues to power developer growth through community engagement, education, and resource allocation across Africa. His expertise and dedication have helped bring to life some of the most prominent developer conferences across the African continent.",
     image: "/images/webps/sodiq-akinjobi.webp",
   },
+  {
+    name: "Miss Excellent Bolujo",
+    role: "Senior Quality Assurance Analyst",
+    company: "Moniepoint Group",
+    bio: "Bolujo Excellent is a Senior Quality Assurance Analyst at Moniepoint Group, specializing in software reliability and regulatory compliance. With a career spanning FinTech, Edutech, and Cryptocurrency, Bolujo has a proven track record of delivering impactful QA solutions in high-stakes environments. She holds a Master's in Engineering Management from the University of Leeds and are ISTQB® CTFL certified, combining technical precision with a strategic approach to operational excellence.",
+    image: "/images/webps/excellent-bolujo.webp",
+  },
 ];
 
 export const SPONSORS = [
