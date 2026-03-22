@@ -1,9 +1,9 @@
 export const RAFFLE_CONFIG = {
-  totalTickets: 500,
+  totalTickets: 1000,
   ticketPrice: 2000,
   discountPer5: 1000,
   drawDate: new Date("2026-04-01T10:00:00"),
-  prizeName: "Apple MacBook Air (M1, 13-inch)",
+  prizeName: "Premium Tech Gear",
   currency: "NGN",
 };
 
@@ -37,7 +37,7 @@ export const RAFFLE_FAQS = [
   {
     question: "What is the prize?",
     answer:
-      "The grand prize is a brand-new Apple MacBook Air (M2, 13-inch). One lucky winner takes it home!",
+      "We're giving away top-tier tech to elevate your workflow and keep you powered up. You won't want to miss it!",
   },
   {
     question: "How are ticket numbers assigned?",
