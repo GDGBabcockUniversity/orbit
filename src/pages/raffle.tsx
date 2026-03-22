@@ -581,7 +581,7 @@ const RafflePage = () => {
         id="buy"
         className="bg-background px-6 py-16 md:py-24 border-t border-white/5"
       >
-        <div className="max-w-md mx-auto">
+        <div className="max-w-xl mx-auto">
           <h2 className="font-space-grotesk text-2xl md:text-3xl font-bold text-white text-center mb-2">
             Buy Tickets
           </h2>
