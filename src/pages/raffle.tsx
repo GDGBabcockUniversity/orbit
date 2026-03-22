@@ -18,11 +18,7 @@ import {
   padTicketNumber,
 } from "../lib/raffle-constants";
 
-function RaffleAttendanceNotice({
-  className = "",
-}: {
-  className?: string;
-}) {
+function RaffleAttendanceNotice({ className = "" }: { className?: string }) {
   return (
     <p
       className={`rounded-xl border border-amber-500/25 bg-amber-500/5 p-4 text-amber-100/90 font-google-sans text-xs leading-relaxed ${className}`}
@@ -205,8 +201,8 @@ const RafflePage = () => {
               console.error("Verify failed:", verifyRes.status, errBody);
               throw new Error(
                 errBody.detail ||
-                errBody.message ||
-                "Payment verification failed. Please contact support.",
+                  errBody.message ||
+                  "Payment verification failed. Please contact support.",
               );
             }
 
@@ -274,7 +270,7 @@ const RafflePage = () => {
                 email: buyer.email,
                 ticketNumbers,
               }),
-            }).catch(() => { });
+            }).catch(() => {});
 
             setAssignedTickets(ticketNumbers);
             setTicketsSold((prev) => prev + effectiveQty);
@@ -387,11 +383,11 @@ const RafflePage = () => {
         <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-28 md:py-32 text-center">
           <div className="flex items-center gap-2.5 bg-white/10 backdrop-blur-sm text-white text-[11px] font-google-sans tracking-[0.15em] uppercase px-5 py-2.5 rounded-full border border-white/10 mb-8">
             <span className="size-2 rounded-full bg-green-400 shrink-0" />
-            Campus MacBook Raffle
+            Orbit Grand Tech Raffle
           </div>
 
           <h1 className="font-space-grotesk font-bold leading-[1.05] text-[clamp(2.4rem,6vw,4.5rem)] text-white max-w-3xl">
-            Win a MacBook Air
+            Upgrade Your Tech Arsenal
           </h1>
 
           <p className="mt-4 text-white/50 font-google-sans text-base md:text-lg max-w-xl leading-relaxed">
@@ -439,7 +435,7 @@ const RafflePage = () => {
           </div>
 
           {/* Ticket counter */}
-          <div className="mt-10 w-full max-w-sm">
+          {/*<div className="mt-10 w-full max-w-sm">
             <div className="flex justify-between text-xs font-google-sans text-white/50 mb-2">
               <span>{ticketsSold.toLocaleString()} sold</span>
               <span>{remaining.toLocaleString()} remaining</span>
@@ -454,7 +450,7 @@ const RafflePage = () => {
               {Math.round(progress)}% sold of{" "}
               {RAFFLE_CONFIG.totalTickets.toLocaleString()} total
             </p>
-          </div>
+          </div>*/}
 
           <a
             href="#buy"
@@ -482,16 +478,16 @@ const RafflePage = () => {
       <section className="bg-background px-6 py-16 md:py-24 overflow-hidden">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="font-space-grotesk text-2xl md:text-3xl font-bold text-white mb-4">
-            The Grand Prize
+            Premium Tech Prizes
           </h2>
           <p className="text-white/50 font-google-sans max-w-xl mx-auto mb-6">
-            One lucky winner walks away with a brand-new{" "}
-            {RAFFLE_CONFIG.prizeName}. Sleek, powerful, and ready to fuel your
-            next big idea.
+            Lucky winners will walk away with top-of-the-line gear designed to
+            fuel your next big idea. High performance, premium quality, and
+            ready for you to take home.
           </p>
 
           {/* Floating MacBook */}
-          <div className="relative mx-auto max-w-lg my-8 md:my-12">
+          <div className="relative mx-auto max-w-4xl my-8 md:my-12">
             {/* Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] aspect-square bg-primary/15 rounded-full blur-[100px]" />
             <img
@@ -502,10 +498,10 @@ const RafflePage = () => {
             />
           </div>
 
-          <h3 className="font-space-grotesk text-xl md:text-2xl font-bold text-white mb-4">
+          {/* <h3 className="font-space-grotesk text-xl md:text-2xl font-bold text-white mb-4">
             {RAFFLE_CONFIG.prizeName}
           </h3>
-          <ul className="flex flex-wrap justify-center gap-3 text-sm font-google-sans text-white/60">
+         <ul className="flex flex-wrap justify-center gap-3 text-sm font-google-sans text-white/60">
             <li className="bg-white/5 border border-white/10 px-5 py-2 rounded-full">
               Apple M1 Chip
             </li>
@@ -521,7 +517,7 @@ const RafflePage = () => {
             <li className="bg-white/5 border border-white/10 px-5 py-2 rounded-full">
               Up to 18h Battery
             </li>
-          </ul>
+          </ul>*/}
         </div>
 
         <style>{`
@@ -557,7 +553,7 @@ const RafflePage = () => {
               },
               {
                 step: "04",
-                title: "Win the MacBook",
+                title: "Win Big",
                 desc: "A random ticket is drawn live. If it\u2019s yours and you\u2019re present, you win\u2014you must be in attendance or you forfeit the prize.",
               },
             ].map((item) => (
@@ -630,10 +626,11 @@ const RafflePage = () => {
                         setQuantity(n);
                         setIsCustom(false);
                       }}
-                      className={`px-5 py-2.5 rounded-xl font-google-sans text-sm transition border ${!isCustom && quantity === n
-                        ? "bg-primary text-white border-primary"
-                        : "bg-white/5 text-white/70 border-white/10 hover:border-white/20"
-                        }`}
+                      className={`px-5 py-2.5 rounded-xl font-google-sans text-sm transition border ${
+                        !isCustom && quantity === n
+                          ? "bg-primary text-white border-primary"
+                          : "bg-white/5 text-white/70 border-white/10 hover:border-white/20"
+                      }`}
                     >
                       {n} {n === 1 ? "Ticket" : "Tickets"}
                     </button>
@@ -641,10 +638,11 @@ const RafflePage = () => {
                   <button
                     type="button"
                     onClick={() => setIsCustom(true)}
-                    className={`px-5 py-2.5 rounded-xl font-google-sans text-sm transition border ${isCustom
-                      ? "bg-primary text-white border-primary"
-                      : "bg-white/5 text-white/70 border-white/10 hover:border-white/20"
-                      }`}
+                    className={`px-5 py-2.5 rounded-xl font-google-sans text-sm transition border ${
+                      isCustom
+                        ? "bg-primary text-white border-primary"
+                        : "bg-white/5 text-white/70 border-white/10 hover:border-white/20"
+                    }`}
                   >
                     Custom
                   </button>
@@ -821,8 +819,9 @@ const RafflePage = () => {
             {RAFFLE_FAQS.map((faq, i) => (
               <div
                 key={i}
-                className={`border border-white/10 rounded-2xl overflow-hidden transition-colors ${faqOpen === i ? "bg-white/5" : ""
-                  }`}
+                className={`border border-white/10 rounded-2xl overflow-hidden transition-colors ${
+                  faqOpen === i ? "bg-white/5" : ""
+                }`}
               >
                 <button
                   onClick={() => setFaqOpen(faqOpen === i ? null : i)}
@@ -836,8 +835,9 @@ const RafflePage = () => {
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
-                    className={`size-5 text-white/50 shrink-0 transition-transform duration-300 ${faqOpen === i ? "rotate-180" : ""
-                      }`}
+                    className={`size-5 text-white/50 shrink-0 transition-transform duration-300 ${
+                      faqOpen === i ? "rotate-180" : ""
+                    }`}
                   >
                     <path
                       d="M19 9l-7 7-7-7"
@@ -847,8 +847,9 @@ const RafflePage = () => {
                   </svg>
                 </button>
                 <div
-                  className={`grid transition-all duration-300 ${faqOpen === i ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                    }`}
+                  className={`grid transition-all duration-300 ${
+                    faqOpen === i ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                  }`}
                 >
                   <div className="overflow-hidden">
                     <p className="px-6 pb-5 font-google-sans text-white/50 text-sm leading-relaxed">
