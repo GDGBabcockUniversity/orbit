@@ -435,7 +435,7 @@ const RafflePage = () => {
           </div>
 
           {/* Ticket counter */}
-          {/*<div className="mt-10 w-full max-w-sm">
+          <div className="mt-10 w-full max-w-sm hidden">
             <div className="flex justify-between text-xs font-google-sans text-white/50 mb-2">
               <span>{ticketsSold.toLocaleString()} sold</span>
               <span>{remaining.toLocaleString()} remaining</span>
@@ -450,7 +450,7 @@ const RafflePage = () => {
               {Math.round(progress)}% sold of{" "}
               {RAFFLE_CONFIG.totalTickets.toLocaleString()} total
             </p>
-          </div>*/}
+          </div>
 
           <a
             href="#buy"
