@@ -582,10 +582,10 @@ const RafflePage = () => {
         className="bg-background px-6 py-16 md:py-24 border-t border-white/5"
       >
         <div className="max-w-xl mx-auto">
-          <h2 className="font-space-grotesk text-2xl md:text-3xl font-bold text-white text-center mb-2">
+          <h2 className="font-space-grotesk text-2xl md:text-3xl lg:text-4xl font-bold text-white text-center mb-10">
             Buy Tickets
           </h2>
-          <p className="text-white/50 font-google-sans text-center mb-10">
+          <p className="text-white/50 font-google-sans text-center mb-10 hidden">
             {soldOut
               ? "All tickets have been sold. Thank you for participating!"
               : `${formatNaira(RAFFLE_CONFIG.ticketPrice)} per ticket \u2022 ${remaining.toLocaleString()} remaining`}
