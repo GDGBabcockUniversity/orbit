@@ -25,7 +25,7 @@ const SponsorsPreview = () => (
               <img
                 src={sponsor.logo}
                 alt={sponsor.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain mix-blend-multiply"
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center">
