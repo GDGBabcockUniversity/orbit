@@ -186,6 +186,8 @@ export const SPONSORS = [
     logo: "/images/sponsors - webps/gadget-cartel.webp",
   },
   { name: "Jules Luxury", logo: "/images/sponsors - webps/jules-luxury.webp" },
+  { name: "Rahmon", logo: "/images/sponsors - webps/rahmon.webp" },
+  { name: "Sorefunmi", logo: "/images/sponsors - webps/sorefunmi.webp" },
 ];
 
 export const DETAILED_STATS = [
