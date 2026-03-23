@@ -34,7 +34,7 @@ const SponsorsPage = () => {
           <h2 className="font-space-grotesk text-xl md:text-2xl font-bold text-background">
             Sponsors
           </h2>
-          <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="mt-6 grid grid-cols-2 md:grid-cols-3 gap-6">
             {SPONSORS.map((sponsor) => (
               <div
                 key={sponsor.name}
@@ -44,7 +44,7 @@ const SponsorsPage = () => {
                   <img
                     src={sponsor.logo}
                     alt={sponsor.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain mix-blend-multiply"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center">
