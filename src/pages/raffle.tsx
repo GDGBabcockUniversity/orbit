@@ -392,8 +392,7 @@ const RafflePage = () => {
 
           <p className="mt-4 text-white/50 font-google-sans text-base md:text-lg max-w-xl leading-relaxed">
             Buy a raffle ticket for just{" "}
-            {formatNaira(RAFFLE_CONFIG.ticketPrice)} and stand a chance to win
-            an <span className="text-white/80">{RAFFLE_CONFIG.prizeName}</span>.
+            {formatNaira(RAFFLE_CONFIG.ticketPrice)} and stand a chance to win <span className="text-white/80">{RAFFLE_CONFIG.prizeName}</span>.
           </p>
 
           {/* <RaffleAttendanceNotice className="mx-auto mt-5 max-w-xl text-sm md:text-[0.95rem]" /> */}
