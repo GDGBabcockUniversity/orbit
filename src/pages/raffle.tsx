@@ -317,27 +317,21 @@ const RafflePage = () => {
           <h2 className="font-space-grotesk text-3xl font-bold text-white mb-4">
             You&rsquo;re In the Draw!
           </h2>
-          <p className="text-white/70 font-google-sans mb-6">
+          <p className="text-white/70 font-google-sans mb-4">
             You successfully purchased{" "}
             <span className="text-white font-medium">
               {assignedTickets.length}
             </span>{" "}
             {assignedTickets.length === 1 ? "ticket" : "tickets"}. Good luck!
           </p>
-
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
-            {assignedTickets.map((t) => (
-              <span
-                key={t}
-                className="inline-flex items-center bg-primary/20 text-primary-bright border border-primary/30 px-4 py-2 rounded-xl font-space-grotesk text-lg font-bold tracking-wider"
-              >
-                #{t}
-              </span>
-            ))}
-          </div>
+          <p className="text-white font-google-sans text-sm mb-8 px-4 py-3 bg-primary/20 border border-primary/30 rounded-xl">
+            You must pick up your physical{" "}
+            {assignedTickets.length === 1 ? "ticket" : "tickets"} at the
+            registration desk on the day of the event.
+          </p>
 
           <p className="text-white/50 font-google-sans text-sm mb-6">
-            A confirmation email has been sent to{" "}
+            A purchase confirmation email has been sent to{" "}
             <span className="text-white">{buyer.email}</span>.
           </p>
 
