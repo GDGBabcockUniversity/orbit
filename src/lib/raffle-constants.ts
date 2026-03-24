@@ -1,9 +1,9 @@
 export const RAFFLE_CONFIG = {
   totalTickets: 500,
-  ticketPrice: 2000,
-  discountPer5: 1000,
+  ticketPrice: 1000,
+  discountPer5: 0,
   drawDate: new Date("2026-04-01T10:00:00"),
-  prizeName: "Apple MacBook Air (M1, 13-inch)",
+  prizeName: "Premium Tech Gear",
   currency: "NGN",
 };
 
@@ -11,7 +11,7 @@ export const RAFFLE_PRESETS = [1, 3, 5] as const;
 
 /** Must attend live draw; absent when called = forfeit. Shown on raffle page. */
 export const RAFFLE_ATTENDANCE_CLAUSE =
-  "All participants must be physically present at the live draw. If your ticket number is called and you are not in attendance, you will forfeit the prize.";
+  "All participants must pick up their physical tickets on the day of the event and be physically present at the live draw. If your ticket number is called and you are not in attendance, you will forfeit the prize. Note: If you previously bought tickets at ₦2,000, your ticket count has been automatically doubled!";
 
 export function calculatePrice(qty: number): number {
   return (
@@ -31,18 +31,22 @@ export function padTicketNumber(n: number): string {
 export const RAFFLE_FAQS = [
   {
     question: "How much does a raffle ticket cost?",
-    answer:
-      "Each ticket costs \u20A62,000. You get a \u20A61,000 discount for every 5 tickets you buy. For example, 5 tickets cost \u20A69,000 instead of \u20A610,000.",
+    answer: "Each ticket costs \u20A61,000.",
   },
   {
     question: "What is the prize?",
     answer:
-      "The grand prize is a brand-new Apple MacBook Air (M2, 13-inch). One lucky winner takes it home!",
+      "We're giving away top-tier tech to elevate your workflow and keep you powered up. You won't want to miss it!",
   },
   {
-    question: "How are ticket numbers assigned?",
+    question: "How do I get my tickets?",
     answer:
-      "Ticket numbers are automatically assigned after your payment is confirmed. You\u2019ll see your numbers immediately and receive them via email.",
+      "Ticket numbers are automatically assigned after your payment is confirmed and sent via email. However, you MUST pick up your physical tickets at the registration desk on the day of the event to participate.",
+  },
+  {
+    question: "I bought a ticket when it was \u20A62,000. What happens now?",
+    answer:
+      "Because the price has been updated to \u20A61,000, anyone who purchased at the old price has automatically been credited with double the amount of tickets! You will be able to pick up all your physical tickets on the day of the event.",
   },
   {
     question: "How is the winner selected?",
@@ -62,7 +66,7 @@ export const RAFFLE_FAQS = [
   {
     question: "Do I have to be present at the draw?",
     answer:
-      "Yes. Being in attendance is a requirement. If your ticket number is called and you are not physically present at the event, you will forfeit the prize.",
+      "Yes. Being in attendance is a requirement. If your ticket number is called and you are not physically present at the event, you will forfeit the prize. Physical ticket pickup on the day of the event is also required.",
   },
   {
     question: "What payment methods are accepted?",
