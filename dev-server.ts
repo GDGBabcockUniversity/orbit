@@ -44,12 +44,15 @@ const server = http.createServer((req, res) => {
   req.on("data", (chunk) => (raw += chunk));
   req.on("end", async () => {
     try {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (req as any).body = raw ? JSON.parse(raw) : {};
     } catch {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (req as any).body = {};
     }
 
     // Polyfill Vercel response methods on top of the plain Node ServerResponse
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const vercelRes = res as any;
 
     vercelRes.status = (code: number) => {
@@ -77,6 +80,7 @@ const server = http.createServer((req, res) => {
       const moduleUrl = new URL(`file://${apiPath}`);
       const { default: handler } = await import(moduleUrl.href);
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       await handler(req as any, vercelRes);
     } catch (err: unknown) {
       console.error(`[api] Unhandled error in handler for ${pathname}:`, err);

@@ -107,10 +107,6 @@ const RafflePage = () => {
   // const price = calculatePrice(quantity);
   const remaining = RAFFLE_CONFIG.totalTickets - ticketsSold;
   const soldOut = remaining <= 0;
-  const progress = Math.min(
-    (ticketsSold / RAFFLE_CONFIG.totalTickets) * 100,
-    100,
-  );
 
   // Fetch ticket counter
   useEffect(() => {
@@ -158,6 +154,7 @@ const RafflePage = () => {
       const amountKobo = calculatePrice(effectiveQty) * 100;
 
       // Open Paystack popup
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const paystack = new (window as any).PaystackPop();
       paystack.newTransaction({
         key: PAYSTACK_PUBLIC_KEY,

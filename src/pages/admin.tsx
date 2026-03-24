@@ -13,8 +13,6 @@ import {
   updateDoc,
   doc,
   getDoc,
-  runTransaction,
-  serverTimestamp,
 } from "firebase/firestore";
 import { auth, db } from "../lib/firebase";
 import { RAFFLE_CONFIG, formatNaira } from "../lib/raffle-constants";
