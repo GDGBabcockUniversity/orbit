@@ -309,97 +309,6 @@ const AdminPage = () => {
     }
   };
 
-  const doubleOldTickets = async () => {
-    if (
-      !window.confirm(
-        "Are you sure you want to double tickets for old purchases (Price > 1000)? This will also email them.",
-      )
-    )
-      return;
-
-    setLoadingRaffle(true);
-    try {
-      const purchasesSnap = await getDocs(collection(db, "raffle_purchases"));
-      const oldPurchases: any[] = [];
-      purchasesSnap.forEach((d) => {
-        const p = d.data();
-        if (p.amountPaid / p.quantity > 1000) {
-          oldPurchases.push(p);
-        }
-      });
-
-      if (oldPurchases.length === 0) {
-        alert("No old purchases found to double.");
-        setLoadingRaffle(false);
-        return;
-      }
-
-      const counterRef = doc(db, "raffle_meta", "counter");
-      const emailsToSend: any[] = [];
-
-      await runTransaction(db, async (tx) => {
-        const counterSnap = await tx.get(counterRef);
-        let currentCount = counterSnap.exists() ? counterSnap.data().count : 0;
-
-        for (const p of oldPurchases) {
-          const newTickets = [];
-          for (let i = 0; i < p.quantity; i++) {
-            currentCount++;
-            const num = currentCount.toString().padStart(4, "0");
-            newTickets.push(num);
-            const newTicketRef = doc(collection(db, "raffle_tickets"), num);
-            tx.set(newTicketRef, {
-              ticketNumber: num,
-              buyerName: p.buyerName,
-              buyerEmail: p.buyerEmail,
-              buyerPhone: p.buyerPhone,
-              department: p.department,
-              level: p.level,
-              paymentRef: p.paymentRef + "_bonus",
-              purchasedAt: serverTimestamp(),
-            });
-          }
-
-          emailsToSend.push({
-            fullName: p.buyerName,
-            email: p.buyerEmail,
-            ticketNumbers: newTickets,
-          });
-
-          const purchaseRef = doc(db, "raffle_purchases", p.paymentRef);
-          tx.update(purchaseRef, {
-            quantity: p.quantity * 2,
-          });
-        }
-
-        tx.update(counterRef, { count: currentCount });
-      });
-
-      // Fire off emails
-      for (const payload of emailsToSend) {
-        try {
-          await fetch("/api/send-raffle-email", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
-          });
-        } catch (e) {
-          console.error("Failed to send email to", payload.email, e);
-        }
-      }
-
-      alert(
-        `Successfully doubled tickets and sent emails for ${oldPurchases.length} purchases!`,
-      );
-      fetchRaffleData();
-    } catch (error) {
-      console.error("Error doubling tickets:", error);
-      alert("Failed to double tickets. See console.");
-    } finally {
-      setLoadingRaffle(false);
-    }
-  };
-
   const refreshCurrent = () => {
     if (activeTab === "registrations") fetchTickets();
     else fetchRaffleData();
@@ -690,15 +599,6 @@ const AdminPage = () => {
             {/* Draw Tool */}
             <div className="mb-8">
               <DrawTool raffleTickets={raffleTickets} />
-            </div>
-
-            <div className="flex justify-end mb-8">
-              <button
-                onClick={doubleOldTickets}
-                className="bg-purple-600/20 text-purple-400 border border-purple-500/30 font-google-sans font-medium px-4 py-2 rounded-lg hover:bg-purple-600/30 transition text-sm"
-              >
-                Double Old Tickets & Send Emails
-              </button>
             </div>
 
             {/* Raffle Tickets Table */}
