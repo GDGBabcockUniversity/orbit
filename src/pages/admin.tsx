@@ -8,11 +8,13 @@ import {
 import {
   collection,
   query,
-  orderBy,
   getDocs,
+  orderBy,
   updateDoc,
   doc,
   getDoc,
+  runTransaction,
+  serverTimestamp,
 } from "firebase/firestore";
 import { auth, db } from "../lib/firebase";
 import { RAFFLE_CONFIG, formatNaira } from "../lib/raffle-constants";
@@ -62,7 +64,8 @@ const DrawTool = ({ raffleTickets }: { raffleTickets: RaffleTicket[] }) => {
     let ticks = 0;
     const totalTicks = 30;
     intervalRef.current = setInterval(() => {
-      const rand = raffleTickets[Math.floor(Math.random() * raffleTickets.length)];
+      const rand =
+        raffleTickets[Math.floor(Math.random() * raffleTickets.length)];
       setDisplayNumber(rand.ticketNumber);
       ticks++;
 
@@ -108,7 +111,9 @@ const DrawTool = ({ raffleTickets }: { raffleTickets: RaffleTicket[] }) => {
     <div
       ref={containerRef}
       className={`bg-white/5 border border-white/10 rounded-2xl overflow-hidden backdrop-blur-sm ${
-        isFullscreen ? "flex flex-col items-center justify-center p-12 bg-background" : "p-6 md:p-8"
+        isFullscreen
+          ? "flex flex-col items-center justify-center p-12 bg-background"
+          : "p-6 md:p-8"
       }`}
     >
       <div className={`text-center ${isFullscreen ? "scale-150" : ""}`}>
@@ -160,7 +165,11 @@ const DrawTool = ({ raffleTickets }: { raffleTickets: RaffleTicket[] }) => {
             disabled={isSpinning || raffleTickets.length === 0}
             className="bg-primary text-white font-google-sans font-medium px-8 py-3 rounded-xl hover:bg-primary-mid transition disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {isSpinning ? "Drawing..." : raffleTickets.length === 0 ? "No Tickets Sold" : "Draw Winner"}
+            {isSpinning
+              ? "Drawing..."
+              : raffleTickets.length === 0
+                ? "No Tickets Sold"
+                : "Draw Winner"}
           </button>
         </div>
       </div>
@@ -267,7 +276,10 @@ const AdminPage = () => {
         setTicketsSold(counterSnap.data().count ?? 0);
       }
 
-      const q = query(collection(db, "raffle_tickets"), orderBy("purchasedAt", "desc"));
+      const q = query(
+        collection(db, "raffle_tickets"),
+        orderBy("purchasedAt", "desc"),
+      );
       const snap = await getDocs(q);
       const data: RaffleTicket[] = [];
       snap.forEach((d) => {
@@ -294,6 +306,97 @@ const AdminPage = () => {
       fetchTickets();
     } catch (error) {
       console.error("Failed to update user:", error);
+    }
+  };
+
+  const doubleOldTickets = async () => {
+    if (
+      !window.confirm(
+        "Are you sure you want to double tickets for old purchases (Price > 1000)? This will also email them.",
+      )
+    )
+      return;
+
+    setLoadingRaffle(true);
+    try {
+      const purchasesSnap = await getDocs(collection(db, "raffle_purchases"));
+      const oldPurchases: any[] = [];
+      purchasesSnap.forEach((d) => {
+        const p = d.data();
+        if (p.amountPaid / p.quantity > 1000) {
+          oldPurchases.push(p);
+        }
+      });
+
+      if (oldPurchases.length === 0) {
+        alert("No old purchases found to double.");
+        setLoadingRaffle(false);
+        return;
+      }
+
+      const counterRef = doc(db, "raffle_meta", "counter");
+      const emailsToSend: any[] = [];
+
+      await runTransaction(db, async (tx) => {
+        const counterSnap = await tx.get(counterRef);
+        let currentCount = counterSnap.exists() ? counterSnap.data().count : 0;
+
+        for (const p of oldPurchases) {
+          const newTickets = [];
+          for (let i = 0; i < p.quantity; i++) {
+            currentCount++;
+            const num = currentCount.toString().padStart(4, "0");
+            newTickets.push(num);
+            const newTicketRef = doc(collection(db, "raffle_tickets"), num);
+            tx.set(newTicketRef, {
+              ticketNumber: num,
+              buyerName: p.buyerName,
+              buyerEmail: p.buyerEmail,
+              buyerPhone: p.buyerPhone,
+              department: p.department,
+              level: p.level,
+              paymentRef: p.paymentRef + "_bonus",
+              purchasedAt: serverTimestamp(),
+            });
+          }
+
+          emailsToSend.push({
+            fullName: p.buyerName,
+            email: p.buyerEmail,
+            ticketNumbers: newTickets,
+          });
+
+          const purchaseRef = doc(db, "raffle_purchases", p.paymentRef);
+          tx.update(purchaseRef, {
+            quantity: p.quantity * 2,
+          });
+        }
+
+        tx.update(counterRef, { count: currentCount });
+      });
+
+      // Fire off emails
+      for (const payload of emailsToSend) {
+        try {
+          await fetch("/api/send-raffle-email", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+        } catch (e) {
+          console.error("Failed to send email to", payload.email, e);
+        }
+      }
+
+      alert(
+        `Successfully doubled tickets and sent emails for ${oldPurchases.length} purchases!`,
+      );
+      fetchRaffleData();
+    } catch (error) {
+      console.error("Error doubling tickets:", error);
+      alert("Failed to double tickets. See console.");
+    } finally {
+      setLoadingRaffle(false);
     }
   };
 
@@ -392,8 +495,18 @@ const AdminPage = () => {
             className="flex items-center gap-2 hover:text-white transition bg-white/5 px-3 py-1.5 rounded-md"
             title="Refresh Data"
           >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="size-4">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              className="size-4"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+              />
             </svg>
             <span className="hidden sm:inline-block">Refresh</span>
           </button>
@@ -454,35 +567,58 @@ const AdminPage = () => {
                 <table className="w-full text-left border-collapse">
                   <thead>
                     <tr className="bg-white/5 border-b border-white/10">
-                      <th className="px-6 py-4 font-google-sans text-sm font-medium text-white/50 uppercase tracking-wider">Name</th>
-                      <th className="px-6 py-4 font-google-sans text-sm font-medium text-white/50 uppercase tracking-wider">Email</th>
-                      <th className="px-6 py-4 font-google-sans text-sm font-medium text-white/50 uppercase tracking-wider">Role</th>
-                      <th className="px-6 py-4 font-google-sans text-sm font-medium text-white/50 uppercase tracking-wider">Organization</th>
-                      <th className="px-6 py-4 font-google-sans text-sm font-medium text-white/50 uppercase tracking-wider">Registered</th>
+                      <th className="px-6 py-4 font-google-sans text-sm font-medium text-white/50 uppercase tracking-wider">
+                        Name
+                      </th>
+                      <th className="px-6 py-4 font-google-sans text-sm font-medium text-white/50 uppercase tracking-wider">
+                        Email
+                      </th>
+                      <th className="px-6 py-4 font-google-sans text-sm font-medium text-white/50 uppercase tracking-wider">
+                        Role
+                      </th>
+                      <th className="px-6 py-4 font-google-sans text-sm font-medium text-white/50 uppercase tracking-wider">
+                        Organization
+                      </th>
+                      <th className="px-6 py-4 font-google-sans text-sm font-medium text-white/50 uppercase tracking-wider">
+                        Registered
+                      </th>
                       <th className="px-6 py-4"></th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-white/5">
                     {loadingData ? (
                       <tr>
-                        <td colSpan={6} className="px-6 py-12 text-center text-white/40 font-google-sans">
+                        <td
+                          colSpan={6}
+                          className="px-6 py-12 text-center text-white/40 font-google-sans"
+                        >
                           Loading data...
                         </td>
                       </tr>
                     ) : filteredTickets.length === 0 ? (
                       <tr>
-                        <td colSpan={6} className="px-6 py-12 text-center text-white/40 font-google-sans">
+                        <td
+                          colSpan={6}
+                          className="px-6 py-12 text-center text-white/40 font-google-sans"
+                        >
                           No registrations found yet.
                         </td>
                       </tr>
                     ) : (
                       filteredTickets.map((ticket) => (
-                        <tr key={ticket.id} className="hover:bg-white/5 transition group">
+                        <tr
+                          key={ticket.id}
+                          className="hover:bg-white/5 transition group"
+                        >
                           <td className="px-6 py-4 whitespace-nowrap">
-                            <div className="text-white font-medium font-google-sans">{ticket.fullName}</div>
+                            <div className="text-white font-medium font-google-sans">
+                              {ticket.fullName}
+                            </div>
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap">
-                            <div className="text-white/70 font-google-sans text-sm">{ticket.email}</div>
+                            <div className="text-white/70 font-google-sans text-sm">
+                              {ticket.email}
+                            </div>
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap">
                             <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/20 text-primary-bright border border-primary/30">
@@ -524,9 +660,17 @@ const AdminPage = () => {
             {/* Stats cards */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
               {[
-                { label: "Total Tickets", value: RAFFLE_CONFIG.totalTickets.toLocaleString() },
+                {
+                  label: "Total Tickets",
+                  value: RAFFLE_CONFIG.totalTickets.toLocaleString(),
+                },
                 { label: "Sold", value: ticketsSold.toLocaleString() },
-                { label: "Remaining", value: (RAFFLE_CONFIG.totalTickets - ticketsSold).toLocaleString() },
+                {
+                  label: "Remaining",
+                  value: (
+                    RAFFLE_CONFIG.totalTickets - ticketsSold
+                  ).toLocaleString(),
+                },
                 { label: "Revenue", value: formatNaira(totalRevenue) },
               ].map((stat) => (
                 <div
@@ -548,6 +692,15 @@ const AdminPage = () => {
               <DrawTool raffleTickets={raffleTickets} />
             </div>
 
+            <div className="flex justify-end mb-8">
+              <button
+                onClick={doubleOldTickets}
+                className="bg-purple-600/20 text-purple-400 border border-purple-500/30 font-google-sans font-medium px-4 py-2 rounded-lg hover:bg-purple-600/30 transition text-sm"
+              >
+                Double Old Tickets & Send Emails
+              </button>
+            </div>
+
             {/* Raffle Tickets Table */}
             <div>
               <h3 className="font-space-grotesk text-xl font-bold text-white mb-4">
@@ -566,29 +719,48 @@ const AdminPage = () => {
                   <table className="w-full text-left border-collapse">
                     <thead>
                       <tr className="bg-white/5 border-b border-white/10">
-                        <th className="px-6 py-4 font-google-sans text-sm font-medium text-white/50 uppercase tracking-wider">Ticket #</th>
-                        <th className="px-6 py-4 font-google-sans text-sm font-medium text-white/50 uppercase tracking-wider">Name</th>
-                        <th className="px-6 py-4 font-google-sans text-sm font-medium text-white/50 uppercase tracking-wider">Phone</th>
-                        <th className="px-6 py-4 font-google-sans text-sm font-medium text-white/50 uppercase tracking-wider">Email</th>
-                        <th className="px-6 py-4 font-google-sans text-sm font-medium text-white/50 uppercase tracking-wider">Purchased</th>
+                        <th className="px-6 py-4 font-google-sans text-sm font-medium text-white/50 uppercase tracking-wider">
+                          Ticket #
+                        </th>
+                        <th className="px-6 py-4 font-google-sans text-sm font-medium text-white/50 uppercase tracking-wider">
+                          Name
+                        </th>
+                        <th className="px-6 py-4 font-google-sans text-sm font-medium text-white/50 uppercase tracking-wider">
+                          Phone
+                        </th>
+                        <th className="px-6 py-4 font-google-sans text-sm font-medium text-white/50 uppercase tracking-wider">
+                          Email
+                        </th>
+                        <th className="px-6 py-4 font-google-sans text-sm font-medium text-white/50 uppercase tracking-wider">
+                          Purchased
+                        </th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-white/5">
                       {loadingRaffle ? (
                         <tr>
-                          <td colSpan={5} className="px-6 py-12 text-center text-white/40 font-google-sans">
+                          <td
+                            colSpan={5}
+                            className="px-6 py-12 text-center text-white/40 font-google-sans"
+                          >
                             Loading raffle data...
                           </td>
                         </tr>
                       ) : filteredRaffleTickets.length === 0 ? (
                         <tr>
-                          <td colSpan={5} className="px-6 py-12 text-center text-white/40 font-google-sans">
+                          <td
+                            colSpan={5}
+                            className="px-6 py-12 text-center text-white/40 font-google-sans"
+                          >
                             No raffle tickets found.
                           </td>
                         </tr>
                       ) : (
                         filteredRaffleTickets.map((t) => (
-                          <tr key={t.ticketNumber} className="hover:bg-white/5 transition">
+                          <tr
+                            key={t.ticketNumber}
+                            className="hover:bg-white/5 transition"
+                          >
                             <td className="px-6 py-4 whitespace-nowrap">
                               <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary/20 text-primary-bright border border-primary/30 font-space-grotesk tracking-wider">
                                 #{t.ticketNumber}
