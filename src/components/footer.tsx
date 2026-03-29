@@ -7,6 +7,7 @@ const FOOTER_LINKS = [
   { label: "Experience", href: "#experience" },
   { label: "Speakers", href: "/speakers" },
   { label: "Sponsors & Partners", href: "/sponsors" },
+  { label: "Raffle Draw", href: "/raffle" },
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "mailto:partnerships@gdgbabcock.com" },
 ];
