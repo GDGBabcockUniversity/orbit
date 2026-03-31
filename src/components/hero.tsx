@@ -41,10 +41,10 @@ const Hero = () => {
           Career fair.
         </p>
 
-        {/* Countdown */}
+        {/* Countdown 
         <div className="mt-8 md:mt-10">
           <CountdownTimer />
-        </div>
+        </div>*/}
 
         {/* Stats row */}
         <div className="mt-10 md:mt-14 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-14">
