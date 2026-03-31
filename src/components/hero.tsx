@@ -1,5 +1,5 @@
 import { HERO_STATS } from "../lib/constants";
-import CountdownTimer from "./countdown-timer";
+// import CountdownTimer from "./countdown-timer";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
