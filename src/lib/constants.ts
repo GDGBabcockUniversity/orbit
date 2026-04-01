@@ -271,6 +271,7 @@ export const SPEAKERS = [
 ];
 
 export const SPONSORS = [
+  { name: "Moniepoint", logo: "/images/sponsors - webps/moniepoint.webp" },
   { name: "Postra", logo: "/images/sponsors - webps/postra.webp" },
   {
     name: "Gadget Cartel",
@@ -279,6 +280,10 @@ export const SPONSORS = [
   { name: "Jules Luxury", logo: "/images/sponsors - webps/jules-luxury.webp" },
   { name: "Rahmon", logo: "/images/sponsors - webps/rahmon.webp" },
   { name: "Sorefunmi", logo: "/images/sponsors - webps/sorefunmi.webp" },
+  { name: "AICL", logo: "/images/sponsors - webps/aicl.webp" },
+  { name: "His Grace", logo: "/images/sponsors - webps/his-grace.webp" },
+  { name: "Patron Apartments", logo: "/images/sponsors - webps/patron.webp" },
+  { name: "Glass Finance", logo: "/images/sponsors - webps/glass.webp" },
 ];
 
 export const DETAILED_STATS = [
