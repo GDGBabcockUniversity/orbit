@@ -6,7 +6,7 @@ import SpeakersPage from "./pages/speakers";
 import SponsorsPage from "./pages/sponsors";
 import TicketsPage from "./pages/tickets";
 import AdminPage from "./pages/admin";
-import RafflePage from "./pages/raffle";
+// import RafflePage from "./pages/raffle";
 import AgendaPage from "./pages/agenda";
 import Footer from "./components/footer";
 
