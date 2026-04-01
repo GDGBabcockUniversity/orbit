@@ -389,7 +389,7 @@ const RafflePage = () => {
 
           {/* <RaffleAttendanceNotice className="mx-auto mt-5 max-w-xl text-sm md:text-[0.95rem]" /> */}
 
-          {/* Countdown */}
+          {/* Countdown 
           <div className="mt-10">
             <p className="text-white/40 font-google-sans text-xs uppercase tracking-[0.2em] mb-4">
               Raffle Draw In
@@ -423,7 +423,7 @@ const RafflePage = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
 
           {/* Ticket counter */}
           {/*<div className="mt-10 w-full max-w-sm">
