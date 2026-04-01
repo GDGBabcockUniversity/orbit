@@ -82,7 +82,7 @@ const DesktopDeck = () => {
         <div className="w-[35%] pl-12 lg:pl-20 xl:pl-28 pr-8">
           <SectionBadge>THE EXPERIENCE</SectionBadge>
           <h2 className="font-space-grotesk text-background text-4xl lg:text-5xl xl:text-6xl leading-tight font-bold mt-5">
-            4 Days. 4 Experiences.{" "}
+            3 Days. 3 Experiences.{" "}
             <span className="text-primary">1 Mission.</span>
           </h2>
           <p className="mt-6 text-background/50 font-google-sans text-lg xl:text-xl max-w-sm leading-relaxed">
@@ -128,8 +128,7 @@ const MobileStack = () => (
     <div className="flex flex-col items-center text-center">
       <SectionBadge>THE EXPERIENCE</SectionBadge>
       <h2 className="font-space-grotesk text-background text-2xl font-bold mt-4">
-        4 Days. 4 Experiences.{" "}
-        <span className="text-primary">1 Mission.</span>
+        3 Days. 3 Experiences. <span className="text-primary">1 Mission.</span>
       </h2>
       <p className="mt-4 text-background/50 font-google-sans text-sm max-w-xs leading-relaxed">
         Closing the distance between campus and industry, one day at a time.
