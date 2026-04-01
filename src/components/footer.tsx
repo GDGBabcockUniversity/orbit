@@ -123,7 +123,7 @@ const Footer = () => (
           University. All rights reserved.
         </p>
         <p className="text-white/30 font-google-sans text-xs">
-          March 29 &ndash; April 2, 2026 &middot; Babcock University,
+          March 31 &ndash; April 2, 2026 &middot; Babcock University,
           Ilishan-Remo
         </p>
       </div>
