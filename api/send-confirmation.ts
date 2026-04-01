@@ -29,7 +29,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
           <p>This email confirms your registration for <strong>ORBIT 1.0</strong>.</p>
 
-          <p>We are thrilled to have you join the convergence of campus and industry at Babcock University from <strong>March 29 - April 2, 2026</strong>.</p>
+          <p>We are thrilled to have you join the convergence of campus and industry at Babcock University from <strong>March 31 - April 2, 2026</strong>.</p>
 
           <div style="background-color: #f3f4f6; border-radius: 12px; padding: 24px; margin: 32px 0;">
             <p style="margin: 0; font-size: 14px; color: #666; text-transform: uppercase; letter-spacing: 1px;">Registration Details</p>
