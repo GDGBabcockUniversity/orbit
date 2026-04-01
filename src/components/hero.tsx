@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <section id="about" className="min-h-screen bg-background relative overflow-hidden">
+    <section
+      id="about"
+      className="min-h-screen bg-background relative overflow-hidden"
+    >
       {/* Background effects */}
       <div className="hero-planet-glow" />
       <div className="hero-aurora-bars">
@@ -21,7 +24,7 @@ const Hero = () => {
         {/* Event badge */}
         <div className="flex items-center gap-2.5 bg-white/10 backdrop-blur-sm text-white text-[11px] font-google-sans tracking-[0.15em] uppercase px-5 py-2.5 rounded-full border border-white/10">
           <span className="size-2 rounded-full bg-green-400 shrink-0" />
-          ORBIT 1.0 &mdash; MARCH 29 TO APRIL 2, 2026
+          ORBIT 1.0 &mdash; MARCH 31 TO APRIL 2, 2026
         </div>
 
         {/* Headline */}
@@ -36,12 +39,11 @@ const Hero = () => {
 
         {/* Description */}
         <p className="mt-5 md:mt-6 text-center text-white/50 font-google-sans text-base md:text-lg max-w-2xl leading-relaxed">
-          A 4-day industry summit bringing students, companies, founders, and
-          opportunities into the same orbit. Hackathon. Field trips. Panels.
-          Career fair.
+          A 3-day industry summit bringing students, companies, founders, and
+          opportunities into the same orbit. Field trips. Panels. Career fair.
         </p>
 
-        {/* Countdown 
+        {/* Countdown
         <div className="mt-8 md:mt-10">
           <CountdownTimer />
         </div>*/}
@@ -67,8 +69,18 @@ const Hero = () => {
             className="bg-primary text-white font-google-sans text-sm tracking-wider px-8 py-3.5 rounded-full hover:bg-primary-mid transition inline-flex items-center gap-2.5"
           >
             Get Tickets
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="size-4">
-              <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              className="size-4"
+            >
+              <path
+                d="M5 12h14M12 5l7 7-7 7"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </Link>
           <a
