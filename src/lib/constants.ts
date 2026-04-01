@@ -47,7 +47,7 @@ export const AGENDA_ITEMS = [
   {
     time: "12:35 PM – 12:45 PM",
     title: "Opening Remarks",
-    speaker: "Dr. Ernest (Advisor)",
+    speaker: "Dr. Ernest Onuiri, Campus Advisor",
   },
   {
     time: "12:45 PM – 12:55 PM",
@@ -57,17 +57,17 @@ export const AGENDA_ITEMS = [
   {
     time: "12:55 PM – 1:15 PM",
     title: "Keynote 1",
-    speaker: "Professor Obadare Peters",
+    speaker: "Professor Obadare Peter",
   },
   {
     time: "1:15 PM – 1:20 PM",
     title: "Sponsor Spotlight",
-    description: "AICL",
+    description: "AICL Education",
   },
   {
     time: "1:20 PM – 1:40 PM",
     title: "Keynote 2",
-    speaker: "Commissioner of Education, Science & Technology",
+    speaker: "Professor Abayomi Arigbabu",
   },
   {
     time: "1:40 PM – 1:45 PM",
@@ -80,12 +80,12 @@ export const AGENDA_ITEMS = [
     description:
       "Theme: Innovation Beyond Limits: Building Products and Brands that Matter",
     speaker:
-      "Moderator: Zubby | Speakers: Adedokun Sanni Adedayo (CEO, LearnSmart), Brandulox (Digital Creator & Branding Influencer), Peter Adeyemi (CEO, Cubees), Olamide Ajiboye (Director of Sales and Marketing at Dynasty Africa)",
+      "Moderator: Nzubechukwu Obunadike | Speakers: Adedokun Sanni Adedayo, Brandulox, Peter Adeyemi, Olamide Ajiboye",
   },
   {
     time: "2:25 PM – 2:45 PM",
     title: "Keynote 3",
-    speaker: "Regional Manager Security Solutions EEMEA, Mastercard",
+    speaker: "Mayowa Adeyemi",
   },
   {
     time: "2:45 PM – 2:55 PM",
@@ -97,7 +97,7 @@ export const AGENDA_ITEMS = [
     description:
       "Theme: Finding Your Orbit: Navigating Different Career Paths in Tech After University",
     speaker:
-      "Moderator: Sophia Odiase | Speakers: Samuel Abolo, Oladosu Emmanuel, Mileke Kolawole, Excellent Bolujo (QA Engineer, MoniePoint)",
+      "Moderator: Sophia Odiase | Speakers: Samuel Abolo, Emmanuel Oladosu, Mileke Kolawole, Excellent Bolujo",
   },
   {
     time: "3:35 PM – 3:45 PM",
@@ -117,7 +117,7 @@ export const AGENDA_ITEMS = [
   {
     time: "4:05 PM – 4:20 PM",
     title: "Raffle Draw Winner Announcement",
-    speaker: "Deba",
+    speaker: "Osedebame Itamah",
   },
   {
     time: "4:20 PM – 4:25 PM",
@@ -184,6 +184,13 @@ export const WHY_ORBIT = [
 ];
 
 export const SPEAKERS = [
+  {
+    name: "Prof. Abayomi Arigbabu",
+    role: "Commissioner, Education, Science and Technology",
+    company: "Ogun State",
+    bio: "Professor Abayomi Adelaja Arigbabu is the Commissioner for Education, Science, and Technology of Ogun State, Nigeria. He was the former vice-chancellor of Tai Solarin University of Education.\n\n He holds a Bachelor of Science Degree in Mathematics from the University of Lagos and Master of Science in mathematics from the same university. He later proceeded to the renowned University of South Africa, Pretoria for his Doctor of Philosophy in Mathematics, Science and Technology with specialization in Mathematics Education.\n\n Professionally, he has been actively involved in strategic pedagogical planning for over three decades. He also has scores of academic and scholarly publications, both nationally and internationally. He is an external examiner and assessor for doctoral thesis and post-graduate programmes in Universities in and outside Nigeria.",
+    image: "/images/webps/abayomi-arigbabu.webp",
+  },
   {
     name: "Prof. Obadare Peter Adewale",
     role: "CVO",
