@@ -24,6 +24,8 @@ type Ticket = {
   role: string;
   organization: string;
   checkedIn: boolean;
+  department?: string;
+  level?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   createdAt: any;
 };
@@ -201,6 +203,18 @@ const AdminPage = () => {
   const [ticketsSold, setTicketsSold] = useState(0);
   const [totalRevenue, setTotalRevenue] = useState(0);
 
+  const [checkInModal, setCheckInModal] = useState<{
+    isOpen: boolean;
+    ticketEmail: string;
+    department: string;
+    level: string;
+  }>({
+    isOpen: false,
+    ticketEmail: "",
+    department: "",
+    level: "",
+  });
+
   const filteredTickets = tickets.filter(
     (t) =>
       t.email.toLowerCase().includes(searchValue.toLowerCase()) ||
@@ -298,10 +312,34 @@ const AdminPage = () => {
     }
   };
 
-  const checkIn = async (ticketEmail: string) => {
+  const openCheckInModal = (ticketEmail: string) => {
+    setCheckInModal({
+      isOpen: true,
+      ticketEmail,
+      department: "",
+      level: "",
+    });
+  };
+
+  const closeCheckInModal = () => {
+    setCheckInModal({
+      isOpen: false,
+      ticketEmail: "",
+      department: "",
+      level: "",
+    });
+  };
+
+  const checkIn = async () => {
+    if (!checkInModal.ticketEmail) return;
     try {
-      await updateDoc(doc(db, "tickets", ticketEmail), { checkedIn: true });
+      await updateDoc(doc(db, "tickets", checkInModal.ticketEmail), {
+        checkedIn: true,
+        department: checkInModal.department,
+        level: checkInModal.level,
+      });
       fetchTickets();
+      closeCheckInModal();
     } catch (error) {
       console.error("Failed to update user:", error);
     }
@@ -544,7 +582,7 @@ const AdminPage = () => {
                             <button
                               type="button"
                               disabled={ticket.checkedIn}
-                              onClick={() => checkIn(ticket.email)}
+                              onClick={() => openCheckInModal(ticket.email)}
                               className={
                                 "w-full mt-2 bg-primary text-white py-1 rounded-lg font-google-sans transition hover:bg-primary-mid disabled:opacity-50 cursor-pointer" +
                                 (ticket.checkedIn ? " bg-black" : "")
@@ -689,6 +727,79 @@ const AdminPage = () => {
           </>
         )}
       </main>
+      {/* Check-In Modal */}
+      {checkInModal.isOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+          <div className="bg-background border border-white/10 rounded-3xl p-6 md:p-8 w-full max-w-md shadow-2xl">
+            <h3 className="text-xl md:text-2xl font-space-grotesk font-bold text-white mb-2">
+              Complete Check-In
+            </h3>
+            <p className="text-white/50 font-google-sans text-sm mb-6">
+              Checking in{" "}
+              <span className="text-white">{checkInModal.ticketEmail}</span>
+            </p>
+
+            <div className="space-y-5 font-google-sans">
+              <div>
+                <label className="block text-sm text-white/70 mb-1.5">
+                  Department
+                </label>
+                <input
+                  type="text"
+                  value={checkInModal.department}
+                  onChange={(e) =>
+                    setCheckInModal({
+                      ...checkInModal,
+                      department: e.target.value,
+                    })
+                  }
+                  placeholder="e.g. Computer Science"
+                  className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary-bright focus:ring-1 focus:ring-primary-bright transition outline-none"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm text-white/70 mb-1.5">
+                  Level
+                </label>
+                <select
+                  value={checkInModal.level}
+                  onChange={(e) =>
+                    setCheckInModal({ ...checkInModal, level: e.target.value })
+                  }
+                  className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary-bright focus:ring-1 focus:ring-primary-bright transition outline-none appearance-none"
+                >
+                  <option value="" disabled>
+                    Select Level...
+                  </option>
+                  <option value="100">100</option>
+                  <option value="200">200</option>
+                  <option value="300">300</option>
+                  <option value="400">400</option>
+                  <option value="500">500</option>
+                  <option value="Alumni">Alumni</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div className="flex gap-3 pt-2">
+                <button
+                  onClick={closeCheckInModal}
+                  className="flex-1 px-4 py-3.5 rounded-xl border border-white/10 text-white font-medium hover:bg-white/5 transition"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={checkIn}
+                  className="flex-1 px-4 py-3.5 rounded-xl bg-primary text-white font-bold tracking-wide hover:bg-primary-mid transition"
+                >
+                  Check In
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
