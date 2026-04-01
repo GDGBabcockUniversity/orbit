@@ -34,7 +34,7 @@ export const NAV_LINKS = [
 
 export const HERO_STATS = [
   { value: "1,500+", label: "Expected Attendees" },
-  { value: "4", label: "Days of Programming" },
+  { value: "3", label: "Days of Programming" },
   { value: "50+", label: "Companies & Partners" },
   { value: "13K+", label: "University Population" },
 ];
@@ -42,27 +42,20 @@ export const HERO_STATS = [
 export const EXPERIENCES = [
   {
     day: 1,
-    title: "Hackathon",
-    description:
-      "Build, break, and ship in 24 hours alongside mentors from top companies.",
-    image: "/images/pngs/day-one.png",
-  },
-  {
-    day: 2,
     title: "Field Trips",
     description:
       "Step inside the offices of leading tech companies across Lagos.",
     image: "/images/pngs/day-two.png",
   },
   {
-    day: 3,
-    title: "Panel Discussions",
+    day: 2,
+    title: "The Conference",
     description:
       "Honest conversations with founders, engineers, and operators shaping the African tech ecosystem.",
     image: "/images/pngs/day-three.png",
   },
   {
-    day: 4,
+    day: 3,
     title: "Career Fair & Closing",
     description:
       "Meet recruiters, drop your CV, and walk away with real leads\u200A\u2014\u200Anot just swag.",
@@ -209,7 +202,7 @@ export const DETAILED_STATS = [
   },
   {
     value: "100+",
-    label: "Hackathon participants",
+    label: "Field trip participants",
     variant: "light" as const,
   },
   {
@@ -233,7 +226,7 @@ export const FAQS = [
   {
     question: "What is ORBIT?",
     answer:
-      "ORBIT is a 4-day industry summit organized by GDG on Campus, Babcock University. Built around the theme \u201CClosing the Distance,\u201D it brings students and industry together through four distinct experiences: a hackathon, company field trips, panel discussions, and a career fair.",
+      "ORBIT is a 3-day industry summit organized by GDG on Campus, Babcock University. Built around the theme \u201CClosing the Distance,\u201D it brings students and industry together through three distinct experiences: company field trips, panel discussions, and a career fair.",
   },
   {
     question: "Who is ORBIT for?",
@@ -243,12 +236,12 @@ export const FAQS = [
   {
     question: "When and where is ORBIT happening?",
     answer:
-      "ORBIT 1.0 runs from March 29 to April 2, 2026 at Babcock University, Ilishan-Remo, Ogun State, Nigeria.",
+      "ORBIT 1.0 runs from March 31 to April 2, 2026 at Babcock University, Ilishan-Remo, Ogun State, Nigeria.",
   },
   {
-    question: "Does one ticket cover the full 4-day event?",
+    question: "Does one ticket cover the full 3-day event?",
     answer:
-      "Yes. A single ticket gives you access to all four days of ORBIT\u200A\u2014\u200Athe hackathon, field trips, panel discussions, and the career fair. Some experiences may have limited capacity, so early registration is recommended.",
+      "Yes. A single ticket gives you access to all three days of ORBIT\u200A\u2014\u200Afield trips, panel discussions, and the career fair. Some experiences may have limited capacity, so early registration is recommended.",
   },
   {
     question: "Can companies participate in ORBIT?",
