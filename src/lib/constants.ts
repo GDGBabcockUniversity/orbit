@@ -26,10 +26,107 @@ export const NAV_LINKS = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Speakers", href: "/speakers" },
+  { label: "Agenda", href: "/agenda" },
   { label: "Sponsors & Partners", href: "/sponsors" },
   { label: "Raffle Draw", href: "/raffle" },
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "mailto:partnerships@gdgbabcock.com" },
+];
+
+export const AGENDA_ITEMS = [
+  {
+    time: "12:00 PM – 12:30 PM",
+    title: "Arrival & Check-In",
+    description: "Registration, Tag distribution, Media coverage",
+  },
+  {
+    time: "12:30 PM – 12:35 PM",
+    title: "Opening",
+    description: "MC Welcome & Overview (Recognize sponsors and partners)",
+  },
+  {
+    time: "12:35 PM – 12:45 PM",
+    title: "Opening Remarks",
+    speaker: "Dr. Ernest (Advisor)",
+  },
+  {
+    time: "12:45 PM – 12:55 PM",
+    title: "Role of Google Developer Groups & why developer communities matter",
+    speaker: "Sodiq Akinjobi",
+  },
+  {
+    time: "12:55 PM – 1:15 PM",
+    title: "Keynote 1",
+    speaker: "Professor Obadare Peters",
+  },
+  {
+    time: "1:15 PM – 1:20 PM",
+    title: "Sponsor Spotlight",
+    description: "AICL",
+  },
+  {
+    time: "1:20 PM – 1:40 PM",
+    title: "Keynote 2",
+    speaker: "Commissioner of Education, Science & Technology",
+  },
+  {
+    time: "1:40 PM – 1:45 PM",
+    title: "Icebreaker 1",
+    description: "Quick Energy Check - Fastest Finger Airtime",
+  },
+  {
+    time: "1:45 PM – 2:25 PM",
+    title: "Panel Session 1 — Industry Experts",
+    description:
+      "Theme: Innovation Beyond Limits: Building Products and Brands that Matter",
+    speaker:
+      "Moderator: Zubby | Speakers: Adedokun Sanni Adedayo (CEO, LearnSmart), Brandulox (Digital Creator & Branding Influencer), Peter Adeyemi (CEO, Cubees), Olamide Ajiboye (Director of Sales and Marketing at Dynasty Africa)",
+  },
+  {
+    time: "2:25 PM – 2:45 PM",
+    title: "Keynote 3",
+    speaker: "Regional Manager Security Solutions EEMEA, Mastercard",
+  },
+  {
+    time: "2:45 PM – 2:55 PM",
+    title: "Networking Break & Icebreaker 2",
+  },
+  {
+    time: "2:55 PM – 3:35 PM",
+    title: "Panel Session 2 — Alumni Panel",
+    description:
+      "Theme: Finding Your Orbit: Navigating Different Career Paths in Tech After University",
+    speaker:
+      "Moderator: Sophia Odiase | Speakers: Samuel Abolo, Oladosu Emmanuel, Mileke Kolawole, Excellent Bolujo (QA Engineer, MoniePoint)",
+  },
+  {
+    time: "3:35 PM – 3:45 PM",
+    title: "Student Artistes Performance",
+    description: "Playboy and Phemi",
+  },
+  {
+    time: "3:45 PM – 4:00 PM",
+    title: "Audience Q&A",
+    description:
+      "Combined Q&A time for any lingering questions for the panelists or keynote speakers.",
+  },
+  {
+    time: "4:00 PM – 4:05 PM",
+    title: "Awards & Recognition",
+  },
+  {
+    time: "4:05 PM – 4:20 PM",
+    title: "Raffle Draw Winner Announcement",
+    speaker: "Deba",
+  },
+  {
+    time: "4:20 PM – 4:25 PM",
+    title: "Closing Remarks",
+  },
+  {
+    time: "4:25 PM – 4:35 PM",
+    title: "Group Photo",
+  },
 ];
 
 export const HERO_STATS = [
