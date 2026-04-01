@@ -7,6 +7,7 @@ import SponsorsPage from "./pages/sponsors";
 import TicketsPage from "./pages/tickets";
 import AdminPage from "./pages/admin";
 import RafflePage from "./pages/raffle";
+import AgendaPage from "./pages/agenda";
 import Footer from "./components/footer";
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/speakers" element={<SpeakersPage />} />
+        <Route path="/agenda" element={<AgendaPage />} />
         <Route path="/sponsors" element={<SponsorsPage />} />
         <Route path="/tickets" element={<TicketsPage />} />
         <Route path="/raffle" element={<RafflePage />} />
