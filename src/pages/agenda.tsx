@@ -30,7 +30,7 @@ const AgendaPage = () => {
           {AGENDA_ITEMS.map((item, index) => (
             <div key={index} className="relative group">
               {/* Timeline dot */}
-              <div className="absolute -left-[41px] md:-left-[57px] top-1.5 size-4 rounded-full bg-primary/20 border border-primary/50 group-hover:bg-primary group-hover:scale-125 transition duration-300" />
+              <div className="absolute -left-10.25 md:-left-14.25 top-1.5 size-4 rounded-full bg-primary/20 border border-primary/50 group-hover:bg-primary group-hover:scale-125 transition duration-300" />
 
               <div className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 hover:bg-white/10 transition duration-300 backdrop-blur-sm">
                 <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary-bright text-xs font-bold font-google-sans tracking-wide mb-4">
