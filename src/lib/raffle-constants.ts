@@ -2,7 +2,7 @@ export const RAFFLE_CONFIG = {
   totalTickets: 500,
   ticketPrice: 1000,
   discountPer5: 0,
-  drawDate: new Date("2026-04-01T10:00:00"),
+  drawDate: new Date("2026-04-01T14:00:00"),
   prizeName: "Premium Tech Gear",
   currency: "NGN",
 };
