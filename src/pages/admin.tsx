@@ -491,7 +491,10 @@ const AdminPage = () => {
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
               <div>
                 <h2 className="text-3xl font-space-grotesk font-bold text-white">
-                  Event Registrations <span className="text-white/50 font-google-sans text-base">({tickets.filter(t=>t.checkedIn).length} checked in)</span>
+                  Event Registrations{" "}
+                  <span className="text-white/50 font-google-sans text-base">
+                    ({tickets.filter((t) => t.checkedIn).length} checked in)
+                  </span>
                 </h2>
                 <p className="text-white/50 font-google-sans mt-1">
                   {tickets.length} {tickets.length === 1 ? "ticket" : "tickets"}{" "}
