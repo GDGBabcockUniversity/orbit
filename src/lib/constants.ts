@@ -317,7 +317,7 @@ export const SPONSOR_TIERS = [
     tier: "Hospitality Sponsors",
     sponsors: [
       { name: "His Grace", logo: "/images/sponsors/his-grace.webp" },
-      { name: "Eben Nuts", logo: "" },
+      { name: "Eben Nuts", logo: "/images/sponsors/eben-nuts.png" },
       { name: "Waffledom", logo: "/images/sponsors/waffledom.jpg" },
     ],
   },
