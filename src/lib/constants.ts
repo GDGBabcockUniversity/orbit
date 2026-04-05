@@ -291,7 +291,7 @@ export const SPONSOR_TIERS = [
   {
     tier: "Headline Sponsor",
     sponsors: [
-      { name: "Moniepoint", logo: "/images/sponsors/moniepoint.webp" },
+      { name: "Moniepoint", logo: "/images/sponsors/moniepoint.jpeg" },
     ],
   },
   {
@@ -324,8 +324,8 @@ export const SPONSOR_TIERS = [
   {
     tier: "Career Fair Partners",
     sponsors: [
-      { name: "Stanbic IBTC", logo: "/images/sponsors/stanbi-ibtc.jpg" },
-      { name: "GTB", logo: "/images/sponsors/gtbank.jpg" },
+      { name: "Stanbic IBTC", logo: "/images/sponsors/stanbi-ibtc.png" },
+      { name: "GTB", logo: "/images/sponsors/gtbank.png" },
     ],
   },
   {
