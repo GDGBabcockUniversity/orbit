@@ -40,7 +40,7 @@ const SponsorsPage = () => {
                 {tierData.sponsors.map((sponsor) => (
                   <div
                     key={sponsor.name}
-                    className="aspect-video sm:aspect-square rounded-xl border border-background/8 bg-surface overflow-hidden flex items-center justify-center transition-colors"
+                    className="aspect-video sm:aspect-square rounded-xl border border-background/8 bg-surface overflow-hidden p-3 flex items-center justify-center transition-colors"
                   >
                     {sponsor.logo ? (
                       <img
