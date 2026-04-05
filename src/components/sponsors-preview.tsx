@@ -16,7 +16,7 @@ const SponsorsPreview = () => (
 
       {/* Sponsor logos */}
       <div className="mt-12 flex flex-wrap items-center justify-center gap-6">
-        {SPONSORS.map((sponsor) => (
+        {SPONSORS.slice(0, 8).map((sponsor) => (
           <div
             key={sponsor.name}
             className="w-36 md:w-44 aspect-square rounded-xl border border-background/8 bg-white overflow-hidden"
