@@ -183,115 +183,203 @@ export const WHY_ORBIT = [
   },
 ];
 
-export const SPEAKERS = [
+export const SPEAKER_GROUPS = [
   {
-    name: "Prof. Abayomi Arigbabu",
-    role: "Commissioner, Education, Science and Technology",
-    company: "Ogun State",
-    bio: "Professor Abayomi Adelaja Arigbabu is the Commissioner for Education, Science, and Technology of Ogun State, Nigeria. He was the former vice-chancellor of Tai Solarin University of Education.\n\n He holds a Bachelor of Science Degree in Mathematics from the University of Lagos and Master of Science in mathematics from the same university. He later proceeded to the renowned University of South Africa, Pretoria for his Doctor of Philosophy in Mathematics, Science and Technology with specialization in Mathematics Education.\n\n Professionally, he has been actively involved in strategic pedagogical planning for over three decades. He also has scores of academic and scholarly publications, both nationally and internationally. He is an external examiner and assessor for doctoral thesis and post-graduate programmes in Universities in and outside Nigeria.",
-    image: "/images/webps/abayomi-arigbabu.webp",
+    group: "Keynotes & Special Remarks",
+    speakers: [
+      {
+        name: "Sodiq Akinjobi",
+        role: "Community Manager",
+        company: "Google",
+        bio: "Sodiq Akinjobi is an accomplished Program Manager with over 5 years of experience in global marketing, community management, developer relations and scaling programs. With a background in mechanical engineering from Yaba College of Technology, where he graduated in 2014, Sodiq further pursued his education at the University of Lagos, graduating as a systems engineer. Currently, he is pursuing an MBA, further enhancing his business acumen.\n\nThroughout his career, Sodiq has showcased a proven track record of success in various areas. He excels in streamlining documentation flow, implementing effective community strategies, and planning and organizing events and hackathons. Additionally, he possesses strong leadership skills, having led product teams, coordinated testing and technical documentation, and conducted valuable market research.\n\nSodiq currently holds a position on the Developer Ecosystem Team at Google, where he continues to power developer growth through community engagement, education, and resource allocation across Africa. His expertise and dedication have helped bring to life some of the most prominent developer conferences across the African continent.",
+        image: "/images/webps/sodiq-akinjobi.webp",
+      },
+      {
+        name: "Prof. Obadare Peter Adewale",
+        role: "CVO",
+        company: "Digital Encode Limited",
+        bio: "Prof. Obadare Peter Adewale is the Founder and Chief Visionary Officer (CVO) of Digital Encode Limited. He is widely recognized as Africa's most credentialed leader in Digital Trust, Cybersecurity strategy, and GRC (Governance, Risk, and Compliance). He currently serves as the first Professor of Practice – Cybersecurity at Miva Open University.",
+        image: "/images/webps/obadare-peter-adewale.webp",
+      },
+      {
+        name: "Prof. Abayomi Arigbabu",
+        role: "Commissioner, Education, Science and Technology",
+        company: "Ogun State",
+        bio: "Professor Abayomi Adelaja Arigbabu is the Commissioner for Education, Science, and Technology of Ogun State, Nigeria. He was the former vice-chancellor of Tai Solarin University of Education.\n\n He holds a Bachelor of Science Degree in Mathematics from the University of Lagos and Master of Science in mathematics from the same university. He later proceeded to the renowned University of South Africa, Pretoria for his Doctor of Philosophy in Mathematics, Science and Technology with specialization in Mathematics Education.\n\n Professionally, he has been actively involved in strategic pedagogical planning for over three decades. He also has scores of academic and scholarly publications, both nationally and internationally. He is an external examiner and assessor for doctoral thesis and post-graduate programmes in Universities in and outside Nigeria.",
+        image: "/images/webps/abayomi-arigbabu.webp",
+      },
+      {
+        name: "Mayowa Adewumi",
+        role: "Regional Manager, Security Solutions",
+        company: "Mastercard",
+        bio: "Mayowa Adewumi is a lover of God and an experienced cybersecurity leader with a decade of expertise spanning embedded systems, cybersecurity, information security, and data privacy across the banking, fintech, and FMCG sectors. He currently serves as Regional Manager, Security Solutions at Mastercard, where he supports cybersecurity initiatives and strategic security solutions across the Eastern Europe, Middle East, and Africa (EEMEA) region, focusing on cyber resilience, cyber risk management, and third-party risk.\n\nPrior to Mastercard, Mayowa grew from an intern to a Senior/Lead cybersecurity Consultant at PwC West Africa, advising leading financial institutions on cybersecurity strategy, application security, cloud security, vulnerability assessment and penetration testing (VAPT), and governance, risk, and compliance.\n\nBeyond his professional work, he is passionate about developing future technology and cybersecurity leaders, having trained hundreds of professionals and mentored over 20 undergraduate and postgraduate students globally, supporting their final-year research and academic development both theory & practical implementation.",
+        image: "/images/webps/mayowa-adewumi.webp",
+      },
+    ],
   },
   {
-    name: "Prof. Obadare Peter Adewale",
-    role: "CVO",
-    company: "Digital Encode Limited",
-    bio: "Prof. Obadare Peter Adewale is the Founder and Chief Visionary Officer (CVO) of Digital Encode Limited. He is widely recognized as Africa's most credentialed leader in Digital Trust, Cybersecurity strategy, and GRC (Governance, Risk, and Compliance). He currently serves as the first Professor of Practice – Cybersecurity at Miva Open University.",
-    image: "/images/webps/obadare-peter-adewale.webp",
+    group: "Panel Session 1: Industry Experts",
+    speakers: [
+      {
+        name: "Sanni Adedokun",
+        role: "CEO",
+        company: "LearnSmart",
+        bio: "Adedokun founded LearnSmart to bridge the gap between theoretical learning and practical tech skills for students. Under his leadership, LearnSmart has helped hundreds of young people gain hands-on experience in software development, digital marketing, and product building. He brings first-hand insights into building a tech company from scratch, understanding market demands, and equipping students with skills that make them job-ready.",
+        image: "/images/webps/sanni-adedokun.webp",
+      },
+      {
+        name: "Brandulox",
+        role: "Tech Influencer",
+        company: "",
+        bio: "Eugene, known professionally as Brandulox, is a digital strategist and branding expert who helps individuals and companies amplify their online presence. He has worked with startups and established brands to craft compelling digital identities that resonate with audiences. For students, his insights show how tech skills combined with strategic personal branding can open doors to opportunities in an increasingly competitive digital landscape.",
+        image: "/images/webps/brandulox.webp",
+      },
+      {
+        name: "Peter Adeyemi",
+        role: "CEO",
+        company: "Cubbes",
+        bio: "Peter leads Cubees, a technology company specializing in building digital solutions from the ground up. He has overseen multiple product launches, managed cross-functional teams, and helped startups transform ideas into scalable tech products. Peter’s experience demonstrates the practical challenges of tech entrepreneurship and provides actionable lessons on innovation, leadership, and turning concepts into real-world solutions.",
+        image: "/images/webps/peter-adeyemi.webp",
+      },
+      {
+        name: "Olamide Ajiboye",
+        role: "Director, Sales and Marketing",
+        company: "Dynasty Africa",
+        bio: "Olamide Ajiboye is a seasoned Marketing professional and the Director of Sales and Marketing at Dynasty Africa, a leading full-service Creative & Marketing Agency that leads brands to their vision with Powerful and Creative solution.\n\nWith a proven track record of almost 5 years in the creative industry, Olamide has led the organization to partnerships with leading global brands across several industries such as; TikTok, Prime, inDrive, Octa FX, TapTap Send, Moniepoint, Cadbury, Vaseline, NNPC, Coca Cola, Spotify amongst others.",
+        image: "/images/webps/olamide-ajiboye.webp",
+      },
+    ],
   },
   {
-    name: "Mayowa Adewumi",
-    role: "Regional Manager, Security Solutions",
-    company: "Mastercard",
-    bio: "Mayowa Adewumi is a lover of God and an experienced cybersecurity leader with a decade of expertise spanning embedded systems, cybersecurity, information security, and data privacy across the banking, fintech, and FMCG sectors. He currently serves as Regional Manager, Security Solutions at Mastercard, where he supports cybersecurity initiatives and strategic security solutions across the Eastern Europe, Middle East, and Africa (EEMEA) region, focusing on cyber resilience, cyber risk management, and third-party risk.\n\nPrior to Mastercard, Mayowa grew from an intern to a Senior/Lead cybersecurity Consultant at PwC West Africa, advising leading financial institutions on cybersecurity strategy, application security, cloud security, vulnerability assessment and penetration testing (VAPT), and governance, risk, and compliance.\n\nBeyond his professional work, he is passionate about developing future technology and cybersecurity leaders, having trained hundreds of professionals and mentored over 20 undergraduate and postgraduate students globally, supporting their final-year research and academic development both theory & practical implementation.",
-    image: "/images/webps/mayowa-adewumi.webp",
-  },
-  {
-    name: "Adeife Adeoye",
-    role: "Founder",
-    company: "Remote WorkHER",
-    bio: "Adeife Adeoye is a social media strategist, content creator, and educator, widely recognized as the founder of Remote WorkHER—a career commuity dedicated to helping African women access the global remote work economy and build financially empowered lives. Through Remote WorkHER, Adeife has empowered thousands of women with in-demand digital skills through events, workshops, curated learning resources, and community-driven education. Her work bridges the gap between talent and opportunity, equipping young Africans with the tools to secure global roles, strengthen their personal brands, and build sustainable, future-ready careers.",
-    image: "/images/webps/adeife-adeoye.webp",
-  },
-  {
-    name: "Samuel Abolo",
-    role: "Senior Software Developer",
-    company: "",
-    bio: "Samuel Abolo is a software engineer focused on solving complex engineering problems and building systems that operate reliably at scale. His work has contributed to products used by global companies including TripAdvisor and Boostr, where he has helped improve system performance, reliability, and operational efficiency in production environments.\n\nHe is a graduate of Babcock University and played an active role in the campus developer ecosystem. Within GDG On Campus Babcock, he served as Technical Lead and Team Lead for the Data Science Track, where he helped organize technical programs, mentor students, and guide learning initiatives across the community. He also served as Lead Developer at the Babcock University Computer Club (BUCC), supporting student engineering projects and technical growth on campus.",
-    image: "/images/webps/samuel-abolo.webp",
-  },
-  {
-    name: "Olamide Ajiboye",
-    role: "Director, Sales and Marketing",
-    company: "Dynasty Africa",
-    bio: "Olamide Ajiboye is a seasoned Marketing professional and the Director of Sales and Marketing at Dynasty Africa, a leading full-service Creative & Marketing Agency that leads brands to their vision with Powerful and Creative solution.\n\nWith a proven track record of almost 5 years in the creative industry, Olamide has led the organization to partnerships with leading global brands across several industries such as; TikTok, Prime, inDrive, Octa FX, TapTap Send, Moniepoint, Cadbury, Vaseline, NNPC, Coca Cola, Spotify amongst others.",
-    image: "/images/webps/olamide-ajiboye.webp",
-  },
-  {
-    name: "Brandulox",
-    role: "Tech Influencer",
-    company: "",
-    bio: "Eugene, known professionally as Brandulox, is a digital strategist and branding expert who helps individuals and companies amplify their online presence. He has worked with startups and established brands to craft compelling digital identities that resonate with audiences. For students, his insights show how tech skills combined with strategic personal branding can open doors to opportunities in an increasingly competitive digital landscape.",
-    image: "/images/webps/brandulox.webp",
-  },
-  {
-    name: "Sanni Adedokun",
-    role: "CEO",
-    company: "LearnSmart",
-    bio: "Adedokun founded LearnSmart to bridge the gap between theoretical learning and practical tech skills for students. Under his leadership, LearnSmart has helped hundreds of young people gain hands-on experience in software development, digital marketing, and product building. He brings first-hand insights into building a tech company from scratch, understanding market demands, and equipping students with skills that make them job-ready.",
-    image: "/images/webps/sanni-adedokun.webp",
-  },
-  {
-    name: "Peter Adeyemi",
-    role: "CEO",
-    company: "Cubbes",
-    bio: "Peter leads Cubees, a technology company specializing in building digital solutions from the ground up. He has overseen multiple product launches, managed cross-functional teams, and helped startups transform ideas into scalable tech products. Peter’s experience demonstrates the practical challenges of tech entrepreneurship and provides actionable lessons on innovation, leadership, and turning concepts into real-world solutions.",
-    image: "/images/webps/peter-adeyemi.webp",
-  },
-  {
-    name: "Mileke Kolawole",
-    role: "Google Developer Expert/Cloud Engineer",
-    company: "",
-    bio: "Mileke is a cloud engineer with a core specialisation in serverless technologies. He excels at architecting large, resilient, and secure cloud environments. He is also a dedicated community builder, driven to empower others by organising and speaking at events/workshops.",
-    image: "/images/webps/mileke-kolawole.webp",
-  },
-  {
-    name: "Emmanuel Oladosu",
-    role: "Chairman",
-    company: "Dosucorp Holdings",
-    bio: "Dr. Emmanuel Oladosu, DBA is a business leader, technology advocate, and investor, widely recognised as the Chairman of Dosucorp Holdings, a privately held, family-controlled holding company with interests spanning across Africa, Europe and America. As President of Stalwart Crest, Dosucorp's US-based professional services subsidiary, Emmanuel has built an integrated delivery operation covering technology, media, telecommunications, and financial services. His mission is straightforward: connect enterprises with execution-grade talent and infrastructure, and prove that world-class delivery can originate from Africa.",
-    image: "/images/webps/emmanuel-oladosu.webp",
-  },
-  {
-    name: "Sodiq Akinjobi",
-    role: "Community Manager",
-    company: "Google",
-    bio: "Sodiq Akinjobi is an accomplished Program Manager with over 5 years of experience in global marketing, community management, developer relations and scaling programs. With a background in mechanical engineering from Yaba College of Technology, where he graduated in 2014, Sodiq further pursued his education at the University of Lagos, graduating as a systems engineer. Currently, he is pursuing an MBA, further enhancing his business acumen.\n\nThroughout his career, Sodiq has showcased a proven track record of success in various areas. He excels in streamlining documentation flow, implementing effective community strategies, and planning and organizing events and hackathons. Additionally, he possesses strong leadership skills, having led product teams, coordinated testing and technical documentation, and conducted valuable market research.\n\nSodiq currently holds a position on the Developer Ecosystem Team at Google, where he continues to power developer growth through community engagement, education, and resource allocation across Africa. His expertise and dedication have helped bring to life some of the most prominent developer conferences across the African continent.",
-    image: "/images/webps/sodiq-akinjobi.webp",
-  },
-  {
-    name: "Miss Excellent Bolujo",
-    role: "Senior Quality Assurance Analyst",
-    company: "Moniepoint Group",
-    bio: "Bolujo Excellent is a Senior Quality Assurance Analyst at Moniepoint Group, specializing in software reliability and regulatory compliance. With a career spanning FinTech, Edutech, and Cryptocurrency, Bolujo has a proven track record of delivering impactful QA solutions in high-stakes environments. She holds a Master's in Engineering Management from the University of Leeds and are ISTQB® CTFL certified, combining technical precision with a strategic approach to operational excellence.",
-    image: "/images/webps/excellent-bolujo.webp",
+    group: "Panel Session 2: Alumni Panel",
+    speakers: [
+      {
+        name: "Samuel Abolo",
+        role: "Senior Software Developer",
+        company: "",
+        bio: "Samuel Abolo is a software engineer focused on solving complex engineering problems and building systems that operate reliably at scale. His work has contributed to products used by global companies including TripAdvisor and Boostr, where he has helped improve system performance, reliability, and operational efficiency in production environments.\n\nHe is a graduate of Babcock University and played an active role in the campus developer ecosystem. Within GDG On Campus Babcock, he served as Technical Lead and Team Lead for the Data Science Track, where he helped organize technical programs, mentor students, and guide learning initiatives across the community. He also served as Lead Developer at the Babcock University Computer Club (BUCC), supporting student engineering projects and technical growth on campus.",
+        image: "/images/webps/samuel-abolo.webp",
+      },
+      {
+        name: "Emmanuel Oladosu",
+        role: "Chairman",
+        company: "Dosucorp Holdings",
+        bio: "Dr. Emmanuel Oladosu, DBA is a business leader, technology advocate, and investor, widely recognised as the Chairman of Dosucorp Holdings, a privately held, family-controlled holding company with interests spanning across Africa, Europe and America. As President of Stalwart Crest, Dosucorp's US-based professional services subsidiary, Emmanuel has built an integrated delivery operation covering technology, media, telecommunications, and financial services. His mission is straightforward: connect enterprises with execution-grade talent and infrastructure, and prove that world-class delivery can originate from Africa.",
+        image: "/images/webps/emmanuel-oladosu.webp",
+      },
+      {
+        name: "Mileke Kolawole",
+        role: "Google Developer Expert/Cloud Engineer",
+        company: "",
+        bio: "Mileke is a cloud engineer with a core specialisation in serverless technologies. He excels at architecting large, resilient, and secure cloud environments. He is also a dedicated community builder, driven to empower others by organising and speaking at events/workshops.",
+        image: "/images/webps/mileke-kolawole.webp",
+      },
+      {
+        name: "Excellent Bolujo",
+        role: "Senior Quality Assurance Analyst",
+        company: "Moniepoint Group",
+        bio: "Bolujo Excellent is a Senior Quality Assurance Analyst at Moniepoint Group, specializing in software reliability and regulatory compliance. With a career spanning FinTech, Edutech, and Cryptocurrency, Bolujo has a proven track record of delivering impactful QA solutions in high-stakes environments. She holds a Master's in Engineering Management from the University of Leeds and are ISTQB® CTFL certified, combining technical precision with a strategic approach to operational excellence.",
+        image: "/images/webps/excellent-bolujo.webp",
+      },
+    ],
   },
 ];
 
-export const SPONSORS = [
-  { name: "Moniepoint", logo: "/images/sponsors - webps/moniepoint.webp" },
-  { name: "Postra", logo: "/images/sponsors - webps/postra.webp" },
+export const SPEAKERS = SPEAKER_GROUPS.flatMap((g) => g.speakers);
+
+export const SPONSOR_TIERS = [
   {
-    name: "Gadget Cartel",
-    logo: "/images/sponsors - webps/gadget-cartel.webp",
+    tier: "Headline Sponsor",
+    sponsors: [
+      { name: "Moniepoint", logo: "/images/sponsors/moniepoint.webp" },
+    ],
   },
-  { name: "Jules Luxury", logo: "/images/sponsors - webps/jules-luxury.webp" },
-  { name: "Rahmon", logo: "/images/sponsors - webps/rahmon.webp" },
-  { name: "Sorefunmi", logo: "/images/sponsors - webps/sorefunmi.webp" },
-  { name: "AICL", logo: "/images/sponsors - webps/aicl.webp" },
-  { name: "His Grace", logo: "/images/sponsors - webps/his-grace.webp" },
-  { name: "Patron Apartments", logo: "/images/sponsors - webps/patron.webp" },
-  { name: "Glass Finance", logo: "/images/sponsors - webps/glass.webp" },
+  {
+    tier: "Gold Sponsors",
+    sponsors: [
+      { name: "AICL", logo: "/images/sponsors/aicl.webp" },
+      {
+        name: "Patron Luxury Apartment",
+        logo: "/images/sponsors/patron.webp",
+      },
+    ],
+  },
+  {
+    tier: "Raffle Draw Sponsor",
+    sponsors: [
+      {
+        name: "Gadget Cartel",
+        logo: "/images/sponsors/gadget-cartel.webp",
+      },
+    ],
+  },
+  {
+    tier: "Hospitality Sponsors",
+    sponsors: [
+      { name: "His Grace", logo: "/images/sponsors/his-grace.webp" },
+      { name: "Eben Nuts", logo: "" },
+      { name: "Waffledom", logo: "/images/sponsors/waffledom.jpg" },
+    ],
+  },
+  {
+    tier: "Career Fair Partners",
+    sponsors: [
+      { name: "Stanbic IBTC", logo: "/images/sponsors/stanbi-ibtc.jpg" },
+      { name: "GTB", logo: "/images/sponsors/gtbank.jpg" },
+    ],
+  },
+  {
+    tier: "Student Sponsors",
+    sponsors: [
+      { name: "Postra", logo: "/images/sponsors/postra.webp" },
+      {
+        name: "Glass Finance Ltd",
+        logo: "/images/sponsors/glass.webp",
+      },
+      {
+        name: "Jules Luxury",
+        logo: "/images/sponsors/jules-luxury.webp",
+      },
+    ],
+  },
+  {
+    tier: "Media Partners",
+    sponsors: [
+      { name: "Rahkindstudios", logo: "/images/sponsors/rahmon.webp" },
+      {
+        name: "Sorethegrapher",
+        logo: "/images/sponsors/sorefunmi.webp",
+      },
+    ],
+  },
+  {
+    tier: "Industry Visit Hosts",
+    sponsors: [
+      { name: "Paystack", logo: "/images/sponsors/paystack.png" },
+      {
+        name: "Digital Encode Limited",
+        logo: "/images/sponsors/digital-encode.jpg",
+      },
+      { name: "Rise", logo: "/images/sponsors/risevest.jpg" },
+      { name: "Nithub", logo: "/images/sponsors/nithub.jpg" },
+      { name: "Cubbes", logo: "/images/sponsors/cubbes.png" },
+    ],
+  },
+  {
+    tier: "Associate Communities",
+    sponsors: [
+      { name: "GDG on Campus Caleb", logo: "/images/sponsors/gdg-caleb.jpg" },
+      { name: "GDG on Campus OOU", logo: "/images/sponsors/gdg-oou.jpg" },
+      {
+        name: "GDG on Campus Lautech",
+        logo: "/images/sponsors/gdg-lautech.webp",
+      },
+      { name: "GDG on Campus UI", logo: "/images/sponsors/gdg-ui.jpg" },
+    ],
+  },
 ];
+
+export const SPONSORS = SPONSOR_TIERS.flatMap((t) => t.sponsors);
 
 export const DETAILED_STATS = [
   {
