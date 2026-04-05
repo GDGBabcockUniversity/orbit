@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { SPONSORS } from "../lib/constants";
+import { SPONSOR_TIERS } from "../lib/constants";
 import SectionBadge from "../components/ui/section-badge";
 
 const SponsorsPage = () => {
@@ -30,32 +30,36 @@ const SponsorsPage = () => {
 
       {/* Sponsors section */}
       <div className="px-6 md:px-12 lg:px-20 py-12 md:py-16">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="font-space-grotesk text-xl md:text-2xl font-bold text-background">
-            Sponsors
-          </h2>
-          <div className="mt-6 grid grid-cols-2 md:grid-cols-3 gap-6">
-            {SPONSORS.map((sponsor) => (
-              <div
-                key={sponsor.name}
-                className="aspect-square rounded-xl border border-background/8 bg-surface overflow-hidden"
-              >
-                {sponsor.logo ? (
-                  <img
-                    src={sponsor.logo}
-                    alt={sponsor.name}
-                    className="w-full h-full object-contain mix-blend-multiply"
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center">
-                    <span className="text-background/30 font-google-sans text-sm">
-                      {sponsor.name}
-                    </span>
+        <div className="max-w-5xl mx-auto space-y-16">
+          {SPONSOR_TIERS.map((tierData) => (
+            <div key={tierData.tier}>
+              <h2 className="font-space-grotesk text-xl md:text-2xl font-bold text-background text-center md:text-left mb-6 border-b border-background/10 pb-4">
+                {tierData.tier}
+              </h2>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                {tierData.sponsors.map((sponsor) => (
+                  <div
+                    key={sponsor.name}
+                    className="aspect-video sm:aspect-square rounded-xl border border-background/8 bg-surface overflow-hidden flex items-center justify-center transition-colors"
+                  >
+                    {sponsor.logo ? (
+                      <img
+                        src={sponsor.logo}
+                        alt={sponsor.name}
+                        className="w-full h-full object-contain mix-blend-multiply rounded-md"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-center px-2">
+                        <span className="text-background/40 font-google-sans text-sm font-medium leading-snug">
+                          {sponsor.name}
+                        </span>
+                      </div>
+                    )}
                   </div>
-                )}
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
 
           {/* CTA */}
           <div className="mt-16 text-center">
