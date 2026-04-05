@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { SPEAKERS } from "../lib/constants";
+import { SPEAKER_GROUPS } from "../lib/constants";
 import SectionBadge from "../components/ui/section-badge";
 
 const SpeakersPage = () => {
-  const [selected, setSelected] = useState<number | null>(null);
-  const speaker = selected !== null ? SPEAKERS[selected] : null;
+  const [speaker, setSpeaker] = useState<
+    (typeof SPEAKER_GROUPS)[number]["speakers"][number] | null
+  >(null);
 
   return (
     <div className="bg-foreground min-h-screen pt-24">
@@ -34,45 +35,54 @@ const SpeakersPage = () => {
 
       {/* Speaker grid */}
       <div className="px-6 md:px-12 lg:px-20 py-12 md:py-16">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {SPEAKERS.map((s, i) => (
-            <div
-              key={i}
-              className="group cursor-pointer"
-              onClick={() => setSelected(i)}
-            >
-              {/* Photo */}
-              <div className="aspect-3/4 rounded-2xl overflow-hidden bg-linear-to-br from-primary-bright via-primary to-primary-deep relative">
-                {s.image ? (
-                  <img
-                    src={s.image}
-                    alt={s.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center">
-                    <span className="font-space-grotesk text-white/20 text-6xl font-bold">
-                      {s.name.charAt(0)}
-                    </span>
+        <div className="max-w-6xl mx-auto space-y-20">
+          {SPEAKER_GROUPS.map((groupData) => (
+            <div key={groupData.group}>
+              <h2 className="font-space-grotesk text-2xl md:text-3xl font-bold text-background mb-8 border-b border-background/10 pb-4">
+                {groupData.group}
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {groupData.speakers.map((s, i) => (
+                  <div
+                    key={i}
+                    className="group cursor-pointer"
+                    onClick={() => setSpeaker(s)}
+                  >
+                    {/* Photo */}
+                    <div className="aspect-3/4 rounded-2xl overflow-hidden bg-linear-to-br from-primary-bright via-primary to-primary-deep relative">
+                      {s.image ? (
+                        <img
+                          src={s.image}
+                          alt={s.name}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <span className="font-space-grotesk text-white/20 text-6xl font-bold">
+                            {s.name.charAt(0)}
+                          </span>
+                        </div>
+                      )}
+
+                      {/* Hover overlay */}
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                        <span className="font-google-sans text-white text-sm bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
+                          View Bio
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Info */}
+                    <h3 className="font-space-grotesk text-background font-bold text-base mt-4">
+                      {s.name}
+                    </h3>
+                    <p className="font-google-sans text-primary text-sm mt-0.5">
+                      {s.role}
+                      {s.company && ","} {s.company}
+                    </p>
                   </div>
-                )}
-
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-                  <span className="font-google-sans text-white text-sm bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
-                    View Bio
-                  </span>
-                </div>
+                ))}
               </div>
-
-              {/* Info */}
-              <h3 className="font-space-grotesk text-background font-bold text-base mt-4">
-                {s.name}
-              </h3>
-              <p className="font-google-sans text-primary text-sm mt-0.5">
-                {s.role}
-                {s.company && ","} {s.company}
-              </p>
             </div>
           ))}
         </div>
@@ -82,7 +92,7 @@ const SpeakersPage = () => {
       {speaker && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8"
-          onClick={() => setSelected(null)}
+          onClick={() => setSpeaker(null)}
         >
           {/* Backdrop */}
           <div className="absolute inset-0 bg-black/70 backdrop-blur-sm animate-[fadeIn_200ms_ease-out]" />
@@ -94,11 +104,21 @@ const SpeakersPage = () => {
           >
             {/* Close button */}
             <button
-              onClick={() => setSelected(null)}
+              onClick={() => setSpeaker(null)}
               className="absolute top-4 right-4 z-10 size-9 rounded-full bg-black/40 backdrop-blur-sm text-white/70 hover:text-white flex items-center justify-center transition cursor-pointer"
             >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="size-4">
-                <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" strokeLinejoin="round" />
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                className="size-4"
+              >
+                <path
+                  d="M18 6L6 18M6 6l12 12"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </button>
 
