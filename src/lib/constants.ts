@@ -324,7 +324,7 @@ export const SPONSOR_TIERS = [
   {
     tier: "Career Fair Partners",
     sponsors: [
-      { name: "Stanbic IBTC", logo: "/images/sponsors/stanbi-ibtc.png" },
+      { name: "Stanbic IBTC", logo: "/images/sponsors/stanbic-ibtc.png" },
       { name: "GTB", logo: "/images/sponsors/gtbank.png" },
     ],
   },
