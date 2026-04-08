@@ -1,0 +1,474 @@
+export const TEAM_MEMBERS = [
+  {
+    name: "Muhammed Habeeb",
+    team: "Organizing",
+    image:
+      "https://drive.google.com/uc?export=download&id=1w0cR5Gc9tvn18TJ4HsiGcsHrRnpxqP_z",
+    comfortActivity: "Sleep",
+    surprisingFact: "My age!",
+    quote: "A mistake is only proof that you tried",
+    socials: {
+      instagram: "https://instagram.com/uncle_ola234",
+      linkedin:
+        "https://www.linkedin.com/in/habeebabayo?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+      twitter: "https://x.com/ycent003",
+    },
+    song: "Can’t fake this by 255",
+  },
+  {
+    name: "Olamide Fatunase",
+    team: "Media (Content & Editors)",
+    image:
+      "https://drive.google.com/uc?export=download&id=1bhhbv8E-j0kPM6QSDHgQwRrs3vGKtcyv",
+    comfortActivity:
+      "Sleep, Listen to music, Watch movies, Colour, Hang out with friends/family, Tennis",
+    surprisingFact: "Idk really, a lot but so little",
+    quote: "Life moves on",
+    socials: {
+      instagram: "https://instagram.com/0lami3",
+      linkedin:
+        "https://www.linkedin.com/search/results/all/?keywords=Olamide%20Fatunase",
+      twitter: "https://x.com/Lamiiiide",
+    },
+    song: "Letter Home --- Childish Gambino",
+  },
+  {
+    name: "Adedoja Daniel Ademola",
+    team: "Logistics (Events Planning Team)",
+    image:
+      "https://drive.google.com/uc?export=download&id=16EdVLjfAlX_-S8SmsMHDTYkxAa90fRNL",
+    comfortActivity: "Sleep 😌",
+    surprisingFact: "I'm friendly",
+    quote: "Whatever's worth doing is worth doing well",
+    socials: {
+      instagram: "https://instagram.com/itz_just_adex",
+      linkedin:
+        "https://www.linkedin.com/search/results/all/?keywords=Adedoja%20Daniel%20Ademola",
+      twitter: "https://x.com/Doja_Demola",
+    },
+    song: "Number one - Dunsin Oyekan",
+  },
+  {
+    name: "Odiase Sophia Osariemen",
+    team: "Organizing, Logistics (Events Planning Team)",
+    image:
+      "https://drive.google.com/uc?export=download&id=1wH2z-DiBvqKEgJUN36nh44EJmzJVAEvC",
+    comfortActivity: "Listening to music/prayer",
+    surprisingFact: "I really love watching sports",
+    quote: "Where there’s life, there’s hope!",
+    socials: {
+      instagram: "https://instagram.com/sophia.odiase",
+      linkedin: "https://ng.linkedin.com/in/sophia-odiase-649653231",
+      twitter: "https://x.com/Sophia__Odiase",
+    },
+    song: "Come thou fount by Worship Circle",
+  },
+  {
+    name: "Onabanjo Deborah Adeola",
+    team: "Design",
+    image:
+      "https://drive.google.com/uc?export=download&id=1Y2S7LFcgWFEG0N8ACFDbjwgE1MYvZTKG",
+    comfortActivity: "Reading",
+    surprisingFact: "My age",
+    quote: 'I am the one thing in life I can control" - LMM',
+    socials: {
+      instagram: "https://instagram.com/i.e_debbie",
+      linkedin:
+        "https://www.linkedin.com/search/results/all/?keywords=Onabanjo%20Deborah",
+      twitter: "https://x.com/deolalovessleep",
+    },
+    song: "Le bruit du silence - Mentissa",
+  },
+  {
+    name: "Oyebajo Olamide Isaac",
+    team: "Media (Content & Editors)",
+    image:
+      "https://drive.google.com/uc?export=download&id=1rsniEkOO8BH1B4eDak7a6g5qprXr5Plj",
+    comfortActivity: "Listen to music",
+    surprisingFact:
+      "My age, cos i don’t look it and the amount of skills I possess",
+    quote:
+      "“Waste no more time arguing what a good man should be. Be one.”\n— Marcus Aurelius",
+    socials: {
+      instagram: "https://instagram.com/lumenghoststudios",
+      linkedin: null,
+      twitter: null,
+    },
+    song: "Olúwa Kú Isé by Jeduthun the Musician",
+  },
+  {
+    name: "Wosu-Ezi Kamdirichukwu Blossom",
+    team: "Design, Media (Content & Editors)",
+    image:
+      "https://drive.google.com/uc?export=download&id=1bGf4fkymWfgaznB30Py2JRCvcOrBtozp",
+    comfortActivity:
+      "Take a long, slow walk where not a lot of people are outside at night without any gadgets.",
+    surprisingFact: "I'm a Seventh-Day Adventist.",
+    quote: "Your life is a manifestation of your thoughts.",
+    socials: {
+      instagram: "https://instagram.com/kamdyb101",
+      linkedin: "https://www.linkedin.com/in/kamdirichukwu-wosu-ezi-850b15380",
+      twitter: "https://x.com/dfw_kamdy",
+    },
+    song: "Too Sweet by Hozier",
+  },
+  {
+    name: "Azubuike Chimamanda Favour",
+    team: "Media (Content & Editors)",
+    image:
+      "https://drive.google.com/uc?export=download&id=1IA86oUNHPYLLafswxFKE32nkmhac5Qg3",
+    comfortActivity: "Listen to Music",
+    surprisingFact: "That I'm a photographer and a gospel artiste",
+    quote: "Delay is not Denial",
+    socials: {
+      instagram: "https://instagram.com/amanda_favour__ ",
+      linkedin: null,
+      twitter: null,
+    },
+    song: "Baruch Hashem Adonia",
+  },
+  {
+    name: "Nini Efut",
+    team: "Media (Content & Editors)",
+    image:
+      "https://drive.google.com/uc?export=download&id=1dWNW_YovpNYU7T478bKsCg_W0zkem8MV",
+    comfortActivity: "Sleeping",
+    surprisingFact:
+      "A lot of people are surprised to find out I’m not Igbo. People are also really surprised by how I laugh😂",
+    quote: "“Anything worth doing is worth doing well”",
+    socials: {
+      instagram: "https://instagram.com/niniefut",
+      linkedin:
+        "https://www.linkedin.com/search/results/all/?keywords=niniefut",
+      twitter: null,
+    },
+    song: "You’re Deserving by Dunsin Oyekan",
+  },
+  {
+    name: "Agunbiade Ayomide Obanijesu",
+    team: "Media (Content & Editors)",
+    image:
+      "https://drive.google.com/uc?export=download&id=1x-XxlAKnuNa1-SHMvemkE4YIwMbvoYgk",
+    comfortActivity:
+      "Gaming, Books, Music, Writing, Creating stuff. \n\nAnd oh, food.",
+    surprisingFact: "That I’m not as old as I look…?",
+    quote: "The goal is to build something greater than self.",
+    socials: {
+      instagram: "https://instagram.com/iam_aesir",
+      linkedin: "https://ng.linkedin.com/in/ayomide-agunbiade-630a87247",
+      twitter: "https://x.com/iam_aesir",
+    },
+    song: "May I Have This Dance - Francis and the Lights.",
+  },
+  {
+    name: "Samuel Ogunde",
+    team: "Media (Content & Editors)",
+    image: null,
+    comfortActivity: "Take a walk",
+    surprisingFact: "That I actually talk",
+    quote: "Lmaoo",
+    socials: {
+      instagram: "https://instagram.com/tradew_sam",
+      linkedin: "https://www.linkedin.com/search/results/all/?keywords=Nil",
+      twitter: "https://x.com/tradewsam",
+    },
+    song: "",
+  },
+  {
+    name: "Wosu-Ezi Kamdirichukwu Blossom",
+    team: "Design, Media (Content & Editors)",
+    image:
+      "https://drive.google.com/uc?export=download&id=1M40jZlWrLDo3CDQOoMDvcEog5X47taGe",
+    comfortActivity:
+      "A long, slow walk outside on a path where not a lot of people are at night without any gadgets.",
+    surprisingFact: "That I'm a very talkative and outgoing person.",
+    quote: "Your life is a manifestation of your thoughts. Proverbs 23 : 7",
+    socials: {
+      instagram: "https://instagram.com/kamdyb101",
+      linkedin: "https://www.linkedin.com/in/kamdirichukwu-wosu-ezi-850b15380",
+      twitter: "https://x.com/dfw_kamdy",
+    },
+    song: "Earned It by The Weeknd",
+  },
+  {
+    name: "Odulate Daniel Alexander",
+    team: "Organizing, Media (Content & Editors)",
+    image: null,
+    comfortActivity:
+      "Just going offline, going for a quiet walk, reading, watching a movie or just sleeping.",
+    surprisingFact:
+      "I'm a sickle cell patient. They say I don't look like one but is sickle cell something you look like? Anyhow sha \n\nBedsides that, I love robots 🤭",
+    quote:
+      "Choose your hard. It's hard to be overweight just as much as it is to be fit. It's hard to be poor just as much as it is to be rich. Life is hard\" \n\n- by someone sha",
+    socials: {
+      instagram: "https://instagram.com/d.alex_1",
+      linkedin: "https://www.linkedin.com/in/danielodulate/",
+      twitter: "https://x.com/Xander_danny229",
+    },
+    song: "Carousel by Laufey (My favourite artist 🤭)",
+  },
+  {
+    name: "Mokwunye Asha",
+    team: "Media (Content & Editors)",
+    image:
+      "https://drive.google.com/uc?export=download&id=1dAaAFOj0W1HnoPyFMBrMr3Xv-BgOb89t",
+    comfortActivity: "Editing videos/playing games",
+    surprisingFact: "My age",
+    quote: "“There is no rush”",
+    socials: {
+      instagram: "https://instagram.com/asha.atl",
+      linkedin: null,
+      twitter: "https://x.com/OG_i4nni",
+    },
+    song: "9 AM in Calabassas",
+  },
+  {
+    name: "Akande Iretomiwa Victoria",
+    team: "Logistics (Events Planning Team)",
+    image:
+      "https://drive.google.com/uc?export=download&id=1KMCtJZ7ZpiyE1AXQe4xMwrTQqA910CG1",
+    comfortActivity: "Sleep",
+    surprisingFact: "How active I am even after rigorous work",
+    quote: "It becomes deep when you make it deep",
+    socials: {
+      instagram: "https://instagram.com/iree_oluwaa",
+      linkedin:
+        "https://www.linkedin.com/search/results/all/?keywords=Iretomiwa%20Akande",
+      twitter: null,
+    },
+    song: "Be bold",
+  },
+  {
+    name: "Oyebanji Opetosoluwa Emmanuel",
+    team: "Media (Content & Editors)",
+    image:
+      "https://drive.google.com/uc?export=download&id=1cawZT7Brjg6A94WOdMa0LuGn7eXnLvP0",
+    comfortActivity: "Discord/Games",
+    surprisingFact: "My age",
+    quote:
+      "It better fot you to be the worst among competition then for your allies to be dumber than you are",
+    socials: {
+      instagram: "https://instagram.com/maxva.ne",
+      linkedin: null,
+      twitter: null,
+    },
+    song: "Meet you at the graveyard - cleffy",
+  },
+  {
+    name: "Sharon Lawal",
+    team: "Organizing, Logistics (Events Planning Team)",
+    image:
+      "https://drive.google.com/uc?export=download&id=12yC7Je22W6ZxwG5NZa0YWXKaR4sbSlSB",
+    comfortActivity: "Listening to music",
+    surprisingFact:
+      "That I’m a developer. Most people assume I’m only into management or organizing things because I naturally take leadership roles and handle coordination well. They don’t expect that I also write code and genuinely enjoy building technical systems.",
+    quote: "Do it properly, or don’t do it at all",
+    socials: {
+      instagram: "https://www.instagram.com/thistechbabe",
+      linkedin: "https://www.linkedin.com/in/sharon-lawal-9b7289261/",
+      twitter: "https://x.com/thistechbabe",
+    },
+    song: "Ko'rin Iyin by EmmaOMG",
+  },
+  {
+    name: "Neku Akpotohwo",
+    team: "Organizing",
+    image:
+      "https://drive.google.com/uc?export=download&id=10M0OVHglmMu7-ciqRg3BLo0abZw44UaO",
+    comfortActivity: "Sleeping",
+    surprisingFact: "How i sound",
+    quote: "Do whatever makes you happy",
+    socials: {
+      instagram: "https://instagram.com/callmeneku",
+      linkedin: "https://linkedin.com/in/nekumartins",
+      twitter: "https://x.com/nekumartins",
+    },
+    song: "I am - omah lay",
+  },
+  {
+    name: "Akande Kehinde",
+    team: "Logistics (Events Planning Team)",
+    image:
+      "https://drive.google.com/uc?export=download&id=1v8t6VfLOCl43muTAInzX3nZTgzAqtZqK",
+    comfortActivity: "Taking a walk.",
+    surprisingFact: "I'm a twin.",
+    quote: "It's never luck, it's always God.",
+    socials: {
+      instagram: "https://instagram.com/darkgirlkenny",
+      linkedin:
+        "https://www.linkedin.com/search/results/all/?keywords=Akande%20Kehinde",
+      twitter: "https://x.com/darkangel07",
+    },
+    song: "Reckless lover by Paul Tomisin.",
+  },
+  {
+    name: "Omojola Ojehonmon",
+    team: "Logistics (Events Planning Team)",
+    image: null,
+    comfortActivity: "Just jamming music",
+    surprisingFact: "That I'm very active despite my appearance",
+    quote: "I hate and I love and I know not why - catullus",
+    socials: {
+      instagram: "https://instagram.com/oj3omo",
+      linkedin:
+        "https://www.linkedin.com/search/results/all/?keywords=Omojola%20Ojehonmon",
+      twitter: null,
+    },
+    song: "Frank's Track- Kanye west",
+  },
+  {
+    name: "Atolagbe Precious Olawole",
+    team: "Logistics (Events Planning Team)",
+    image:
+      "https://drive.google.com/uc?export=download&id=1RttbQ5fPh2-bdCQeGaZpbA0v3y9ugZJ7",
+    comfortActivity: "Taking a walk",
+    surprisingFact: "",
+    quote:
+      "Live every day as your last so as not be in regret when the time finally come",
+    socials: {
+      instagram: "https://instagram.com/pwreshy.08",
+      linkedin: "https://www.linkedin.com/in/atolagbe-olawole-79a429263/",
+      twitter: "https://x.com/oladdev",
+    },
+    song: "Turning out by AJR",
+  },
+  {
+    name: "Alabo Treasure Sowari",
+    team: "Logistics (Events Planning Team)",
+    image:
+      "https://drive.google.com/uc?export=download&id=1MdrHV5V6f5IWWBUi5m85s3NZ6SIAy2pO",
+    comfortActivity: "Take a walk while listening to music",
+    surprisingFact: "My confidence.",
+    quote:
+      'Those who do not remember the past are condemned to repeat it"- George Santayana',
+    socials: {
+      instagram: "https://instagram.com/_treasure_al",
+      linkedin: "https://www.linkedin.com/in/ms-treasure-alabo-3b6796211",
+      twitter: "https://x.com/_aunty_mommy",
+    },
+    song: 'You stole the show" by Sienna Spiro',
+  },
+  {
+    name: "Bassey Saviour",
+    team: "Design",
+    image:
+      "https://drive.google.com/uc?export=download&id=14RYP3YusNY9886ZMvB70C0WqjkFPwLZN",
+    comfortActivity: "Play gameeee/music",
+    surprisingFact: "That I can play football, or I can draw",
+    quote:
+      "Do not ever take a fence down until you know the reason why it was put up.",
+    socials: {
+      instagram: "https://instagram.com/savie_eddie",
+      linkedin: "https://www.linkedin.com/in/saviour-bassey-323061330",
+      twitter: "https://x.com/savieeddie",
+    },
+    song: "Hurts Me - Tory Lanez",
+  },
+  {
+    name: "Ibironke Victor Damilola",
+    team: "Engineering",
+    image:
+      "https://drive.google.com/uc?export=download&id=1g1dS9ygS93mjiePm0vcF2KqgMqGY-4HQ",
+    comfortActivity: "Sleeping",
+    surprisingFact: "I'm strangely good at remembering dates.",
+    quote: "Why worry when you can just not?",
+    socials: {
+      instagram: "https://instagram.com/victor.ibironke",
+      linkedin: "https://linkedin.com/in/victor-ibironke",
+      twitter: "https://x.com/victoribironke_",
+    },
+    song: "slip by anees",
+  },
+  {
+    name: "Shaibu Omobolanle",
+    team: "Organizing",
+    image:
+      "https://drive.google.com/uc?export=download&id=1hrwGwnn6E_SIQ-i31odhIBNUqRDLW2SS",
+    comfortActivity: "Reading a novel",
+    surprisingFact: "I am left handed",
+    quote: "If you don't like where you are, move. You are not a tree",
+    socials: {
+      instagram: null,
+      linkedin: "https://www.linkedin.com/in/omobolanleshaibu",
+      twitter: "https://x.com/lanle_xoxoxo",
+    },
+    song: "Joy. By Raye, Amma and Absolutely",
+  },
+  {
+    name: "Ademeso, Ademola Michael",
+    team: "Engineering, Media (Content & Editors)",
+    image:
+      "https://drive.google.com/uc?export=download&id=1floFW1jv5_ZVKWSmQoT5tLQyXurzEeVa",
+    comfortActivity: "A game of chess (especially when I’m winning)",
+    surprisingFact: "That I’m a nice and approachable person",
+    quote: "Some days you just show up, and that's enough.",
+    socials: {
+      instagram: "https://instagram.com/kingdez04",
+      linkedin: "https://www.linkedin.com/in/ademola-ademeso",
+      twitter: "https://x.com/kingdez_04",
+    },
+    song: "Turbulence by Wizkid, Asake",
+  },
+  {
+    name: "Nelson-Nwanoneze David",
+    team: "Logistics (Events Planning Team)",
+    image:
+      "https://drive.google.com/uc?export=download&id=1foXpqnw7COh7lXfbyxah-IE3PEy7_ZpH",
+    comfortActivity: "Watching movies and listening to music",
+    surprisingFact: "I might look chill, but there’s a whole plan behind it.",
+    quote: "Direction matters more than speed.",
+    socials: {
+      instagram: "https://instagram.com/nelson.davinci",
+      linkedin: "https://www.linkedin.com/in/david-nelson-nwanoneze-9386b0295",
+      twitter: "https://x.com/DNwanoneze84204",
+    },
+    song: "remorse (interlude) demi mulla",
+  },
+  {
+    name: "Nelson-Nwanoneze Samuel Somtochukwu",
+    team: "Logistics (Events Planning Team)",
+    image:
+      "https://drive.google.com/uc?export=download&id=1YFeKs3-G64BTNd_yjI2omzMIEQb0FeUX",
+    comfortActivity: "Sleep",
+    surprisingFact: "I have a clone",
+    quote: "Build, then breathe",
+    socials: {
+      instagram: null,
+      linkedin: null,
+      twitter: null,
+    },
+    song: "Who am I by Jenna Raine",
+  },
+  {
+    name: "Olubowale Oluwatunmininu Temitope",
+    team: "Organizing",
+    image:
+      "https://drive.google.com/uc?export=download&id=1OTsdwqpWNz-Fbo8UhabrSfpOVugLNEpn",
+    comfortActivity: "Video games",
+    surprisingFact: "That i'm not an uptight or unreasonable christian",
+    quote: "Just Do It",
+    socials: {
+      instagram: "https://instagram.com/tope.in4K",
+      linkedin:
+        "https://www.linkedin.com/search/results/all/?keywords=Oluwatunmininu%20Olubowale",
+      twitter: "https://x.com/tunmininu_OT",
+    },
+    song: "Onu Amonu- Theophilus Sunday",
+  },
+  {
+    name: "Oluwatomisin Olaleye Emmanuel",
+    team: "Design",
+    image:
+      "https://drive.google.com/uc?export=download&id=1lGgXCMiVIwDClwWlrWU1K_CE9ptv5o47",
+    comfortActivity: "Reading Manhwa",
+    surprisingFact: "",
+    quote:
+      "Compare yourself to who you were yesterday, not to who someone else is today.",
+    socials: {
+      instagram: null,
+      linkedin: "https://www.linkedin.com/in/oluwatomisin-olaleye",
+      twitter: null,
+    },
+    song: "The Seed - Aurora",
+  },
+];
