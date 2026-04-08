@@ -8,6 +8,7 @@ import TicketsPage from "./pages/tickets";
 import AdminPage from "./pages/admin";
 import RafflePage from "./pages/raffle";
 import AgendaPage from "./pages/agenda";
+import TeamPage from "./pages/team";
 import Footer from "./components/footer";
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/tickets" element={<TicketsPage />} />
         <Route path="/raffle" element={<RafflePage />} />
         <Route path="/admin" element={<AdminPage />} />
+        <Route path="/team" element={<TeamPage />} />
       </Routes>
       <Footer />
       <Analytics />
