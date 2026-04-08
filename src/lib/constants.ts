@@ -29,6 +29,7 @@ export const NAV_LINKS = [
   { label: "Agenda", href: "/agenda" },
   { label: "Sponsors & Partners", href: "/sponsors" },
   { label: "Raffle Draw", href: "/raffle" },
+  { label: "Team", href: "/team" },
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "mailto:partnerships@gdgbabcock.com" },
 ];
