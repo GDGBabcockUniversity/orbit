@@ -2,8 +2,7 @@ export const TEAM_MEMBERS = [
   {
     name: "Muhammed Habeeb",
     team: "Organizing",
-    image:
-      "https://drive.google.com/uc?export=download&id=1w0cR5Gc9tvn18TJ4HsiGcsHrRnpxqP_z",
+    image: "/images/team/Habeeb Abayomi.webp",
     comfortActivity: "Sleep",
     surprisingFact: "My age!",
     quote: "A mistake is only proof that you tried",
@@ -18,8 +17,7 @@ export const TEAM_MEMBERS = [
   {
     name: "Olamide Fatunase",
     team: "Media (Content & Editors)",
-    image:
-      "https://drive.google.com/uc?export=download&id=1bhhbv8E-j0kPM6QSDHgQwRrs3vGKtcyv",
+    image: "/images/team/Olamide Fatunase.webp",
     comfortActivity:
       "Sleep, Listen to music, Watch movies, Colour, Hang out with friends/family, Tennis",
     surprisingFact: "Idk really, a lot but so little",
@@ -35,8 +33,7 @@ export const TEAM_MEMBERS = [
   {
     name: "Adedoja Daniel Ademola",
     team: "Logistics (Events Planning Team)",
-    image:
-      "https://drive.google.com/uc?export=download&id=16EdVLjfAlX_-S8SmsMHDTYkxAa90fRNL",
+    image: "/images/team/Daniel Adedoja.webp",
     comfortActivity: "Sleep 😌",
     surprisingFact: "I'm friendly",
     quote: "Whatever's worth doing is worth doing well",
@@ -51,8 +48,7 @@ export const TEAM_MEMBERS = [
   {
     name: "Odiase Sophia Osariemen",
     team: "Organizing, Logistics (Events Planning Team)",
-    image:
-      "https://drive.google.com/uc?export=download&id=1wH2z-DiBvqKEgJUN36nh44EJmzJVAEvC",
+    image: "/images/team/Sophia Odiase.webp",
     comfortActivity: "Listening to music/prayer",
     surprisingFact: "I really love watching sports",
     quote: "Where there’s life, there’s hope!",
@@ -66,11 +62,10 @@ export const TEAM_MEMBERS = [
   {
     name: "Onabanjo Deborah Adeola",
     team: "Design",
-    image:
-      "https://drive.google.com/uc?export=download&id=1Y2S7LFcgWFEG0N8ACFDbjwgE1MYvZTKG",
+    image: "/images/team/Deborah Onabanjo.webp",
     comfortActivity: "Reading",
     surprisingFact: "My age",
-    quote: 'I am the one thing in life I can control" - LMM',
+    quote: '"I am the one thing in life I can control" - LMM',
     socials: {
       instagram: "https://instagram.com/i.e_debbie",
       linkedin:
@@ -82,13 +77,12 @@ export const TEAM_MEMBERS = [
   {
     name: "Oyebajo Olamide Isaac",
     team: "Media (Content & Editors)",
-    image:
-      "https://drive.google.com/uc?export=download&id=1rsniEkOO8BH1B4eDak7a6g5qprXr5Plj",
+    image: "/images/team/Olamide Oyebajo.webp",
     comfortActivity: "Listen to music",
     surprisingFact:
       "My age, cos i don’t look it and the amount of skills I possess",
     quote:
-      "“Waste no more time arguing what a good man should be. Be one.”\n— Marcus Aurelius",
+      "Waste no more time arguing what a good man should be. Be one.\n— Marcus Aurelius",
     socials: {
       instagram: "https://instagram.com/lumenghoststudios",
       linkedin: null,
@@ -97,26 +91,9 @@ export const TEAM_MEMBERS = [
     song: "Olúwa Kú Isé by Jeduthun the Musician",
   },
   {
-    name: "Wosu-Ezi Kamdirichukwu Blossom",
-    team: "Design, Media (Content & Editors)",
-    image:
-      "https://drive.google.com/uc?export=download&id=1bGf4fkymWfgaznB30Py2JRCvcOrBtozp",
-    comfortActivity:
-      "Take a long, slow walk where not a lot of people are outside at night without any gadgets.",
-    surprisingFact: "I'm a Seventh-Day Adventist.",
-    quote: "Your life is a manifestation of your thoughts.",
-    socials: {
-      instagram: "https://instagram.com/kamdyb101",
-      linkedin: "https://www.linkedin.com/in/kamdirichukwu-wosu-ezi-850b15380",
-      twitter: "https://x.com/dfw_kamdy",
-    },
-    song: "Too Sweet by Hozier",
-  },
-  {
     name: "Azubuike Chimamanda Favour",
     team: "Media (Content & Editors)",
-    image:
-      "https://drive.google.com/uc?export=download&id=1IA86oUNHPYLLafswxFKE32nkmhac5Qg3",
+    image: "/images/team/Amanda Azubuike.webp",
     comfortActivity: "Listen to Music",
     surprisingFact: "That I'm a photographer and a gospel artiste",
     quote: "Delay is not Denial",
@@ -130,12 +107,11 @@ export const TEAM_MEMBERS = [
   {
     name: "Nini Efut",
     team: "Media (Content & Editors)",
-    image:
-      "https://drive.google.com/uc?export=download&id=1dWNW_YovpNYU7T478bKsCg_W0zkem8MV",
+    image: "/images/team/Nini Efut.webp",
     comfortActivity: "Sleeping",
     surprisingFact:
       "A lot of people are surprised to find out I’m not Igbo. People are also really surprised by how I laugh😂",
-    quote: "“Anything worth doing is worth doing well”",
+    quote: "Anything worth doing is worth doing well",
     socials: {
       instagram: "https://instagram.com/niniefut",
       linkedin:
@@ -147,8 +123,7 @@ export const TEAM_MEMBERS = [
   {
     name: "Agunbiade Ayomide Obanijesu",
     team: "Media (Content & Editors)",
-    image:
-      "https://drive.google.com/uc?export=download&id=1x-XxlAKnuNa1-SHMvemkE4YIwMbvoYgk",
+    image: "/images/team/Agunbiade Ayomide Obanijesu.webp",
     comfortActivity:
       "Gaming, Books, Music, Writing, Creating stuff. \n\nAnd oh, food.",
     surprisingFact: "That I’m not as old as I look…?",
@@ -160,25 +135,24 @@ export const TEAM_MEMBERS = [
     },
     song: "May I Have This Dance - Francis and the Lights.",
   },
-  {
-    name: "Samuel Ogunde",
-    team: "Media (Content & Editors)",
-    image: null,
-    comfortActivity: "Take a walk",
-    surprisingFact: "That I actually talk",
-    quote: "Lmaoo",
-    socials: {
-      instagram: "https://instagram.com/tradew_sam",
-      linkedin: "https://www.linkedin.com/search/results/all/?keywords=Nil",
-      twitter: "https://x.com/tradewsam",
-    },
-    song: "",
-  },
+  // {
+  //   name: "Samuel Ogunde",
+  //   team: "Media (Content & Editors)",
+  //   image: "",
+  //   comfortActivity: "Take a walk",
+  //   surprisingFact: "That I actually talk",
+  //   quote: "Lmaoo",
+  //   socials: {
+  //     instagram: "https://instagram.com/tradew_sam",
+  //     linkedin: "https://www.linkedin.com/search/results/all/?keywords=Nil",
+  //     twitter: "https://x.com/tradewsam",
+  //   },
+  //   song: "",
+  // },
   {
     name: "Wosu-Ezi Kamdirichukwu Blossom",
     team: "Design, Media (Content & Editors)",
-    image:
-      "https://drive.google.com/uc?export=download&id=1M40jZlWrLDo3CDQOoMDvcEog5X47taGe",
+    image: "/images/team/Blossom.webp",
     comfortActivity:
       "A long, slow walk outside on a path where not a lot of people are at night without any gadgets.",
     surprisingFact: "That I'm a very talkative and outgoing person.",
@@ -190,31 +164,30 @@ export const TEAM_MEMBERS = [
     },
     song: "Earned It by The Weeknd",
   },
-  {
-    name: "Odulate Daniel Alexander",
-    team: "Organizing, Media (Content & Editors)",
-    image: null,
-    comfortActivity:
-      "Just going offline, going for a quiet walk, reading, watching a movie or just sleeping.",
-    surprisingFact:
-      "I'm a sickle cell patient. They say I don't look like one but is sickle cell something you look like? Anyhow sha \n\nBedsides that, I love robots 🤭",
-    quote:
-      "Choose your hard. It's hard to be overweight just as much as it is to be fit. It's hard to be poor just as much as it is to be rich. Life is hard\" \n\n- by someone sha",
-    socials: {
-      instagram: "https://instagram.com/d.alex_1",
-      linkedin: "https://www.linkedin.com/in/danielodulate/",
-      twitter: "https://x.com/Xander_danny229",
-    },
-    song: "Carousel by Laufey (My favourite artist 🤭)",
-  },
+  // {
+  //   name: "Odulate Daniel Alexander",
+  //   team: "Organizing, Media (Content & Editors)",
+  //   image: "",
+  //   comfortActivity:
+  //     "Just going offline, going for a quiet walk, reading, watching a movie or just sleeping.",
+  //   surprisingFact:
+  //     "I'm a sickle cell patient. They say I don't look like one but is sickle cell something you look like? Anyhow sha \n\nBedsides that, I love robots 🤭",
+  //   quote:
+  //     "Choose your hard. It's hard to be overweight just as much as it is to be fit. It's hard to be poor just as much as it is to be rich. Life is hard\" \n\n- by someone sha",
+  //   socials: {
+  //     instagram: "https://instagram.com/d.alex_1",
+  //     linkedin: "https://www.linkedin.com/in/danielodulate/",
+  //     twitter: "https://x.com/Xander_danny229",
+  //   },
+  //   song: "Carousel by Laufey (My favourite artist 🤭)",
+  // },
   {
     name: "Mokwunye Asha",
     team: "Media (Content & Editors)",
-    image:
-      "https://drive.google.com/uc?export=download&id=1dAaAFOj0W1HnoPyFMBrMr3Xv-BgOb89t",
+    image: "/images/team/Asha Mokwunye.webp",
     comfortActivity: "Editing videos/playing games",
     surprisingFact: "My age",
-    quote: "“There is no rush”",
+    quote: "There is no rush",
     socials: {
       instagram: "https://instagram.com/asha.atl",
       linkedin: null,
@@ -225,8 +198,7 @@ export const TEAM_MEMBERS = [
   {
     name: "Akande Iretomiwa Victoria",
     team: "Logistics (Events Planning Team)",
-    image:
-      "https://drive.google.com/uc?export=download&id=1KMCtJZ7ZpiyE1AXQe4xMwrTQqA910CG1",
+    image: "/images/team/Iretomiwa AKANDE.webp",
     comfortActivity: "Sleep",
     surprisingFact: "How active I am even after rigorous work",
     quote: "It becomes deep when you make it deep",
@@ -238,27 +210,25 @@ export const TEAM_MEMBERS = [
     },
     song: "Be bold",
   },
-  {
-    name: "Oyebanji Opetosoluwa Emmanuel",
-    team: "Media (Content & Editors)",
-    image:
-      "https://drive.google.com/uc?export=download&id=1cawZT7Brjg6A94WOdMa0LuGn7eXnLvP0",
-    comfortActivity: "Discord/Games",
-    surprisingFact: "My age",
-    quote:
-      "It better fot you to be the worst among competition then for your allies to be dumber than you are",
-    socials: {
-      instagram: "https://instagram.com/maxva.ne",
-      linkedin: null,
-      twitter: null,
-    },
-    song: "Meet you at the graveyard - cleffy",
-  },
+  // {
+  //   name: "Oyebanji Opetosoluwa Emmanuel",
+  //   team: "Media (Content & Editors)",
+  //   image: "/images/team/opemipo emmanuel.webp",
+  //   comfortActivity: "Discord/Games",
+  //   surprisingFact: "My age",
+  //   quote:
+  //     "It better fot you to be the worst among competition then for your allies to be dumber than you are",
+  //   socials: {
+  //     instagram: "https://instagram.com/maxva.ne",
+  //     linkedin: null,
+  //     twitter: null,
+  //   },
+  //   song: "Meet you at the graveyard - cleffy",
+  // },
   {
     name: "Sharon Lawal",
     team: "Organizing, Logistics (Events Planning Team)",
-    image:
-      "https://drive.google.com/uc?export=download&id=12yC7Je22W6ZxwG5NZa0YWXKaR4sbSlSB",
+    image: "/images/team/Sharon Lawal.webp",
     comfortActivity: "Listening to music",
     surprisingFact:
       "That I’m a developer. Most people assume I’m only into management or organizing things because I naturally take leadership roles and handle coordination well. They don’t expect that I also write code and genuinely enjoy building technical systems.",
@@ -273,8 +243,7 @@ export const TEAM_MEMBERS = [
   {
     name: "Neku Akpotohwo",
     team: "Organizing",
-    image:
-      "https://drive.google.com/uc?export=download&id=10M0OVHglmMu7-ciqRg3BLo0abZw44UaO",
+    image: "/images/team/Chukwuneku Akpotohwo (Neku).webp",
     comfortActivity: "Sleeping",
     surprisingFact: "How i sound",
     quote: "Do whatever makes you happy",
@@ -288,8 +257,7 @@ export const TEAM_MEMBERS = [
   {
     name: "Akande Kehinde",
     team: "Logistics (Events Planning Team)",
-    image:
-      "https://drive.google.com/uc?export=download&id=1v8t6VfLOCl43muTAInzX3nZTgzAqtZqK",
+    image: "/images/team/Akande Kehinde.webp",
     comfortActivity: "Taking a walk.",
     surprisingFact: "I'm a twin.",
     quote: "It's never luck, it's always God.",
@@ -301,26 +269,25 @@ export const TEAM_MEMBERS = [
     },
     song: "Reckless lover by Paul Tomisin.",
   },
-  {
-    name: "Omojola Ojehonmon",
-    team: "Logistics (Events Planning Team)",
-    image: null,
-    comfortActivity: "Just jamming music",
-    surprisingFact: "That I'm very active despite my appearance",
-    quote: "I hate and I love and I know not why - catullus",
-    socials: {
-      instagram: "https://instagram.com/oj3omo",
-      linkedin:
-        "https://www.linkedin.com/search/results/all/?keywords=Omojola%20Ojehonmon",
-      twitter: null,
-    },
-    song: "Frank's Track- Kanye west",
-  },
+  // {
+  //   name: "Omojola Ojehonmon",
+  //   team: "Logistics (Events Planning Team)",
+  //   image: "",
+  //   comfortActivity: "Just jamming music",
+  //   surprisingFact: "That I'm very active despite my appearance",
+  //   quote: "I hate and I love and I know not why - catullus",
+  //   socials: {
+  //     instagram: "https://instagram.com/oj3omo",
+  //     linkedin:
+  //       "https://www.linkedin.com/search/results/all/?keywords=Omojola%20Ojehonmon",
+  //     twitter: null,
+  //   },
+  //   song: "Frank's Track- Kanye west",
+  // },
   {
     name: "Atolagbe Precious Olawole",
     team: "Logistics (Events Planning Team)",
-    image:
-      "https://drive.google.com/uc?export=download&id=1RttbQ5fPh2-bdCQeGaZpbA0v3y9ugZJ7",
+    image: "/images/team/Atolagbe Precious.webp",
     comfortActivity: "Taking a walk",
     surprisingFact: "",
     quote:
@@ -335,8 +302,7 @@ export const TEAM_MEMBERS = [
   {
     name: "Alabo Treasure Sowari",
     team: "Logistics (Events Planning Team)",
-    image:
-      "https://drive.google.com/uc?export=download&id=1MdrHV5V6f5IWWBUi5m85s3NZ6SIAy2pO",
+    image: "/images/team/Treasure Alabo.webp",
     comfortActivity: "Take a walk while listening to music",
     surprisingFact: "My confidence.",
     quote:
@@ -351,8 +317,7 @@ export const TEAM_MEMBERS = [
   {
     name: "Bassey Saviour",
     team: "Design",
-    image:
-      "https://drive.google.com/uc?export=download&id=14RYP3YusNY9886ZMvB70C0WqjkFPwLZN",
+    image: "/images/team/Saviour Bassey.webp",
     comfortActivity: "Play gameeee/music",
     surprisingFact: "That I can play football, or I can draw",
     quote:
@@ -367,8 +332,7 @@ export const TEAM_MEMBERS = [
   {
     name: "Ibironke Victor Damilola",
     team: "Engineering",
-    image:
-      "https://drive.google.com/uc?export=download&id=1g1dS9ygS93mjiePm0vcF2KqgMqGY-4HQ",
+    image: "/images/team/Victor Ibironke.webp",
     comfortActivity: "Sleeping",
     surprisingFact: "I'm strangely good at remembering dates.",
     quote: "Why worry when you can just not?",
@@ -382,8 +346,7 @@ export const TEAM_MEMBERS = [
   {
     name: "Shaibu Omobolanle",
     team: "Organizing",
-    image:
-      "https://drive.google.com/uc?export=download&id=1hrwGwnn6E_SIQ-i31odhIBNUqRDLW2SS",
+    image: "/images/team/Omobolanle Shaibu.webp",
     comfortActivity: "Reading a novel",
     surprisingFact: "I am left handed",
     quote: "If you don't like where you are, move. You are not a tree",
@@ -397,8 +360,7 @@ export const TEAM_MEMBERS = [
   {
     name: "Ademeso, Ademola Michael",
     team: "Engineering, Media (Content & Editors)",
-    image:
-      "https://drive.google.com/uc?export=download&id=1floFW1jv5_ZVKWSmQoT5tLQyXurzEeVa",
+    image: "/images/team/Ademola Ademeso.webp",
     comfortActivity: "A game of chess (especially when I’m winning)",
     surprisingFact: "That I’m a nice and approachable person",
     quote: "Some days you just show up, and that's enough.",
@@ -412,8 +374,7 @@ export const TEAM_MEMBERS = [
   {
     name: "Nelson-Nwanoneze David",
     team: "Logistics (Events Planning Team)",
-    image:
-      "https://drive.google.com/uc?export=download&id=1foXpqnw7COh7lXfbyxah-IE3PEy7_ZpH",
+    image: "/images/team/David Nwanoneze.webp",
     comfortActivity: "Watching movies and listening to music",
     surprisingFact: "I might look chill, but there’s a whole plan behind it.",
     quote: "Direction matters more than speed.",
@@ -427,8 +388,7 @@ export const TEAM_MEMBERS = [
   {
     name: "Nelson-Nwanoneze Samuel Somtochukwu",
     team: "Logistics (Events Planning Team)",
-    image:
-      "https://drive.google.com/uc?export=download&id=1YFeKs3-G64BTNd_yjI2omzMIEQb0FeUX",
+    image: "/images/team/Samuel Nelson-Nwanoneze.webp",
     comfortActivity: "Sleep",
     surprisingFact: "I have a clone",
     quote: "Build, then breathe",
@@ -442,8 +402,7 @@ export const TEAM_MEMBERS = [
   {
     name: "Olubowale Oluwatunmininu Temitope",
     team: "Organizing",
-    image:
-      "https://drive.google.com/uc?export=download&id=1OTsdwqpWNz-Fbo8UhabrSfpOVugLNEpn",
+    image: "/images/team/Olubowale Oluwatunmininu Temitope.jpeg",
     comfortActivity: "Video games",
     surprisingFact: "That i'm not an uptight or unreasonable christian",
     quote: "Just Do It",
@@ -458,8 +417,7 @@ export const TEAM_MEMBERS = [
   {
     name: "Oluwatomisin Olaleye Emmanuel",
     team: "Design",
-    image:
-      "https://drive.google.com/uc?export=download&id=1lGgXCMiVIwDClwWlrWU1K_CE9ptv5o47",
+    image: "/images/team/Oluwatomisin Olaleye.webp",
     comfortActivity: "Reading Manhwa",
     surprisingFact: "",
     quote:
