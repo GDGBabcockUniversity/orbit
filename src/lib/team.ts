@@ -331,7 +331,7 @@ export const TEAM_MEMBERS = [
   },
   {
     name: "Ibironke Victor Damilola",
-    team: "Engineering",
+    team: "Engineering, Organizing",
     image: "/images/team/Victor Ibironke.webp",
     comfortActivity: "Sleeping",
     surprisingFact: "I'm strangely good at remembering dates.",
