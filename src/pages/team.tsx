@@ -2,7 +2,6 @@ import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { TEAM_MEMBERS } from "../lib/team";
 import SectionBadge from "../components/ui/section-badge";
-import SongEmbed from "../components/song-embed";
 
 const TeamPage = () => {
   const [selectedTeam, setSelectedTeam] = useState<string>("All");
@@ -12,7 +11,7 @@ const TeamPage = () => {
     const allTeams = TEAM_MEMBERS.map((m) => m.team);
     // Handle cases where a person is on multiple teams (comma separated)
     const splitTeams = allTeams.flatMap((t) =>
-      t.split(",").map((s) => s.trim())
+      t.split(",").map((s) => s.trim()),
     );
     const uniqueTeams = Array.from(new Set(splitTeams)).filter(Boolean);
     return ["All", ...uniqueTeams.sort()];
@@ -80,12 +79,12 @@ const TeamPage = () => {
               className="group bg-surface border border-background/10 rounded-3xl overflow-hidden flex flex-col hover:border-primary/30 transition-colors duration-300"
             >
               {/* Headshot */}
-              <div className="aspect-[4/3] bg-background/5 relative overflow-hidden shrink-0">
+              <div className="aspect-square bg-background/5 relative overflow-hidden shrink-0">
                 {member.image ? (
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-500"
                     loading="lazy"
                   />
                 ) : (
@@ -95,25 +94,25 @@ const TeamPage = () => {
                     </span>
                   </div>
                 )}
-                {/* Team Badge Overlay */}
-                <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-                  {member.team.split(",").map((t, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3 py-1 bg-black/60 backdrop-blur-md text-white/90 text-[10px] uppercase tracking-wider font-google-sans rounded-full border border-white/10"
-                    >
-                      {t.trim()}
-                    </span>
-                  ))}
-                </div>
               </div>
 
               {/* Content */}
               <div className="p-6 md:p-8 flex flex-col flex-1">
                 <div className="mb-6 flex-1">
-                  <h3 className="font-space-grotesk text-xl font-bold text-background mb-1">
+                  <h3 className="font-space-grotesk text-xl font-bold text-background mb-3">
                     {member.name}
                   </h3>
+
+                  <div className="flex flex-wrap gap-2 mb-5">
+                    {member.team.split(",").map((t, idx) => (
+                      <span
+                        key={idx}
+                        className="px-3 py-1 bg-background/5 text-background/80 text-[10px] uppercase tracking-wider font-google-sans rounded-full border border-background/10"
+                      >
+                        {t.trim()}
+                      </span>
+                    ))}
+                  </div>
 
                   {member.quote && (
                     <p className="text-background/50 font-google-sans text-sm italic mt-3 border-l-2 border-primary/30 pl-3 py-1">
@@ -146,11 +145,11 @@ const TeamPage = () => {
                 </div>
 
                 {/* Spotify Embed */}
-                {member.song && (
+                {/*{member.song && (
                   <div className="mb-6">
                     <SongEmbed song={member.song} />
                   </div>
-                )}
+                )}*/}
 
                 {/* Socials Footer */}
                 <div className="mt-auto pt-4 border-t border-background/10 flex items-center justify-between">
@@ -167,11 +166,14 @@ const TeamPage = () => {
                         title="Twitter / X"
                       >
                         <svg
-                          viewBox="0 0 24 24"
                           fill="currentColor"
+                          viewBox="0 0 1200 1227"
                           className="size-5"
                         >
-                          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 24.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                          <path
+                            // fill="#fff"
+                            d="M714.163 519.284 1160.89 0h-105.86L667.137 450.887 357.328 0H0l468.492 681.821L0 1226.37h105.866l409.625-476.152 327.181 476.152H1200L714.137 519.284h.026ZM569.165 687.828l-47.468-67.894-377.686-540.24h162.604l304.797 435.991 47.468 67.894 396.2 566.721H892.476L569.165 687.854v-.026Z"
+                          />
                         </svg>
                       </a>
                     )}
@@ -205,7 +207,7 @@ const TeamPage = () => {
                         </svg>
                       </a>
                     )}
-                    {member.socials.linkedin && (
+                    {/*{member.socials.linkedin && (
                       <a
                         href={member.socials.linkedin}
                         target="_blank"
@@ -221,7 +223,7 @@ const TeamPage = () => {
                           <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                         </svg>
                       </a>
-                    )}
+                    )}*/}
                   </div>
                 </div>
               </div>
