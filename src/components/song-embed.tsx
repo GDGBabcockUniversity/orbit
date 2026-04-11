@@ -1,26 +1,34 @@
 import React from "react";
 
 interface SongEmbedProps {
-  song: string;
+  song: { title: string; artist: string } | string | null | undefined;
   className?: string;
 }
 
 const SongEmbed: React.FC<SongEmbedProps> = ({ song, className = "" }) => {
-  // If no song is provided, or it's a common placeholder, don't render anything
-  if (
-    !song ||
-    song.trim().toLowerCase() === "nil" ||
-    song.trim().toLowerCase() === "none"
-  ) {
-    return null;
+  if (!song) return null;
+
+  let title = "";
+  let artist = "";
+
+  if (typeof song === "string") {
+    if (
+      song.trim().toLowerCase() === "nil" ||
+      song.trim().toLowerCase() === "none"
+    ) {
+      return null;
+    }
+    title = song.replace(/\n/g, " ").trim();
+  } else {
+    title = song.title;
+    artist = song.artist;
   }
 
-  // Clean up the song string (remove newlines, extra spaces)
-  const cleanSong = song.replace(/\n/g, " ").trim();
+  if (!title) return null;
 
-  // Create a Spotify search URL using the song text
+  const searchQuery = artist ? `${title} ${artist}` : title;
   const searchUrl = `https://open.spotify.com/search/${encodeURIComponent(
-    cleanSong
+    searchQuery,
   )}`;
 
   return (
@@ -28,39 +36,42 @@ const SongEmbed: React.FC<SongEmbedProps> = ({ song, className = "" }) => {
       href={searchUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className={`flex items-center gap-3 bg-[#1DB954]/10 hover:bg-[#1DB954]/20 border border-[#1DB954]/20 rounded-xl p-3 transition-colors group ${className}`}
-      title={`Search "${cleanSong}" on Spotify`}
+      className={`flex items-center justify-between bg-background/5 rounded-full p-2 pr-3 transition-transform hover:scale-[1.02] active:scale-[0.98] border border-background/10 hover:border-primary/30 ${className}`}
+      title={`Search "${searchQuery}" on Spotify`}
     >
-      <div className="size-8 rounded-full bg-[#1DB954]/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+      <div className="flex items-center gap-3 overflow-hidden">
+        {/* Spotify Logo */}
+        <div className="shrink-0 flex items-center justify-center">
+          <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="size-11 text-primary"
+          >
+            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.24 1.021zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.84.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" />
+          </svg>
+        </div>
+
+        {/* Text Container */}
+        <div className="flex flex-col justify-center min-w-0 pr-2">
+          <p className="text-background font-google-sans text-[15px] font-bold truncate leading-tight">
+            {title}
+          </p>
+          {artist && (
+            <p className="text-background/70 font-google-sans text-[13px] truncate leading-tight mt-0.5">
+              {artist}
+            </p>
+          )}
+        </div>
+      </div>
+
+      {/* Play Button */}
+      <div className="size-10 rounded-full bg-primary flex items-center justify-center shrink-0 ml-2 shadow-lg shadow-primary/30">
         <svg
           viewBox="0 0 24 24"
           fill="currentColor"
-          className="size-4 text-[#1DB954]"
+          className="size-5 text-white ml-0.5"
         >
-          <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.24 1.021zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.84.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" />
-        </svg>
-      </div>
-      <div className="flex-1 min-w-0">
-        <p className="text-[10px] uppercase tracking-wider text-[#1DB954]/70 font-google-sans font-bold mb-0.5">
-          Currently Listening To
-        </p>
-        <p className="text-white/90 font-google-sans text-sm font-medium truncate">
-          {cleanSong}
-        </p>
-      </div>
-      <div className="shrink-0 text-white/30 group-hover:text-white/60 transition-colors">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          className="size-4"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M14 5l7 7m0 0l-7 7m7-7H3"
-          />
+          <path d="M8 5v14l11-7z" />
         </svg>
       </div>
     </a>
