@@ -143,7 +143,7 @@ export const TEAM_MEMBERS = [
   },
   {
     name: "Ryan Offiong",
-    team: "Organizing, Design, Engineering, Media (Content & Editors), Logistics (Events Planning Team)",
+    team: "Media (Content & Editors), Logistics (Events Planning Team)",
     image: "/images/team/Offiong Ryan.webp",
     comfortActivity: "Sleep",
     surprisingFact: "I like architecture",
