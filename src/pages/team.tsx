@@ -2,9 +2,21 @@ import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { TEAM_MEMBERS } from "../lib/team";
 import SectionBadge from "../components/ui/section-badge";
+import SongEmbed from "../components/song-embed";
 
 const TeamPage = () => {
   const [selectedTeam, setSelectedTeam] = useState<string>("All");
+
+  const teamOrder = useMemo(
+    () => [
+      "Organizing",
+      "Logistics (Events Planning Team)",
+      "Engineering",
+      "Design",
+      "Media (Content & Editors)",
+    ],
+    [],
+  );
 
   // Extract unique team names for the filter
   const teams = useMemo(() => {
@@ -14,13 +26,43 @@ const TeamPage = () => {
       t.split(",").map((s) => s.trim()),
     );
     const uniqueTeams = Array.from(new Set(splitTeams)).filter(Boolean);
-    return ["All", ...uniqueTeams.sort()];
-  }, []);
+
+    uniqueTeams.sort((a, b) => {
+      const aIdx = teamOrder.indexOf(a);
+      const bIdx = teamOrder.indexOf(b);
+      return (aIdx === -1 ? 999 : aIdx) - (bIdx === -1 ? 999 : bIdx);
+    });
+
+    return ["All", ...uniqueTeams];
+  }, [teamOrder]);
 
   const filteredMembers = useMemo(() => {
-    if (selectedTeam === "All") return TEAM_MEMBERS;
-    return TEAM_MEMBERS.filter((m) => m.team.includes(selectedTeam));
-  }, [selectedTeam]);
+    let members = TEAM_MEMBERS;
+    if (selectedTeam !== "All") {
+      members = TEAM_MEMBERS.filter((m) => m.team.includes(selectedTeam));
+    }
+
+    return [...members].sort((a, b) => {
+      const aTeams = a.team.split(",").map((t) => t.trim());
+      const bTeams = b.team.split(",").map((t) => t.trim());
+
+      const aIdx = Math.min(
+        ...aTeams.map((t) => {
+          const idx = teamOrder.indexOf(t);
+          return idx === -1 ? 999 : idx;
+        }),
+      );
+
+      const bIdx = Math.min(
+        ...bTeams.map((t) => {
+          const idx = teamOrder.indexOf(t);
+          return idx === -1 ? 999 : idx;
+        }),
+      );
+
+      return aIdx - bIdx;
+    });
+  }, [selectedTeam, teamOrder]);
 
   return (
     <div className="bg-foreground min-h-screen pt-24 pb-20 relative overflow-hidden">
@@ -145,11 +187,11 @@ const TeamPage = () => {
                 </div>
 
                 {/* Spotify Embed */}
-                {/*{member.song && (
+                {member.song && (
                   <div className="mb-6">
                     <SongEmbed song={member.song} />
                   </div>
-                )}*/}
+                )}
 
                 {/* Socials Footer */}
                 <div className="mt-auto pt-4 border-t border-background/10 flex items-center justify-between">
@@ -207,7 +249,7 @@ const TeamPage = () => {
                         </svg>
                       </a>
                     )}
-                    {/*{member.socials.linkedin && (
+                    {member.socials.linkedin && (
                       <a
                         href={member.socials.linkedin}
                         target="_blank"
@@ -223,7 +265,7 @@ const TeamPage = () => {
                           <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                         </svg>
                       </a>
-                    )}*/}
+                    )}
                   </div>
                 </div>
               </div>
