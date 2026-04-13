@@ -159,7 +159,7 @@ export const TEAM_MEMBERS = [
     },
   },
   {
-    name: "Efegherimoni Oghenetejiri Elizabeth",
+    name: "Efegherimoni Oghenetejiri",
     team: "Organizing, Media (Content & Editors)",
     image: "/images/team/Tejiri Efe.webp",
     comfortActivity: "Watching F.R.I.E.N.D.S or sleeping",
