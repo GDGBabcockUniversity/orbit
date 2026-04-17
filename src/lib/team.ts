@@ -318,6 +318,23 @@ export const TEAM_MEMBERS = [
     },
   },
   {
+    name: "Okpalannajiaku Xavier Chimezie",
+    team: "Design, Engineering",
+    image: "/images/team/xavier.webp",
+    comfortActivity: "Music",
+    surprisingFact: "I'm 19 and graduating",
+    quote: "Let it happen (Type shii)",
+    socials: {
+      instagram: "https://instagram.com/Xavier.draws.stuff",
+      linkedin: null,
+      twitter: null,
+    },
+    song: {
+      title: "Let it happen",
+      artist: "Tame Impala",
+    },
+  },
+  {
     name: "Ademeso, Ademola Michael",
     team: "Engineering, Media (Content & Editors)",
     image: "/images/team/Ademola Ademeso.webp",
