@@ -118,7 +118,11 @@ const TeamPage = () => {
           {filteredMembers.map((member, i) => (
             <div
               key={i}
-              className="group bg-surface border border-background/10 rounded-3xl overflow-hidden flex flex-col hover:border-primary/30 transition-colors duration-300"
+              className={`group border rounded-3xl overflow-hidden flex flex-col transition-all duration-300 ${
+                member.team.includes("Organizing")
+                  ? "bg-linear-to-b from-primary/10 to-surface border-primary/50 shadow-[0_0_30px_rgba(123,0,255,0.15)] hover:shadow-[0_0_40px_rgba(123,0,255,0.3)] hover:border-primary"
+                  : "bg-surface border-background/10 hover:border-primary/30"
+              }`}
             >
               {/* Headshot */}
               <div className="aspect-square bg-background/5 relative overflow-hidden shrink-0">
@@ -146,14 +150,21 @@ const TeamPage = () => {
                   </h3>
 
                   <div className="flex flex-wrap gap-2 mb-5">
-                    {member.team.split(",").map((t, idx) => (
-                      <span
-                        key={idx}
-                        className="px-3 py-1 bg-background/5 text-background/80 text-[10px] uppercase tracking-wider font-google-sans rounded-full border border-background/10"
-                      >
-                        {t.trim()}
-                      </span>
-                    ))}
+                    {member.team.split(",").map((t, idx) => {
+                      const isOrgBadge = t.trim() === "Organizing";
+                      return (
+                        <span
+                          key={idx}
+                          className={`px-3 py-1 text-[10px] uppercase tracking-wider font-google-sans rounded-full border ${
+                            isOrgBadge
+                              ? "bg-primary/20 text-primary-bright border-primary/40 shadow-[0_0_10px_rgba(123,0,255,0.2)]"
+                              : "bg-background/5 text-background/80 border-background/10"
+                          }`}
+                        >
+                          {t.trim()}
+                        </span>
+                      );
+                    })}
                   </div>
 
                   {member.quote && (
