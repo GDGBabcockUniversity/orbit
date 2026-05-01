@@ -177,7 +177,7 @@ const TeamPage = () => {
                     {member.surprisingFact && (
                       <div>
                         <span className="text-background/40 uppercase tracking-wider text-[10px] font-bold block mb-0.5">
-                          Surprising Fact
+                          What People Find Surprising About You
                         </span>
                         <span className="text-background/80">
                           {member.surprisingFact}
