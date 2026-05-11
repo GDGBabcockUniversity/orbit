@@ -319,6 +319,19 @@ export const SPONSOR_TIERS = [
     ],
   },
   {
+    tier: "Industry Visit Hosts",
+    sponsors: [
+      { name: "Paystack", logo: "/images/sponsors/paystack.png" },
+      {
+        name: "Digital Encode Limited",
+        logo: "/images/sponsors/digital-encode.jpg",
+      },
+      { name: "Rise", logo: "/images/sponsors/risevest.jpg" },
+      { name: "Nithub", logo: "/images/sponsors/nithub.jpg" },
+      { name: "Cubbes", logo: "/images/sponsors/cubbes.png" },
+    ],
+  },
+  {
     tier: "Hospitality Sponsors",
     sponsors: [
       { name: "His Grace", logo: "/images/sponsors/his-grace.webp" },
@@ -351,19 +364,6 @@ export const SPONSOR_TIERS = [
         name: "Sorethegrapher",
         logo: "/images/sponsors/sorefunmi.webp",
       },
-    ],
-  },
-  {
-    tier: "Industry Visit Hosts",
-    sponsors: [
-      { name: "Paystack", logo: "/images/sponsors/paystack.png" },
-      {
-        name: "Digital Encode Limited",
-        logo: "/images/sponsors/digital-encode.jpg",
-      },
-      { name: "Rise", logo: "/images/sponsors/risevest.jpg" },
-      { name: "Nithub", logo: "/images/sponsors/nithub.jpg" },
-      { name: "Cubbes", logo: "/images/sponsors/cubbes.png" },
     ],
   },
   {
