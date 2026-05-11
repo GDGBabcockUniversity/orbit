@@ -312,6 +312,10 @@ export const SPONSOR_TIERS = [
         name: "Gadget Cartel",
         logo: "/images/sponsors/gadget-cartel.webp",
       },
+      {
+        name: "Glass Finance Ltd",
+        logo: "/images/sponsors/glass.webp",
+      },
     ],
   },
   {
@@ -333,10 +337,6 @@ export const SPONSOR_TIERS = [
     tier: "Student Sponsors",
     sponsors: [
       { name: "Postra", logo: "/images/sponsors/postra.webp" },
-      {
-        name: "Glass Finance Ltd",
-        logo: "/images/sponsors/glass.webp",
-      },
       {
         name: "Jules Luxury",
         logo: "/images/sponsors/jules-luxury.webp",
