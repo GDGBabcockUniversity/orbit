@@ -73,6 +73,24 @@ export const TEAM_MEMBERS = [
     },
   },
   {
+    name: "Oluwatunmibi Favour Oyindamola",
+    team: "Organizing, Logistics (Events Planning Team)",
+    image: "/images/team/Favour Oluwatunmibi.jpg",
+    comfortActivity: "Listening to music",
+    surprisingFact:
+      "That I'm extremely playful + a nerd",
+    quote: "Whatever is worth doing at all is worth doing well.",
+    socials: {
+      instagram: "https://instagram.com/fav.fantasy",
+      linkedin: "https://www.linkedin.com/in/favourtunmibi",
+      twitter: "https://x.com/Fav_fantansy_",
+    },
+    song: {
+      title: "Ghost in the Machine",
+      artist: "SZA, Phoebe Bridgers",
+    },
+  },
+  {
     name: "Neku Akpotohwo",
     team: "Organizing",
     image: "/images/team/Chukwuneku Akpotohwo (Neku).webp",
