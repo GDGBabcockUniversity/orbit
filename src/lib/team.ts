@@ -86,8 +86,8 @@ export const TEAM_MEMBERS = [
       twitter: "https://x.com/Fav_fantansy_",
     },
     song: {
-      title: "Ghost in the Machine",
-      artist: "SZA, Phoebe Bridgers",
+      title: "Good Days",
+      artist: "SZA",
     },
   },
   {
