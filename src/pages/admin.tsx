@@ -16,6 +16,7 @@ import {
 } from "firebase/firestore";
 import { auth, db } from "../lib/firebase";
 import { RAFFLE_CONFIG, formatNaira } from "../lib/raffle-constants";
+import { toCSV, downloadCSV } from "../lib/csv";
 
 type Ticket = {
   id: string;
@@ -280,6 +281,34 @@ const AdminPage = () => {
     }
   };
 
+  const exportTicketsCSV = () => {
+    const rows = filteredTickets.map((t) => [
+      t.fullName,
+      t.email,
+      t.role,
+      t.organization,
+      t.checkedIn ? "Yes" : "No",
+      t.department ?? "",
+      t.level ?? "",
+      t.createdAt?.toDate ? t.createdAt.toDate().toLocaleString() : "",
+    ]);
+    const csv = toCSV(
+      [
+        "Full Name",
+        "Email",
+        "Role",
+        "Organization",
+        "Checked In",
+        "Department",
+        "Level",
+        "Registered At",
+      ],
+      rows,
+    );
+    const dateStr = new Date().toISOString().slice(0, 10);
+    downloadCSV(`orbit-registrations-${dateStr}.csv`, csv);
+  };
+
   const fetchRaffleData = async () => {
     setLoadingRaffle(true);
     try {
@@ -501,6 +530,29 @@ const AdminPage = () => {
                   issued for ORBIT 1.0.
                 </p>
               </div>
+              <button
+                type="button"
+                onClick={exportTicketsCSV}
+                disabled={filteredTickets.length === 0}
+                className="flex items-center gap-2 bg-white/5 hover:bg-white/10 text-white/70 hover:text-white transition px-4 py-2 rounded-md font-google-sans text-sm border border-white/10 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  className="size-4"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"
+                  />
+                </svg>
+                {searchValue
+                  ? `Export Filtered (${filteredTickets.length})`
+                  : `Export CSV (${filteredTickets.length})`}
+              </button>
             </div>
 
             <input
